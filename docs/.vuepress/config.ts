@@ -31,21 +31,21 @@ const sidebarConfigEn: SidebarConfig = {
 export default defineUserConfig({
   // ……
 
-  base:"/immptl/",
+  base: "/immptl/",
 
   // the website icon in tab
-  head: [['link', { rel: 'icon', href: '/images/immptl.png' }]],
+  head: [['link', { rel: 'icon', href: '/immptl/images/immptl.png' }]],
 
-  locales:{
+  locales: {
     '/': {
       lang: 'en-US',
       title: 'Immersive Portals', // for broswer tabs
-      description: 'It\'s Immersive Portals',
+      description: 'See through portals and teleport seamlessly.',
     },
     '/zh/': {
       lang: 'zh-CN',
       title: '沉浸传送门',
-      description: '',
+      description: '透视传送门，无缝传送',
     },
   },
 
@@ -53,6 +53,8 @@ export default defineUserConfig({
   theme: mixTheme({
     title: "Immersive Portals",
     logo: "/images/immptl.png",
+    lastUpdated: false,
+    contributors: false,
 
     locales: {
       '/': {
@@ -75,12 +77,12 @@ export default defineUserConfig({
       },
     },
 
-    
+
 
   }),
 
 
-  plugins:[
+  plugins: [
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
     }),

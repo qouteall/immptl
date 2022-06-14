@@ -40,7 +40,7 @@ This mod changes rendering, chunk loading and networking mechanics so it will be
 
 [Report Issues](https://github.com/qouteall/ImmersivePortalsMod/issues)
 
-This mod is very complex and is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. [Donate qouteall](https://www.patreon.com/qouteall)
+This mod is very complex and is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. [Support qouteall](https://www.patreon.com/qouteall)
 
 ### How to integrate with other mod's portals?
 

@@ -18,11 +18,11 @@
 
 ### 如何在生存模式中使用类似的功能 
 
-该传送门框架方块适用于创造模式，产生的是生存模式不可破坏的传送门。通过定义[数据包自定义传送门生成](https://github.com/qouteall/ImmersivePortalsMod/wiki/Datapack-Based-Custom-Portal-Generation#portal_helper_likejson-a-diamond-portal-that-links-to-the-nearby-same-shaped-portal-in-the-same-dimension-similar-to-portal-helper-but-breakable) 可以在生存模式中使用类似的传送门生成功能，其生成的传送门是生存模式可破坏的，而且框架可以设定为任何一种方块。
+该传送门框架方块适用于创造模式，产生的是生存模式不可破坏的传送门。通过定义[数据包自定义传送门生成](./Datapack-Based-Custom-Portal-Generation#portal_helper_likejson-a-diamond-portal-that-links-to-the-nearby-same-shaped-portal-in-the-same-dimension-similar-to-portal-helper-but-breakable) 可以在生存模式中使用类似的传送门生成功能，其生成的传送门是生存模式可破坏的，而且框架可以设定为任何一种方块。
 
 ## 用命令控制传送门
 
-[本模组所有命令](https://github.com/qouteall/ImmersivePortalsMod/wiki/Commands-Reference)
+[本模组所有命令](./Commands-Reference)
 
 ### 1个地狱传送门 = 4个传送门实体
 
@@ -67,9 +67,9 @@
 
 - 让传送门对每个通过的实体施加伤害 `/portal set_portal_nbt {commandsOnTeleported:["/effect give @s minecraft:instant_damage 1"]}`
 
-[查看所有的针对传送门的命令](https://github.com/qouteall/ImmersivePortalsMod/wiki/Commands-Reference#portal-targeted-commands)
+[查看所有的针对传送门的命令](./Commands-Reference#portal-targeted-commands)
 
-[传送门的属性](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portal-Attributes)
+[传送门的属性](./Portal-Attributes)
 
 注意: 这些针对传送门的命令只影响你所指向的传送门实体。若要编辑一个双面、双向传送门，应先使用 `/portal remove_connected_portals`
 

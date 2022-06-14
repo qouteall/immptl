@@ -8,7 +8,7 @@
 
 ![image.png](https://i.loli.net/2021/11/20/2CHKJufPT6ILOxa.png)
 
-[与旋转相关的命令](https://github.com/qouteall/ImmersivePortalsMod/wiki/Commands-Reference#rotation)
+[与旋转相关的命令](./Commands-Reference#rotation)
 
 ### 传送
 
@@ -18,7 +18,7 @@
 
 ![image.png](https://i.loli.net/2021/11/20/6Y9dimqOSn8NUxA.png)
 
-[与缩放相关的命令](https://github.com/qouteall/ImmersivePortalsMod/wiki/Commands-Reference#scale)
+[与缩放相关的命令](./Commands-Reference#scale)
 
 ### 传送
 传送门有一个属性 `teleportationChangesScale` 。若该值为false，则通过该传送门的实体不会被缩放。若该值为true，且安装了 [Pehkui](https://www.curseforge.com/minecraft/mc-mods/pehkui) 则通过传送门的实体会被缩放。
@@ -27,7 +27,7 @@
 
 ## 镜像变换
 
-[镜子](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portals#mirrors).
+[镜子](./Portals#mirrors).
 
 ### 传送
 镜子不允许传送。

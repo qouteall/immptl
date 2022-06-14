@@ -77,7 +77,7 @@
 
 ### 地狱传送门模式
 
-[参见](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portals#nether-portals)
+[参见](./Portals#nether-portals)
 
 ### 潜行时创建原版地狱传送门
 
@@ -85,7 +85,7 @@
 
 ### 末地传送门模式
 
-[参见](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portals#end-portals)
+[参见](./Portals#end-portals)
 
 ### 启用附加位面
 

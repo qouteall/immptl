@@ -3,7 +3,7 @@
 此处介绍传送门的属性。
 
 可以通过 `/portal set_portal_nbt` 命令编辑.
-[Portal Customization](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portal-Customization)
+[Portal Customization](./Portal-Customization)
 
 ### 形态属性
 
@@ -138,7 +138,7 @@ NBT tag: `motionAffinity`
 
 ## 可破坏传送门的属性
 
-仅 [可破坏传送门](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portals#breakable-portals)有的属性。
+仅 [可破坏传送门](./Portals#breakable-portals)有的属性。
 
 #### 是否不可被破坏
 

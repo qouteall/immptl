@@ -79,7 +79,7 @@ Delete the global portal that you are pointing to.
 
 #### `/portal set_portal_nbt <nbt>`
 
-修改传送门的NBT数据。[传送门NBT数据格式](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portal-Attributes)
+修改传送门的NBT数据。[传送门NBT数据格式](./Portal-Attributes)
 
 #### `/portal view_portal_data`
 
@@ -99,7 +99,7 @@ Delete the global portal that you are pointing to.
 
 ### Portal Clutter Management
 
-[参见](https://github.com/qouteall/ImmersivePortalsMod/wiki/Portal-Customization#1-nether-portal--4-portal-entities)
+[参见](./Portal-Customization#1-nether-portal--4-portal-entities)
 
 #### `/portal complete_bi_way_portal`
 

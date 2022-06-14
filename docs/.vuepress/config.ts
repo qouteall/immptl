@@ -33,6 +33,9 @@ export default defineUserConfig({
 
   base:"/immptl/",
 
+  // the website icon in tab
+  head: [['link', { rel: 'icon', href: '/images/immptl.png' }]],
+
   locales:{
     '/': {
       lang: 'en-US',

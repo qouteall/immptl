@@ -10,7 +10,7 @@ These commands don't work with global portals.
 
 ### Change the Portal's Destination
 
-#### `/portal set_portal_destination <dimenision> <x> <y> <z>`
+#### `/portal set_portal_destination <dimension> <x> <y> <z>`
 Change a portal entity's destination to a specific dimension and a specific position.
 
 #### `/portal set_portal_destination_to <entity>`

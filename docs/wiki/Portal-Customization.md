@@ -90,7 +90,7 @@ These commands create normal portals instead of global portals. Global portal wr
 
 ### Create a Scaled Box using MiniScaled Mod
 
-If you want to make scale boxes, try [MiniScaled](https://www.curseforge.com/minecraft/mc-mods/miniscaled) mod. It provides easy-to-use scale box functionality.
+If you want to make scale boxes, try [MiniScaled](./MiniScaled.html) mod. It provides easy-to-use scale box functionality.
 
 ![](https://i.loli.net/2021/09/30/J9bBF82tRu5yIkW.png)
 

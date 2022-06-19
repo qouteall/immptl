@@ -44,7 +44,7 @@ const isOpen = ref(false)
 }
 
 .accordion-content {
-  padding: 10px;
+  padding: 0px;
 }
 
 .icon {

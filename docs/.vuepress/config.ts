@@ -1,6 +1,5 @@
 import { defineUserConfig } from 'vuepress'
-import { mixTheme } from 'vuepress-theme-mix'
-import type { SidebarConfig } from 'vuepress-theme-mix'
+import { hopeTheme } from "vuepress-theme-hope";
 const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 const { path } = require('@vuepress/utils')
 
@@ -16,17 +15,11 @@ let contents = [
   "Commands-Reference",
   "Portal-Attributes",
   "Miscellaneous",
+  "MiniScaled",
   "API-for-Other-Mods",
   "Implementation-Details",
 
 ]
-
-const sidebarConfigEn: SidebarConfig = {
-  '/': [],
-  '/wiki': contents.map((entry) => '/wiki/' + entry)
-}
-
-
 
 export default defineUserConfig({
   // ……
@@ -50,8 +43,8 @@ export default defineUserConfig({
   },
 
   // 主题配置
-  theme: mixTheme({
-    title: "Immersive Portals",
+  theme: hopeTheme({
+    hostname: "https://qouteall.fun",
     logo: "/images/immptl.png",
     lastUpdated: false,
     contributors: false,
@@ -69,14 +62,14 @@ export default defineUserConfig({
           '/zh/wiki': contents.map((entry) => '/zh/wiki/' + entry)
         },
         home: '/zh/',
-        title: "沉浸传送门",
-        selectLanguageText: '选择语言',
-        selectLanguageAriaLabel: '选择语言',
-        selectLanguageName: '简体中文',
-        toggleThemeModeAriaLabel: '切换主题',
       },
     },
 
+    pageInfo: false,
+
+    plugins: {
+      externalLinkIcon: false,
+    }
 
 
   }),

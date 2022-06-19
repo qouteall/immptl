@@ -28,7 +28,7 @@ In creative mode you can get scale box entrances in the Miscellaneous tab
 
 You can put a scale box inside itself and create a fractal.
 
-When you are standing on the top of a scale box, press shift to descend.
+When you are standing on the top of a scale box, crouch(press shift) to descend.
 
 When crouching, you can break or place blocks in the scale box when you are not in the scale box.
 

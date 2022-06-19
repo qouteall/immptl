@@ -8,9 +8,23 @@ Configure custom portal generation mechanics using JSON files in a datapack.
 
 [Download the example datapack](https://github.com/qouteall/ImmersivePortalsMod/raw/1.16/example_custom_portal_gen.zip) You can use the example datapack by putting it into the `datapacks` folder of the world.
 
-The example datapack has
+The example datapack has:
 
-##### `wood_portal.json` From overworld to alternate5. The frame can be in any type of wood planks. Activated using a compass.
+`convert_vanilla_nether_portal.json` : Convent vanilla nether portals into see-through portals (if the shapes are compatible)
+
+```
+{
+  "schema_version": "imm_ptl:v1",
+  "from": ["minecraft:overworld"],"to": "minecraft:the_nether",
+  "form": {"type": "imm_ptl:convert_conventional_portal","portal_block": "minecraft:nether_portal"},
+  "trigger": {"type": "imm_ptl:conventional_dimension_change"}
+}
+```
+
+
+
+`wood_portal.json`: From overworld to alternate5. The frame can be in any type of wood planks. Activated using a compass.
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -22,7 +36,8 @@ The example datapack has
   "trigger": { "type": "imm_ptl:use_item","item": "minecraft:compass" }
 }
 ```
-##### `portal_helper_like.json` A diamond portal that links to the nearby same-shaped portal in the same dimension. Similar to portal helper but breakable.
+`portal_helper_like.json`: A diamond portal that links to the nearby same-shaped portal in the same dimension. Similar to portal helper but breakable.
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -37,7 +52,8 @@ The example datapack has
   "trigger": { "type": "imm_ptl:use_item", "item": "minecraft:flint_and_steel"}
 }
 ```
-##### `special_nether_portal` A new type of nether portal. Throw a nether quartz into a 3x3 lava pool surrounded by soul soil blocks. Can only be created in overworld
+`special_nether_portal`: A new type of nether portal. Throw a nether quartz into a 3x3 lava pool surrounded by soul soil blocks. Can only be created in overworld
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -50,7 +66,8 @@ The example datapack has
   "trigger": { "type": "imm_ptl:throw_item", "item": "minecraft:quartz"}
 }
 ```
-##### `aether_like.json` The glowstone portal that's activated using a water bucket from overworld to alternate2 dimension. Similar to the aether's.
+`aether_like.json` : The glowstone portal that's activated using a water bucket from overworld to alternate2 dimension. Similar to the aether's.
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -63,7 +80,8 @@ The example datapack has
   "trigger": { "type": "imm_ptl:use_item", "item": "minecraft:water_bucket" }
 }
 ```
-##### `twilight_forest_like.json` A floor flipping portal to alternate1. Activated by throwing diamond to a 2x2 water pool surrounded by dirt with flowers on top. Similar to the twilight forest portal. It will summon a lightning bolt after creating the portal.
+`twilight_forest_like.json` : A floor flipping portal to alternate1. Activated by throwing diamond to a 2x2 water pool surrounded by dirt with flowers on top. Similar to the twilight forest portal. It will summon a lightning bolt after creating the portal.
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -77,7 +95,8 @@ The example datapack has
   "post_invoke_commands": [ "/summon minecraft:lightning_bolt ~ ~ ~" ]
 }
 ```
-##### `lapis_redstone_portal.json` From overworld to alternate4. The overworld side frame is lapis block, but the other side's frame is redstone block. And for this portal, one block in the overworld corresponds to 8 blocks in alternate4.
+`lapis_redstone_portal.json`: From overworld to alternate4. The overworld side frame is lapis block, but the other side's frame is redstone block. And for this portal, one block in the overworld corresponds to 8 blocks in alternate4.
+
 ```
 {
   "schema_version": "imm_ptl:v1",
@@ -92,15 +111,6 @@ The example datapack has
 }
 ```
 
-##### `convert_vanilla_nether_portal.json` Convent vanilla nether portals into see-through portals (if the shapes are compatible)
-```
-{
-  "schema_version": "imm_ptl:v1",
-  "from": ["minecraft:overworld"],"to": "minecraft:the_nether",
-  "form": {"type": "imm_ptl:convert_conventional_portal","portal_block": "minecraft:nether_portal"},
-  "trigger": {"type": "imm_ptl:conventional_dimension_change"}
-}
-```
 
 ## Details Explained
 

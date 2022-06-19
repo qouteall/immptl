@@ -1,1 +1,7 @@
 $theme-color: #6d1b7b;
+
+p {
+    word-break: keep-all !important;
+    hyphens: none !important;
+    text-align: left !important;
+}

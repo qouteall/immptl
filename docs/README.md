@@ -38,5 +38,5 @@ Mirror:
 
 ![Mirror](https://i.loli.net/2021/05/12/fHrWgLM1wEpv2dQ.png)
 
-And much more. [See the wiki for more details](./wiki).
+And much more. [See the wiki for more details](./wiki/).
 

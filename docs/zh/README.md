@@ -37,5 +37,5 @@ toc: false
 
 ![镜子](https://i.loli.net/2021/05/12/fHrWgLM1wEpv2dQ.png)
 
-还有很多其他特性。[详见说明书](./wiki)。
+还有很多其他特性。[详见说明书](./wiki/)。
 

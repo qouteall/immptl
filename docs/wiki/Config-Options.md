@@ -80,13 +80,9 @@ If enabled, when you are crouching, flint and steel lights vanilla nether portal
 If disabled, the alternate dimensions won't be loaded, and all portals pointing to alternate dimensions will vanish.
 
 ### Enable Nether Portal Overlay
-If enabled, the newly generated nether portals will have vanilla nether portal texture overlay (with opacity 0.5).
-
-Won't affect existing nether portals.
+If enabled, the nether portals will have vanilla nether portal texture overlay.
 
 ![](https://i.loli.net/2021/11/20/regLGPdYoUv9MHC.png)
-
-Horizontal nether portals won't have this overlay because the vanilla nether portal block does not have the horizontal variant. (May be changed in the future)
 
 ### Scale Limit
 

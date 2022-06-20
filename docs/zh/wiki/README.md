@@ -10,9 +10,11 @@
 
 ### 钠(Sodium)模组兼容性?
 
-MC 1.18.1: 兼容 Sodium 0.4.0-alpha6.
+MC 1.19: 大致兼容Sodium 0.4.2. （后面的Sodium版本可能与本模组不兼容）
 
-MC 1.17.1: 兼容 Sodium 0.3.4.
+MC 1.18.1: 大致兼容 Sodium 0.4.0-alpha6.
+
+MC 1.17.1: 大致兼容 Sodium 0.3.4.
 
 MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases).
 
@@ -24,7 +26,7 @@ MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases).
 
 ### 本模组与哪些模组不兼容？
 
-[Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22).
+[已知兼容性问题](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22).
 
 ### 怎样改变其他模组的传送门？
 
@@ -41,3 +43,4 @@ MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases).
 ### 地狱传送门无法连接
 
 地狱传送门只能连接到相同方向、相同形状的黑曜石框架（除非在设置中修改地狱传送门模式）。
+

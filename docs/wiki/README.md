@@ -66,7 +66,7 @@ It can only link to an empty obsidian frame with the same shape and orientation 
 
 ### Why is the Forge version not being supported?
 
-This mod is just a hobby project. Maintaining the Forge version turns out to be giving me bad experiences so I stopped maintaining the Forge version. This mod is in Apache 2.0 license and anyone can port it to Forge.
+This mod is just a hobby project. Maintaining the Forge version turns out to be giving me bad experiences so I stopped maintaining the Forge version. (There is a very small chance that I restart supporting the Forge version.)
 
-(There is a very small chance that I restart supporting the Forge version.)
+This mod is in Apache 2.0 license and anyone can port it to Forge. If you want to develop the Forge version, you can ask me for help.
 

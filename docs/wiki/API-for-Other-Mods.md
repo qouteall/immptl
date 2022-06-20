@@ -93,12 +93,11 @@ DimensionAPI.deleteDimensionConfiguration(dimId);
 The utility library supports another way of adding dimensions other than using JSON files:
 
 * It does not require hardcoding things of your dimension. You can create the chunk generator at runtime. You can use configs to control whether to add the dimensions. It does not require hardcoding the seed.
-* It will not add your dimension into `level.dat` and cause issues after uninstalling the mod.
 * It will show the warning screen ("worlds using experimental settings are not supported") when entering a world.
 
 ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you need to keep the dimension type json and delete the dimension json. Then add the dimension in `DimensionAPI.serverDimensionsLoadEvent` using `DimensionAPI.addDimension`. (`DimensionAPI.addDimension` should not be used outside of the event.)
 
-##### In 1.18.2:
+##### In 1.18.2 and 1.19:
 
 ```java
 DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
@@ -121,16 +120,14 @@ DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManag
         new CustomChunkGenerator()
     );
     
-    // mark it non-persistent so it won't be saved into level.dat
+    // mark it non-persistent so it won't be saved into level.dat. (This is not needed in 1.19)
     DimensionAPI.markDimensionNonPersistent(dimId);
 });
 ```
 
-To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable.
+To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable. For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
 
-For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
-
-```
+```java
 LifecycleHack.markNamespaceStable("aaa");
 ```
 
@@ -169,7 +166,7 @@ Fabric provides the networking API. But adding a new type of packet requires  (1
 
 Example: if you want the server to send a packet to ask the client to invoke this method (on the render thread):
 
-```
+```java
 public class AAARemoteCallableBBB{
     public static void clientMethod(int arg1, double arg2) {...}
 }
@@ -177,7 +174,7 @@ public class AAARemoteCallableBBB{
 
 Do this
 
-```
+```java
 McRemoteProcedureCall.tellClientToInvoke(
     player,
     "path.to.the_class.AAARemoteCallableBBB.clientMethod",
@@ -187,7 +184,7 @@ McRemoteProcedureCall.tellClientToInvoke(
 
 If you want the client to send a packet to ask the server to invoke this method (on the server thread):
 
-```
+```java
 public class AAARemoteCallableBBB{
     public static void serverMethod(ServerPlayerEntity player, Block arg1) {...}
 }
@@ -195,7 +192,7 @@ public class AAARemoteCallableBBB{
 
 Do this
 
-```
+```java
 McRemoteProcedureCall.tellServerToInvoke(
     "path.to.the_class.AAARemoteCallableBBB.serverMethod",
     Blocks.STONE

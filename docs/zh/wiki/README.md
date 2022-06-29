@@ -12,11 +12,17 @@
 
 MC 1.19: 大致兼容Sodium 0.4.2. （后面的Sodium版本可能与本模组不兼容）
 
-MC 1.18.1: 大致兼容 Sodium 0.4.0-alpha6.
+MC 1.18.2: 大致兼容 Sodium 0.4.1
 
-MC 1.17.1: 大致兼容 Sodium 0.3.4.
+MC 1.17.1: 大致兼容 Sodium 0.3.4
 
-MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases).
+MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases)
+
+### Iris兼容性
+
+MC 1.18.2, 1.19：大致兼容 Iris 1.2.5. （后面的Iris版本可能与本模组不兼容）
+
+MC 1.17.1: Iris 1.2.4.
 
 ### 传送门是否会影响性能
 
@@ -27,6 +33,10 @@ MC 1.16.5: 使用 [这个](https://github.com/qouteall/sodium-fabric/releases).
 ### 本模组与哪些模组不兼容？
 
 [已知兼容性问题](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22).
+
+### 怎样提交bug?
+
+[这里](https://github.com/qouteall/ImmersivePortalsMod/issues)（需要GitHub账号。可以使用中文。）
 
 ### 怎样改变其他模组的传送门？
 

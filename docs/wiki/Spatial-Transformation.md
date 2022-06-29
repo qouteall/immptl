@@ -14,9 +14,15 @@ This mod's teleportation is eye-based. If an entity goes through a portal, it wi
 
 After crossing a portal with rotation transformation, the player's camera may be tilted. Then the camera rotation will smoothly turn into a valid state.
 
-This mod has special compatibility with [Gravity Changer mod](https://www.curseforge.com/minecraft/mc-mods/gravitychanger). With Gravity Changer mod, if you enable `teleportChangesGravity` to a portal, then your gravity direction will be automatically changed when crossing the portal. (`teleportChangesGravity` is disabled by default.)
+This mod has special compatibility with Gravity Changer mod. With Gravity Changer mod, if you enable `teleportChangesGravity` to a portal, then your gravity direction will be automatically changed when crossing the portal. (`teleportChangesGravity` is disabled by default.)
 
-About Gravity Changer mod: The original author Andrew (Gaider10) have stopped maintaining that mod. After 1.18.1, you can use  [my fork of Gravity Changer](https://github.com/qouteall/GravityChanger/releases).
+### About Gravity Changer Mod
+
+[The original Gravity Changer mod by Gaider10 (Andrew)](https://www.curseforge.com/minecraft/mc-mods/gravitychanger). Gaider10 (Andrew) stopped maintaining it.
+
+In 1.18.2 you can use [my fork of Gravity Changer](https://github.com/qouteall/GravityChanger/releases/tag/v0.3.1) .
+
+In 1.19, Immersive Portals 2.0.4 is compatible with [Gravity API 0.7.12](https://modrinth.com/mod/gravity-api/version/0.7.12%2Bfabric) .
 
 ## Scale Transformation
 

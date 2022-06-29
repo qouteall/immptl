@@ -12,7 +12,7 @@
 
 若找不到可以适配的框架，它会在附近生成新的框架。
 
-用此方法生成的传送门不会在框架破坏的时候自动消失。若要移除传送门，可以用命令`/portal delete_portal` or `/portal eradicate_portal_clutter` （详见下面）
+用此方法生成的传送门不会在框架破坏的时候自动消失。若要移除传送门，可以用命令`/portal delete_portal` or `/portal eradicate_portal_cluster` （详见下面）
 
 它无法连接到很远地方的框架，也无法连接到其他位面的框架。然而，通过命令来编辑传送门可以让传送门指向任意位面的任意位置。
 
@@ -26,10 +26,10 @@
 
 ### 1个地狱传送门 = 4个传送门实体
 
-**本模组如何将单向传送门、双向传送门与双向双面传送门区分？传送门没有“双向”之类的的属性，一个双向的传送门是两个单向传送门的组合。**
+本模组如何将单向传送门、双向传送门与双向双面传送门区分？传送门没有“双向”之类的的属性，一个双向的传送门是两个单向传送门的组合。
 
-**一个传送门实体相当于一个单面、单向的传送门。
-一个正常的地狱传送门是双面、双向的，它包含在主世界的两个传送门实体和地狱的两个传送门实体，总共4个传送门。**
+一个传送门实体相当于一个单面、单向的传送门。
+一个正常的地狱传送门是双面、双向的，它包含在主世界的两个传送门实体和地狱的两个传送门实体，总共4个传送门。
 
 命令 `/portal delete_portal` 只会移除一个传送门实体。
 
@@ -40,7 +40,7 @@
 
 命令 `/portal eradicate_portal_clutter` 将移除整个传送门。如果对一个双面双向传送门使用这个命令，所有四个传送门实体都会被删除。
 
-若你想编辑一个双面双向传送门，总共需要编辑四个传送门实体，建议先使用 `/portal remove_connected_portals`使得只剩下一个传送门实体，然后编辑这个传送门实体，最后用`/portal complete_bi_way_bi_faced_portal`使传送门变回双面双向的。
+如果想要编辑一个双面双向传送门，只需要启用传送门组绑定功能，对其使用命令 `/portal set_portal_nbt {bindCluster:true}`. (1.18之前没有此特性)，然后在编辑其中一个传送门实体的时候就能自动编辑4个传送门实体。
 
 ### 针对传送门的命令
 
@@ -71,7 +71,7 @@
 
 [传送门的属性](./Portal-Attributes)
 
-注意: 这些针对传送门的命令只影响你所指向的传送门实体。若要编辑一个双面、双向传送门，应先使用 `/portal remove_connected_portals`
+注意: 不应该使用 `/data` 命令修改传送门数据。应该使用`/portal set_portal_nbt`命令。
 
 #### 用命令方块或函数编辑传送门
 针对传送门的命令可以由命令方块等执行。若命令发起者为一个传送门实体，那么该命令就会针对哪个传送门实体。例如： `/execute as @e[type=immersive_portals:portal] run portal set_portal_destination minecraft:the_end 0 80 0`
@@ -90,7 +90,13 @@
 
 这两个命令创建的是普通传送门，不是全局传送门。针对全局传送门的命令 (例如 `/portal global remove_wrapping_zone`) 不会影响这些普通传送门。
 
-### 创建缩放盒
+### 使用 MiniScaled 模组创建缩放盒
+
+[MiniScaled](./MiniScaled.html) 模组可以轻松创建缩放盒。
+
+![](https://i.loli.net/2021/09/30/J9bBF82tRu5yIkW.png)
+
+### 通过命令创建缩放盒
 通过该命令创建缩放盒 `/portal create_scaled_box_view <x1> <y1> <z1> <x2> <y2> <z2> <scale> <placeTargetEntity> <isBiWay> [teleportChangesScale]`.
 
 例如说，如果要创建缩放末地岛的缩放盒，使用命令 `/execute in minecraft:the_end run portal create_scaled_box_view -100 0 -100 100 128 100 20 @p true`
@@ -110,7 +116,7 @@
 ## 常见问题
 
 ### 如何连接两个传送门
-不建议“连接”两个传送门。建议先使用 `/portal remove_connected_portals` 再编辑传送门，再用 `/portal complete_bi_way_portal`
+不建议“连接”两个传送门。建议先使用 `/portal set_portal_nbt {bindCluster:true}` 再编辑传送门
 
 ## 其他实用命令
 

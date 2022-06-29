@@ -3,7 +3,7 @@
 此处介绍传送门的属性。
 
 可以通过 `/portal set_portal_nbt` 命令编辑.
-[Portal Customization](./Portal-Customization)
+[自定义传送门](./Portal-Customization)
 
 ### 形态属性
 
@@ -13,17 +13,23 @@
 
 NBT tags:`axisWX` `axisWY` `axisWZ` `axisHX` `axisHY` `axisHZ`
 
+建议用 `/portal rotate_portal_body` 编辑该属性。
+
 #### 宽度，高度
 
 宽度是传送门沿 `axisW`的长度。高度是传送门沿`axisH`的长度。
 
 NBT tags: `width` `height`
 
+建议用 `/portal set_portal_size` 编辑该属性。
+
 #### 特殊形状
 
 可选。包括若干个2D平面上的三角形。
 
 NBT tag: `specialShape` (是一个浮点数列表。每两个数代表一个2D平面上的点（x轴为axisW，y轴为axisH），每三个点代表一个三角形。
+
+例子：将传送门的形状改为一个三角形 `/portal set_portal_nbt {width:2,height:2,specialShape:[-1.0d,0.0d,1.0d,0.0d,0d,1.0d],cullableXStart:0,cullableXEnd:0,cullableYStart:0,cullableYEnd:0}`
 
 ### 空间变换属性
 
@@ -58,6 +64,12 @@ NBT tag: `scale`
 如果传送门有缩放变换，这个属性决定传送门是否缩放通过的实体。
 
 NBT tag: `teleportChangesScale`
+
+#### 传送是否改变实体的引力方向
+
+如果传送门有旋转变换，则玩家在跨国传送门后会改变引力方向。需要Gravity Changer(Gravity API)模组。
+
+NBT tag: `teleportChangesGravity`
 
 #### 是否在实体传送后调整实体位置
 
@@ -106,6 +118,42 @@ NBT tag: `interactable`
 
 NBT tag: `specificPlayerId`
 
+### 传送门动画
+
+默认情况下，如果用 `/portal` 命令编辑传送门，则传送门会逐渐、顺滑地变化。
+
+这些东西会逐渐变化:
+
+* 传送门的位置与指向位置
+* 传送门的朝向
+* 传送门的旋转变换
+* 传送门的缩放变换
+* 传送门的宽度和高度（如果传送门有特殊形状则不行）
+
+NBT tag: `animation`
+
+`animation` 标签有两个子标签: `curve` 和`durationTicks`. `curve` 可以是 `linear`, `sine` 或 `circle`。 `curve` 不改变轨迹，只影响动画过程中的速度变化。
+
+例子：
+
+* 禁用传送门动画: `/portal set_portal_nbt {animation:{durationTicks:0}}`
+
+* 让传送门动画变为线性且时间为2秒: `/portal set_portal_nbt {animation:{curve:"linear",durationTicks:40}}`
+
+传送门动画仅在客户端中有，在服务端传送门是立即变化的。在网络状况不好的情况下传送门动画仍然可以是顺滑的。
+
+传送门动画只能通过 `/portal` 命令启动。使用`/tp` 或`/data`命令无法启动传送门动画。
+
+尚未实现相对碰撞、传送。若传送门穿过你，你不会被传送。
+
+### 传送门组绑定
+
+每个传送门实体都是单面单向的，一个双面双向传送门包括4个传送门实体，这四个传送门实体组成一个传送门组。如果要编辑那个传送门，则总共需要编辑4个传送门实体。
+
+启用 `bindCluster`传送门绑定后，在用 `/portal` 命令编辑其中一个传送门后，其他三个传送门会相应也被编辑，这使得编辑传送门更方便。
+
+NBT tag: `bindCluster`
+
 ### 渲染属性
 
 #### 融合渲染
@@ -121,6 +169,12 @@ NBT tag: `fuseView`
 若为true，当该传送门碰到另外一个有相同空间变换的传送门时，这两个传送门会被“合并”，其渲染性能将会提升，提高帧率，但是渲染合并的传送门无法正常进行前部剪裁。
 
 NBT tag: `renderingMergable`
+
+#### 是否渲染你自己
+
+如果关闭，则传送门中不渲染玩家自己。
+
+NBT tag: `doRenderPlayer`
 
 #### 可剔除范围
 
@@ -165,16 +219,6 @@ NBT tag: `overlayOpacity`
 附加材质的偏移量，沿着传送门面向的方向。
 
 NBT tag: `overlayOffset`
-
-## 命令示例
-
-* Make a nether portal unbreakable `/portal set_portal_nbt {unbreakable:true}`
-* Make a portal that has scaling to not change the crossing entity's scale `/portal set_portal_nbt {teleportChangesScale:false}`
-* 启用融合渲染 `/portal set_portal_nbt {fuseView:true}`
-* 改变方形传送门的宽度和高度: `/portal set_portal_nbt {width:100,height:100,specialShape:[]}`
-* 让通过传送门的实体受到伤害: `/portal set_portal_nbt {commandsOnTeleported:["/effect give @s minecraft:instant_damage 1"]}`
-* 让传送门有钻石块的附加材质 `/portal set_portal_nbt {overlayBlockState:{Name:"minecraft:diamond_block"},overlayOpacity:0.6,overlayOffset:-0.3}`  (仅对可破坏传送门例如地狱传送门有效，对传送门辅助方块产生的传送门无效)
-* 将传送门形状变为三角形 `/portal set_portal_nbt {width:2,height:2,specialShape:[-1.0d,0.0d,1.0d,0.0d,0d,1.0d],cullableXStart:0,cullableXEnd:0,cullableYStart:0,cullableYEnd:0}`
 
 ### 关于编辑传送门的形状
 

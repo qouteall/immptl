@@ -62,7 +62,7 @@ Example: Make a portal that has scaling to not change the crossing entity's scal
 
 #### Whether Teleportation Changes Gravity Direction
 
-Whether the teleportation transforms the player's gravity location if the portal has a rotation transformation. It requires Gravity Changer mod to work.
+Whether the teleportation transforms the player's gravity location if the portal has a rotation transformation. It requires Gravity Changer (Gravity API) mod to work.
 
 NBT tag: `teleportChangesGravity`
 
@@ -114,7 +114,7 @@ NBT tag: `specificPlayerId`
 
 ### Portal Animation
 
-All portals by default will change smoothly when you use `/portal` commands to change the portal's attributes.
+All portals by default will change smoothly when you use `/portal` commands to change the portal's attributes (except for the global portals).
 
 Following things can be animated:
 
@@ -136,9 +136,9 @@ Example:
 
 The portal animation is client-side. On the server side the portal moves abruptly. The animation can be smooth when the networking condition is not good.
 
-The portal animation can be triggered by `/portal` commands. Using `/tp` command won't trigger the animation.
+The portal animation can be triggered by `/portal` commands. Using `/tp` or `/data` command won't trigger the animation.
 
-The relative teleportation/collision is not yet implemented. 
+The relative teleportation/collision is not yet implemented. If a portal moves through you, you won't get teleported.
 
 ### Bind-Cluster
 

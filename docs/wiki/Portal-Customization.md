@@ -113,7 +113,7 @@ You can manage overlapped portals using `/portal multidest` command.
 ## Common Questions
 
 ### How to connect two portals?
-It's not recommended to "connect" two existing portals. The recommended way is to use `/portal remove_connected_portals` first, then edit the portal, then `/portal complete_bi_way_portal`.
+It's not recommended to "connect" two existing portals. The recommended way is to use `/portal set_portal_nbt {bindCluster:true}` before editing the portal.
 
 ## Other Utility Commands
 

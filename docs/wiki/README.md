@@ -8,7 +8,7 @@ This wiki describes the latest version of Immersive Portals Mod (ImmPtl) Fabric 
 
 ### Can I use it in multiplayer?
 
-Yes. The server and client must both install this mod. (This mod is not a plugin and cannot be used on Bukkit or Spigot.)
+Yes. The server and client must both install this mod. (This mod is not a plugin and cannot be used on Bukkit, Spigot or Paper.)
 
 ### Sodium Compatibility?
 
@@ -20,11 +20,7 @@ In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Sodium 0.3
 
 In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases).
 
-### Iris Compatibility?
 
-In MC 1.18.2 and 1.19, the latest version of ImmPtl is roughly compatible with Iris 1.2.5.
-
-In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Iris 1.2.4.
 
 ### Will the portal impact performance?
 
@@ -66,7 +62,9 @@ It can only link to an empty obsidian frame with the same shape and orientation 
 
 ### Why is the Forge version not being supported?
 
-This mod is just a hobby project. Maintaining the Forge version turns out to be giving me bad experiences so I stopped maintaining the Forge version. (There is a very small chance that I restart supporting the Forge version.)
+This mod is just a hobby project. When people ask for the Forge version they actually ask it to be compatible with many Forge mods. However maintaining compatibility with some Fabric mods is already a huge work. Maintaining the Forge version turns out to be giving me bad experiences so I stopped maintaining the Forge version. 
 
-This mod is in Apache 2.0 license and anyone can port it to Forge. If you want to develop the Forge version, you can ask me for help.
+(There is a very small chance that I restart supporting the Forge version.)
+
+This mod is in Apache 2.0 license and you are free to develop its Forge version. If you want to develop the Forge version, you can ask me for help.
 

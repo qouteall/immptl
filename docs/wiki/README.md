@@ -62,7 +62,7 @@ It can only link to an empty obsidian frame with the same shape and orientation 
 
 ### Why is the Forge version not being supported?
 
-This mod is just a hobby project. When people ask for the Forge version they actually ask it to be compatible with many Forge mods. However maintaining compatibility with some Fabric mods is already a huge work. Maintaining the Forge version turns out to be giving me bad experiences so I stopped maintaining the Forge version. 
+This mod is just a hobby project. When people ask for the Forge version they actually ask it to be compatible with many Forge mods. However maintaining compatibility with some Fabric mods is already a huge work. Maintaining the Forge version turned out to be giving me bad experiences so I stopped maintaining the Forge version. 
 
 (There is a very small chance that I restart supporting the Forge version.)
 

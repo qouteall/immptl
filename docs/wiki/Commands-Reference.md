@@ -38,7 +38,11 @@ Remove the portal.
 Move the portal along the direction that you are looking at.
 
 ### `/portal set_portal_position <dimension> <x> <y> <z>`
-Change the portal's position.
+Change the portal's position to a specific coordinate.
+
+### `/portal set_portal_position_to <entity>`
+
+Change the portal's position to the position of an entity.
 
 ### `/portal relatively_move_portal <dx> <dy> <dz>`
 

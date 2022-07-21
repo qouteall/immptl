@@ -49,6 +49,10 @@
 
 更改传送门位置。
 
+### `/portal set_portal_position_to <entity>`
+
+更改传送门位置为一个实体的位置。
+
 ### `/portal relatively_move_portal <dx> <dy> <dz>`
 
 以传送门自身相对坐标移动传送门。

@@ -15,15 +15,19 @@ It will not link to a vanilla nether portal. The maximum nether portal side leng
 This mod has 3 nether portal modes: `normal`, `adaptive` and `vanilla`. ([How to change nether portal mode](./Config-Options#how-to-access-the-config))
 
 ### Mode : `normal`
+
 It can only link to the obsidian frame that has the exact same shape and orientation.
 
 ### Mode : `adaptive`
+
 It can link to the frame that can be compatible with rotation and scale transformations applied.
 
 ### Mode : `vanilla`
+
 Does not change vanilla nether portal functionality.
 
 ### Mode : `disabled`
+
 Nether portal functionality disabled.
 
 The nether portal mode only controls new nether portal generation and does not change existing nether portals.
@@ -52,12 +56,15 @@ The `scaledView` type end portal shows an overlook of the entire end island. It 
 This type of end portal is laggier.
 
 ### Mode : `vanilla`
+
 Does not change vanilla end portal functionality.
 
 ### How to Remove an End Portal in Creative Mode
+
 Use command `/portal delete_portal`.
 
 ## Mirrors
+
 To create a mirror, use flint and steel to right-click on a glass wall.
 
 Mirrors can only be in rectangular shapes. Mirrors can be horizontal. Mirrors can be created on a stained glass wall or glass pane wall. Mirrors vanish when the glass wall is broken.
@@ -126,9 +133,11 @@ Then you can see the end above overworld.
 Use `/portal global connection_remove_floor <dimension>` `/portal global connection_remove_ceil <dimension>` to remove a connecting portal.
 
 ##### Using Vertical Connection to Break the Height Limit
+
 By connecting a dimension above the overworld, you increase the overworld's height limit from 256 to 512. It does not really increase the height limit. It just uses portals to "connect" the dimensions. It won't be as perfect as Cubic Chunks. (Redstone, fluid, lighting, and entity AI does not work through portals)
 
 ##### Vertical World Wrapping
+
 For example
 `/portal global connect_floor immersive_portals:alternate4 immersive_portals:alternate4`
 
@@ -145,9 +154,10 @@ For example
 * Hear Sounds through Portals.
 
 ## Breakable Portals
+
 Nether portals and custom datapack generated portals are breakable portals.
 
 The breakable portal entities are bound with their block structure. The block structure is a flat portal frame with portal placeholder blocks filled inside. Portal placeholder block is a type of transparent block without collision and has glowstone-level illumination.
 
-The breakable portals break when the block structure is not complete (The corner blocks are not being checked). 
+The breakable portals break when the block structure is not complete (The corner blocks are not being checked).
 Every breakable portal is linked to its reverse portal. When a portal breaks, the placeholder blocks will vanish, and its reverse portal entity will also break. If the breakable portal entities are incorrectly paired, it will also break.

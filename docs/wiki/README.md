@@ -64,7 +64,5 @@ It can only link to an empty obsidian frame with the same shape and orientation 
 
 This mod is just a hobby project. When people ask for the Forge version they actually ask it to be compatible with many Forge mods. However maintaining compatibility with some Fabric mods is already a huge work. Maintaining the Forge version turned out to be giving me bad experiences so I stopped maintaining the Forge version. 
 
-(There is a very small chance that I restart supporting the Forge version.)
-
-This mod is in Apache 2.0 license and you are free to develop its Forge version. If you want to develop the Forge version, you can ask me for help.
+Update: There is a [new Forge port of Immersive Portals](https://github.com/iPortalTeam/ImmersivePortalsModForForge) that's being developed by Nick1st. It's not yet ready to release.
 

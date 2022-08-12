@@ -191,7 +191,7 @@ ImmPtl has cross-portal collision. In this scene, the creeper is in overworld (b
 
 When an entity is halfway in the portal then its collision will be specially treated.
 
-It will cut the entity's collision into two pieces, one outside portal and one inside portal. It firstly does collision test for the outer part and then switch the entity to the portal destination position and do collision test for the inner part.
+The cross portal collision is done as follows: It firstly compute collision outside of the portal while ignoring all collision boxes behind the portal, and then compute collision inside the portal while ignoring all collision boxes behind the destination of the portal, then merge two collision constraints.
 
 ### Cross Portal Sound
 

@@ -107,6 +107,12 @@ Whether the player can place or break blocks through the portal.
 
 NBT tag: `interactable`
 
+#### Visibility
+
+Whether the portal is visible. An invisible portal can still do teleportation, cross-portal collision and chunk loading.
+
+NBT tag: `isVisible`
+
 #### Specific Accessor
 Optional. The UUID of the specific player that can access this portal. If it's present but the value is null, the portal cannot be accessed by any player but can be accessed by non-player entities.
 

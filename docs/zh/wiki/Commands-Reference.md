@@ -268,6 +268,10 @@ Create a portal entity that goes from `fromEntity` to `toEntity`. The portal's o
 
 Create some rooms near you and generate portals to connect these rooms. The rooms will be made by random blocks. For example `/portal create_connected_room roomSize 8 8 5 roomNumber 10`
 
+### `/portal create_cube_surface_unwrapping <x1> <y1> <z1> <x2> <y2> <z2> <length>`
+
+By specifying a cube area and a length, it creates portals to "unwrap" the cube surface into a infinitely expanding plane. 
+
 ## 其他命令
 
 创造模式玩家与op可以使用。

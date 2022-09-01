@@ -20,8 +20,6 @@ In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Sodium 0.3
 
 In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases).
 
-
-
 ### Will the portal impact performance?
 
 Yes. Portals will make the game load more chunks and render more things, it will definitely impact performance, especially with dimension stack, although ImmPtl already have some optimizations to mitigate the performance impact.
@@ -59,10 +57,3 @@ This mod does not change existing vanilla portals. You need to light new portals
 ### The nether portal does not link.
 
 It can only link to an empty obsidian frame with the same shape and orientation (unless you change the nether portal mode to `adaptive`). It will not link to a vanilla nether portal.
-
-### Why is the Forge version not being supported?
-
-This mod is just a hobby project. When people ask for the Forge version they actually ask it to be compatible with many Forge mods. However maintaining compatibility with some Fabric mods is already a huge work. Maintaining the Forge version turned out to be giving me bad experiences so I stopped maintaining the Forge version. 
-
-Update: There is a [new Forge port of Immersive Portals](https://github.com/iPortalTeam/ImmersivePortalsModForForge) that's being developed by Nick1st. It's not yet ready to release.
-

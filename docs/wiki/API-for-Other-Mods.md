@@ -373,8 +373,14 @@ modImplementation ('com.github.qouteall.ImmersivePortalsMod:q_misc_util:v1.3.3-1
 
 // If you want to make it jar-in-jar
 include ('com.github.qouteall.ImmersivePortalsMod:q_misc_util:v1.3.3-1.18')
+
+// If you want the outer Immersive Portals mod (This is usually not needed)
+modImplementation ('com.github.qouteall.ImmersivePortalsMod:build:v1.3.3-1.18'){
+	exclude(group: "net.fabricmc.fabric-api")
+	transitive(false)
+}
 ```
-You should change the version `v1.3.3-1.18` to the latest version. See https://jitpack.io/#qouteall/ImmersivePortalsMod
+You should change the version `v1.3.3-1.18` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 

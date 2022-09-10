@@ -1,6 +1,6 @@
 # Home
 
-This wiki describes the latest version of Immersive Portals Mod (ImmPtl) Fabric version.
+This wiki describes the latest version of Immersive Portals Mod (ImmPtl).
 
 [This wiki on GitHub](https://github.com/qouteall/immptl)
 

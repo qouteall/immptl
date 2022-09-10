@@ -1,6 +1,6 @@
 # 首页
 
-这是沉浸传送门(Immersive Portals, ImmPtl)模组的说明书。仅针对Fabric版本。
+这是沉浸传送门(Immersive Portals, ImmPtl)模组的说明书。
 
 ## 常见问题
 

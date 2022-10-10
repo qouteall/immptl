@@ -12,7 +12,7 @@ Yes. The server and client must both install this mod. (This mod is not a plugin
 
 ### Sodium Compatibility?
 
-In MC 1.19, the latest version of ImmPtl is roughly compatible with Sodium 0.4.2. (There is no guarantee that future versions of Sodium will be compatible.)
+In MC 1.19, the latest version of ImmPtl is roughly compatible with Sodium 0.4.4. (There is no guarantee that future versions of Sodium will be compatible.)
 
 In MC 1.18.2, the latest version of ImmPtl is roughly compatible with Sodium 0.4.1.
 
@@ -26,7 +26,7 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 **Any mod compatibility issue is NOT intentional.** The compatibility issues come from how the computer program works. If a mod is programmed upon the fact that only one dimension is loaded at client, that mod will break with ImmPtl.
 
-**Fixing compatibility issues requires tons of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sources mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
+**Fixing compatibility issues requires tons of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
 
 ### Will the portal impact performance?
 
@@ -38,9 +38,11 @@ If it shows "Memory not enough" warning, you can [allocate more RAM to Minecraft
 
 ### Where to report bugs or compatibility issues?
 
-[Report Issues](https://github.com/qouteall/ImmersivePortalsMod/issues)
+[Report Issues (Fabric version)](https://github.com/iPortalTeam/ImmersivePortalsMod/issues)
 
-This mod is very complex and is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. [Support qouteall on Patreon](https://www.patreon.com/qouteall)
+[Report Issues (Forge version)](https://github.com/iPortalTeam/ImmersivePortalsModForForge)
+
+This mod is very complex and is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. 
 
 ### How to integrate with other mod's portals?
 

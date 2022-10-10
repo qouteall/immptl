@@ -216,6 +216,8 @@ The overlay offset along the portal's facing direction.
 
 NBT tag: `overlayOffset`
 
+Example: will give it a diamond block overlay with opacity 0.3 and offset -0.4 `/portal set_portal_nbt {overlayBlockState:{Name:"minecraft:diamond_block"}, overlayOpacity:0.3, overlayOffset:-0.4}` 
+
 ### About Portal Shape Editing
 
 You can edit the portal shape by editing the NBT tag of `width`, `height`, and `specialShape`.

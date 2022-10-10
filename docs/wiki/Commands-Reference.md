@@ -138,6 +138,22 @@ Automatically adjust the portal size and position to fit a square frame. Can han
 
 Remove the portal's custom shape, making it square and set its width and height.
 
+### `/portal add_command_on_teleported <command>`
+
+Adds a command to the portals's command list that's executed when an entity cross the portal. Requires level-2 permission.
+
+### `/portal remove_command_on_teleported_at <index>`
+
+Remove a command from the portal's command list. The index starts from 0. 0 means the first, 1 means the second, and so on. Requires level-2 permission.
+
+### `/portal set_command_on_teleported_at <index> <command>`
+
+Set the command in a specific index to the portal's command list. The index starts from 0. Requires level-2 permission.
+
+### `/portal clear_commands_on_teleported`
+
+Clears the portal's command list. Requires level-2 permission.
+
 ---
 
 ## Global Portal Commands
@@ -269,6 +285,12 @@ By specifying 2 portal entities, it will change these 2 portals' destination and
 
 Shows a GUI that allows re-configuring the dimension stack.
 
+### `/portal create_command_stick <command>` 
+
+Creates a command stick. For example `/portal debug create_command_stick say hi`
+
+This command requires level 2 permission.
+
 ---
 
 ## Dimension Management Commands
@@ -325,12 +347,6 @@ Quit the isometric view for the player.
 ### `/portal debug align`
 
 Align the player position by 0.5, set the yaw to be 45 degrees and set the pitch to be 30 degrees. Can be used for taking isometric screenshots.
-
-### `/portal debug create_command_stick <command>` 
-
-Creates a command stick . For example `/portal debug create_command_stick "/say hi"`
-
-This command requires level 2 permission.
 
 ### `/portal debug accelerate <num>`
 

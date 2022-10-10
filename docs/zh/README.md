@@ -14,9 +14,9 @@ toc: false
 
 [![](/images/wiki.svg) 说明书](./wiki/)
 
-[![](/images/discord.svg) Discord](https://discord.gg/BZxgURK)
+[![](/images/github.svg) GitHub Repo](https://github.com/iPortalTeam/ImmersivePortalsMod)
 
-[![](/images/github.svg) GitHub](https://github.com/qouteall/ImmersivePortalsMod)
+[![](/images/github.svg) GitHub Repo (Forge version)](https://github.com/qouteall/ImmersivePortalsMod)
 
 
 

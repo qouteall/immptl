@@ -1,2 +1,2 @@
-yarn docs:dev
+yarn docs:clean-dev
 PAUSE

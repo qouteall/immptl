@@ -2,10 +2,9 @@
 toc: false
 ---
 
+<div style="font-size:2.5em;display:flex;align-items:center"><figure><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.3em"></figure>     Immersive Portals</div>
 
-<div style="font-size:2.5em;display:flex;align-items:center"><figure><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.3em;margin-right:0.7em"></figure>     Immersive Portals</div>
-
-A Minecraft mod that provides see-through portals and seamless teleportation.
+An open-source Minecraft mod that provides see-through portals and seamless teleportation.
 
 ![](https://i.loli.net/2021/09/30/chHMG45dsnZNqep.png)
 
@@ -17,7 +16,15 @@ A Minecraft mod that provides see-through portals and seamless teleportation.
 
 [![](/images/discord.svg) Discord](https://discord.gg/BZxgURK)
 
-[![](/images/github.svg) GitHub](https://github.com/qouteall/ImmersivePortalsMod)
+[![](/images/github.svg) GitHub Repo](https://github.com/iPortalTeam/ImmersivePortalsMod)
+
+[![](/images/github.svg) GitHub Repo (Forge version)](https://github.com/iPortalTeam/ImmersivePortalsModForForge)
+
+
+
+> [@qouteall](https://github.com/qouteall) is the main developer and maintains the Fabric version. [Support qouteall on Patreon.](https://www.patreon.com/qouteall)
+>
+> [@Nick1st](https://github.com/Nick1st) maintains the Forge version.
 
 
 

@@ -64,10 +64,10 @@ export default defineUserConfig({
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
     }),
-    docsearchPlugin({
-      appId:"4R90CQPOL8",
-      apiKey:"d7bd74f803f425f70304eb0ad74cab7d",
-      indexName:"qouteall", // seems that the docsearch index cannot be renamed
-    }),
+    // docsearchPlugin({
+    //   appId:"4R90CQPOL8",
+    //   apiKey:"d7bd74f803f425f70304eb0ad74cab7d",
+    //   indexName:"qouteall", // seems that the docsearch index cannot be renamed
+    // }),
   ]
 })

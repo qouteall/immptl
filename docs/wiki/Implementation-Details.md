@@ -1,9 +1,3 @@
----
-order: 13
----
-
-
-
 # Implementation Details
 
 ## Portal Rendering

@@ -1,9 +1,3 @@
----
-order: 6
----
-
-
-
 # Dimension Stack
 
 Use [vertical connecting portals](./Portals#vertical-dimension-connecting-portal) to "stack" the dimensions.

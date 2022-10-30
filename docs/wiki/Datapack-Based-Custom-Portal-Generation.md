@@ -1,9 +1,3 @@
----
-order: 4
----
-
-
-
 # Datapack-Based Custom Portal Generation
 
 Configure custom portal generation mechanics using JSON files in a datapack.

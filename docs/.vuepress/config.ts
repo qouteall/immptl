@@ -1,10 +1,25 @@
 import { defineUserConfig } from 'vuepress'
 import { hopeTheme } from "vuepress-theme-hope";
-import { docsearchPlugin } from "@vuepress/plugin-docsearch";
-import { getDirname, path } from "@vuepress/utils";
-import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
+const { path } = require('@vuepress/utils')
 
-const __dirname = getDirname(import.meta.url);
+let contents = [
+  '',
+  'Portals',
+  "Portal-Customization",
+  "Spatial-Transformation",
+  "Datapack-Based-Custom-Portal-Generation",
+  "Dimension-Management",
+  "Dimension-Stack",
+  "Config-Options",
+  "Commands-Reference",
+  "Portal-Attributes",
+  "Miscellaneous",
+  "MiniScaled",
+  "API-for-Other-Mods",
+  "Implementation-Details",
+
+]
 
 export default defineUserConfig({
   // ……
@@ -38,13 +53,13 @@ export default defineUserConfig({
       '/': {
         sidebar: {
           '/': [],
-          '/wiki/': "structure"
+          '/wiki': contents.map((entry) => '/wiki/' + entry)
         },
       },
       '/zh/': {
         sidebar: {
           '/zh/': [],
-          '/zh/wiki/': "structure"
+          '/zh/wiki': contents.map((entry) => '/zh/wiki/' + entry)
         },
         home: '/zh/',
       },
@@ -53,7 +68,7 @@ export default defineUserConfig({
     pageInfo: false,
 
     plugins: {
-      // externalLinkIcon: false,
+      externalLinkIcon: false,
     }
 
 
@@ -63,11 +78,6 @@ export default defineUserConfig({
   plugins: [
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
-    }),
-    docsearchPlugin({
-      appId:"4R90CQPOL8",
-      apiKey:"d7bd74f803f425f70304eb0ad74cab7d",
-      indexName:"qouteall", // seems that the docsearch index cannot be renamed
     }),
   ]
 })

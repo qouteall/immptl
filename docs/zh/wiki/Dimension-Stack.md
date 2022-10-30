@@ -1,9 +1,3 @@
----
-order: 6
----
-
-
-
 # 位面纵向堆叠
 
 纵向位面堆叠就是使用 [纵向堆叠传送门](./Portals#vertical-dimension-connecting-portal) 将不同位面的上下连接起来。

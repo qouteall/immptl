@@ -1,9 +1,3 @@
----
-order: 5
----
-
-
-
 # Dimension Management
 
 ### Dynamically Adding and Removing Dimensions

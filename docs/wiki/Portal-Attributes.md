@@ -1,9 +1,3 @@
----
-order: 9
----
-
-
-
 # Portal Attributes
 
 These are the attributes that a portal has.

@@ -1,11 +1,3 @@
----
-order: 1
----
-
-
-
-
-
 # Portals
 
 ## Nether Portals

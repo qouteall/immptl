@@ -1,9 +1,3 @@
----
-order: 11
----
-
-
-
 # MiniScaled
 
 MiniScaled is a Fabric mod that provides easy-usable scale boxes using Immersive Portals functionality. You can enter the scale box seamlessly without loading screen. [GitHub](https://github.com/qouteall/MiniScaledMod)

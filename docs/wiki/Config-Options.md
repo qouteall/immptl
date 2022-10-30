@@ -1,9 +1,3 @@
----
-order: 7
----
-
-
-
 # Config Options
 
 ## How to Access the Config

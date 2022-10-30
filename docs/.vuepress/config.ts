@@ -53,7 +53,7 @@ export default defineUserConfig({
     pageInfo: false,
 
     plugins: {
-      externalLinkIcon: false,
+      // externalLinkIcon: false,
     }
 
 

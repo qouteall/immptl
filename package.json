@@ -4,12 +4,12 @@
   "description": "Immersive Portals",
   "author": "qouteall <qouteall@163.com>",
   "devDependencies": {
-    "@vuepress/client": "2.0.0-beta.53",
-    "@vuepress/plugin-docsearch": "2.0.0-beta.53",
-    "@vuepress/plugin-register-components": "2.0.0-beta.53",
-    "vue": "3.2.41",
-    "vuepress": "2.0.0-beta.53",
-    "vuepress-theme-hope": "2.0.0-beta.116"
+    "@vuepress/client": "2.0.0-beta.48",
+    "@vuepress/plugin-docsearch": "2.0.0-beta.48",
+    "@vuepress/plugin-register-components": "2.0.0-beta.48",
+    "vue": "3.2.36",
+    "vuepress": "2.0.0-beta.48",
+    "vuepress-theme-hope": "2.0.0-beta.83"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",

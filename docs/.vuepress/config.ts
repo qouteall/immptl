@@ -4,7 +4,7 @@ import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { getDirname, path } from "@vuepress/utils";
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 
-const __dirname = getDirname(import.meta.url);
+// const __dirname = getDirname(import.meta.url);
 
 export default defineUserConfig({
   // ……
@@ -64,10 +64,10 @@ export default defineUserConfig({
     registerComponentsPlugin({
       componentsDir: path.resolve(__dirname, './components'),
     }),
-    // docsearchPlugin({
-    //   appId:"4R90CQPOL8",
-    //   apiKey:"d7bd74f803f425f70304eb0ad74cab7d",
-    //   indexName:"qouteall", // seems that the docsearch index cannot be renamed
-    // }),
+    docsearchPlugin({
+      appId:"4R90CQPOL8",
+      apiKey:"d7bd74f803f425f70304eb0ad74cab7d",
+      indexName:"qouteall", // seems that the docsearch index cannot be renamed
+    }),
   ]
 })

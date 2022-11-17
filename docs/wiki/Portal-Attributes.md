@@ -124,7 +124,7 @@ Optional. The UUID of the specific player that can access this portal. If it's p
 
 NBT tag: `specificPlayerId`
 
-### Portal Animation
+### Default Portal Animation
 
 All portals by default will change smoothly when you use `/portal` commands to change the portal's attributes (except for the global portals).
 
@@ -137,6 +137,8 @@ Following things can be animated:
 * Portal width and height (If the portal has a special shape, then width and height cannot be animated)
 
 NBT tag: `animation`
+
+> Start from 2.3.0, the tag becomes `defaultAnimation`.
 
 The `animation` tag has two sub-tags: `curve` and `durationTicks`. `curve` can be `linear`, `sine` or `circle`. The `curve` does not change trajectory, it only determine the speed change during animation.
 

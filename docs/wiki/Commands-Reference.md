@@ -124,6 +124,34 @@ This command modifies the portal cluster. It firstly removes the portals that ar
 ### `/portal multidest <player>`
 Remove the player-specific portal from the portal cluster.
 
+## Animation Commands
+
+> Note: The animation commands are introduced in 2.3.0
+
+### `/portal animation clear`
+
+### `/portal animation pause`
+
+### `/portal animation resume`
+
+### `/portal animation all_pause`
+
+### `/portal animation rotate_infinitely <rotationCenterEntity> <axisX> <axisY> <axisZ> <degreesPerTick>`
+
+### `/portal animation rotate_infinitely_random`
+
+### `/portal animation rotate_portals <portals> <rotationCenterX> <rotationCenterY> <rotationCenterZ> <axisX> <axisY> <axisZ> <degrees> <durationTicks>`
+
+### `/portal animation rotate_along_normal`
+
+### `/portal animation expand_from_center <durationTicks>`
+
+### `/portal animation build begin`
+
+### `/portal animation build append_phase <durationTicks>`
+
+### `/portal animation build finish`
+
 ## Other
 
 ### `/portal set_portal_custom_name <name>`

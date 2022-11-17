@@ -126,31 +126,55 @@ Remove the player-specific portal from the portal cluster.
 
 ## Animation Commands
 
-> Note: The animation commands are introduced in 2.3.0
+> Note: The animation commands are introduced in 2.3.0. The animation system is not yet finished and may change in future versions.
 
 ### `/portal animation clear`
 
+Clear the animation on this side for the targeted portal.
+
 ### `/portal animation pause`
+
+Pause the animation for the targeted portal.
 
 ### `/portal animation resume`
 
+Resume the animation for the targeted portal.
+
 ### `/portal animation all_pause`
+
+Pause the animation for all the portals in the current dimension. Not a portal-targeted command.
 
 ### `/portal animation rotate_infinitely <rotationCenterEntity> <axisX> <axisY> <axisZ> <degreesPerTick>`
 
+Start an infinite rotation animation for the targeted portal. The rotation center is the position of `<rotationCenterEntity>` during the execution of the command.
+
 ### `/portal animation rotate_infinitely_random`
+
+Start a infinite rotation with random axis and random angular velocity. The rotation center is the position of the command sender during the execution of the command.
 
 ### `/portal animation rotate_portals <portals> <rotationCenterX> <rotationCenterY> <rotationCenterZ> <axisX> <axisY> <axisZ> <degrees> <durationTicks>`
 
-### `/portal animation rotate_along_normal`
+Rotate some portals for some degrees in some time.
+
+### `/portal animation rotate_along_normal <degreesPerTick>`
+
+Start a infinite rotation around the portal center along the portal's normal vector.
 
 ### `/portal animation expand_from_center <durationTicks>`
 
+Make the portal to be small and gradually expand from center.
+
 ### `/portal animation build begin`
+
+Start building a normal animation. Pause the portal animation.
 
 ### `/portal animation build append_phase <durationTicks>`
 
-### `/portal animation build finish`
+Append a phase to the normal animation.
+
+### `/portal animation build finish [repeatCount]`
+
+Finish building the normal animation that repeats for a number of times. If `repeatCount` is missing, it will be an infinite animation.
 
 ## Other
 

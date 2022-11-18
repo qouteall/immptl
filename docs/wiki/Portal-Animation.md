@@ -1,5 +1,5 @@
 ---
-index: false
+order: 11
 ---
 
 
@@ -42,18 +42,9 @@ Clear the animation on this side: `/portal animation clear`
 
 A bi-way bi-faced portal is actually a portal cluster formed by 4 portal entities. Only one of these 4 portal entities will be the animation holder.
 
-The animation holder portal contains:
+The animation of a portal cluster contains two parts: this-side animation and other-side animation.
 
-* A list of this-side animation drivers
-* A list of other-side animation drivers
-* A reference this-side portal state
-* A reference other-side portal state
-
-The animations of the two sides are separated. Each animation driver is separated from other animation drivers.
-
-In each frame, the animation holder portal will do animation update for both this-side and other-side. Each animation driver will apply its transform to the reference state, and then get the current portal state.
-
-Some animation drivers are time-limited and will be removed at some time. Some animation drivers are infinite and will keep running until you clear it.
+This-side animation can contain a list of animation drivers. In each frame, different animation driver will give the portal a transformation and their transformations can add up. The same applies to other-side animations.
 
 Currently, there are two kinds of animation drivers: The rotation animation and normal animation.
 
@@ -61,7 +52,7 @@ Currently, there are two kinds of animation drivers: The rotation animation and 
 
 You can use command `/portal animation rotate_infinitely ...` to make a portal to rotate infinitely along an axis around a point. There are other rotation animation commands.
 
-You can apply multiple rotation animations and they will add up.
+One portal can have multiple rotation animations at the same time and they will add up.
 
 ## Normal Animation
 
@@ -75,7 +66,7 @@ You can build a normal animation using `/portal animation build` command:
 4. Repeat step 2 and step 3 as you want.
 5. Use `/portal animation build finish` to finish building the animation and get a infinitely repeating animation. If you want the animation to repeat for 1 time, use `/portal animation build finish 1`.
 
-You can build multiple normal animations and their transformations will add up.
+One portal can have multiple normal animations at the same time and they will add up.
 
 ## Relative Teleportation
 
@@ -83,3 +74,19 @@ The custom animations (driven by animation drivers) allow relative teleportation
 
 In contrast, the default animation is visual-only and won't do relative teleportation.
 
+## Other Details
+
+A bi-way bi-faced portal is actually a portal cluster formed by 4 portal entities. Only one of these 4 portal entities will be the animation holder.
+
+The animation holder portal contains:
+
+* A list of this-side animation drivers
+* A list of other-side animation drivers
+* A reference this-side portal state
+* A reference other-side portal state
+
+The animations of the two sides are separated. Each animation driver is separated from other animation drivers.
+
+In each frame, the animation holder portal will do animation update for both this-side and other-side. Each animation driver will apply its transform to the reference state, and then get the current portal state.
+
+Some animation drivers are time-limited and will be removed at some time. Some animation drivers are infinite and will keep running until you clear it.

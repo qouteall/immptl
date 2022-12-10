@@ -28,7 +28,7 @@ This mod has special compatibility with Gravity Changer mod. With Gravity Change
 
 In 1.18.2 you can use [my fork of Gravity Changer](https://github.com/qouteall/GravityChanger/releases/tag/v0.3.1) .
 
-In 1.19.x, ImmPtl is compatible with [Gravity API](https://modrinth.com/mod/gravity-api) .
+In 1.19.x, ImmPtl is compatible with [Gravity API](https://www.curseforge.com/minecraft/mc-mods/gravityapi/files/4089787) .
 
 ## Scale Transformation
 

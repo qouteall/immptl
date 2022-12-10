@@ -366,27 +366,24 @@ Add this into `dependencies`
 
 ```
 // Dependency of Immersive Portals Core:
-modImplementation ('com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:v1.3.3-1.18'){
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:imm_ptl_core:v2.3.1-1.19'){
 	exclude(group: "net.fabricmc.fabric-api")
 	transitive(false)
 }
 
 // Dependency of the Miscellaneous Utility Library from qouteall
-modImplementation ('com.github.qouteall.ImmersivePortalsMod:q_misc_util:v1.3.3-1.18'){
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v2.3.1-1.19'){
 	exclude(group: "net.fabricmc.fabric-api")
 	transitive(false)
 }
 
-// If you want to make it jar-in-jar
-include ('com.github.qouteall.ImmersivePortalsMod:q_misc_util:v1.3.3-1.18')
-
 // If you want the outer Immersive Portals mod (This is usually not needed)
-modImplementation ('com.github.qouteall.ImmersivePortalsMod:build:v1.3.3-1.18'){
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:build:v2.3.1-1.19'){
 	exclude(group: "net.fabricmc.fabric-api")
 	transitive(false)
 }
 ```
-You should change the version `v1.3.3-1.18` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
+You should change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 

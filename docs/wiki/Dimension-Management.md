@@ -20,7 +20,7 @@ This mod provides 5 alternate dimensions for dimension stack:
 
 | Name     | Dimension id                 | Description                           |
 | -------- | ---------------------------- | ------------------------------------- |
-| Skyland1 | immersive_portals:alternate1 | Skyland                               |
+| Skyland1 | immersive_portals:alternate1 | Skyland, fully bright                 |
 | Skyland2 | immersive_portals:alternate2 | Skyland                               |
 | Chaos1   | immersive_portals:alternate3 | Full of crazy world generation errors |
 | Chaos2   | immersive_portals:alternate4 | Same as alternate3                    |

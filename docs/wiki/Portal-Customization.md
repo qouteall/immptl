@@ -75,14 +75,18 @@ There are some portal-targeted commands for managing portals. You need to point 
 
 [Portal Attributes](./Portal-Attributes)
 
-#### Don't use `/data` and `/tp` to portals!
+#### Edit Portals Using Command Blocks and Functions
+All portal targeted commands can be used by non-player command executors. If the command sender is a portal entity, the command will target that portal entity. For example `/execute as @e[type=immersive_portals:portal] run portal set_portal_destination minecraft:the_end 0 80 0`
+
+#### Don't Use `/data` and `/tp` to Portals!
 
 Don't use `/data` command to change the portal's NBT data because `/data` command will not synchronize the portal data to the client and start portal animation. It's recommended to use `/portal set_portal_nbt` command. If you really want to use `/data`, you need to use `/portal set_portal_nbt {}` after using `/data` to ensure that the portal data is synchronized to the client.
 
 Don't use `/tp` command to move the portal. Use `/portal set_portal_position` and `/portal set_portal_position_to` to move the portal. Using `/tp` will not keep the portal linked and will not trigger the default portal animation.
 
-#### Edit Portals Using Command Blocks and Functions
-All portal targeted commands can be used by non-player command executors. If the command sender is a portal entity, the command will target that portal entity. For example `/execute as @e[type=immersive_portals:portal] run portal set_portal_destination minecraft:the_end 0 80 0`
+### The Portal Orientation is Unrelated to the `Rotation` Tag
+
+The vanilla entity rotation only has 2 degrees of freedom, the head cannot "tilt". However, the portal can be in any orientation. It can be tilted. The portal's orientation is determined by the `axisW` and `axisH` tags, not the `Rotation` tag. Changing the vanilla rotation to a portal has no effect.
 
 ### Command Stick
 You can see the command sticks in the creative mode inventory's miscellaneous tab. Using a command stick to right-click can invoke a specific command.

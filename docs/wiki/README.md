@@ -12,7 +12,7 @@ Yes. The server and client must both install this mod. (This mod is not a plugin
 
 ### Sodium Compatibility?
 
-In MC 1.19, the latest version of ImmPtl is roughly compatible with Sodium 0.4.4. (There is no guarantee that future versions of Sodium will be compatible.)
+In MC 1.19.3, the latest version of ImmPtl is roughly compatible with Sodium 0.4.6. (There is no guarantee that future versions of Sodium will be compatible.)
 
 In MC 1.18.2, the latest version of ImmPtl is roughly compatible with Sodium 0.4.1.
 
@@ -42,7 +42,7 @@ If it shows "Memory not enough" warning, you can [allocate more RAM to Minecraft
 
 [Report Issues (Forge version)](https://github.com/iPortalTeam/ImmersivePortalsModForForge)
 
-This mod is very complex and is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. 
+This mod is very complex and the main part of the mod is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. 
 
 ### How to integrate with other mod's portals?
 

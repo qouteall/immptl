@@ -12,7 +12,7 @@ Yes. The server and client must both install this mod. (This mod is not a plugin
 
 ### Sodium Compatibility?
 
-In MC 1.19.3, the latest version of ImmPtl is roughly compatible with Sodium 0.4.6. (There is no guarantee that future versions of Sodium will be compatible.)
+In MC 1.19.x, Fabric will tell incompatibiltiy warning when you use an incompatible version.
 
 In MC 1.18.2, the latest version of ImmPtl is roughly compatible with Sodium 0.4.1.
 

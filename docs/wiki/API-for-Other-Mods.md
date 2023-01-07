@@ -42,7 +42,7 @@ In Mojang mapping, `DynamicRegistryManager` is `RegistryAccess`, `RegistryKey` i
 
 #### Dynamically Adding and Removing Dimensions
 
-The Dimension API supports dynamically adding and removing dimensions when the server is running. **This feature is still experimental.**
+The Dimension API supports dynamically adding and removing dimensions when the server is running. 
 
 Add a new dimension dynamically:
 
@@ -94,16 +94,42 @@ If you saved that dimension's configuration, you need to delete the configuratio
 DimensionAPI.deleteDimensionConfiguration(dimId);
 ```
 
+**NOTE: currently the saved extra dimension configurations won't be updated by DFU. It means that if that dimension's chunk generator uses vanilla data formats and the format changes, the dimension will fail to load. The world data of that dimension won't be lost.**
+
 #### Adding Dimensions During Server Initialization
 
-The utility library supports another way of adding dimensions other than using JSON files:
-
-* It does not require hardcoding things of your dimension. You can create the chunk generator at runtime. You can use configs to control whether to add the dimensions. It does not require hardcoding the seed.
-* It will show the warning screen ("worlds using experimental settings are not supported") when entering a world.
+The utility library supports another way of adding dimensions other than using JSON files. It does not require hardcoding things of your dimension. You can create the chunk generator at runtime. You can use configs to control whether to add the dimensions. It does not require hardcoding the seed.
 
 ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you need to keep the dimension type json and delete the dimension json. Then add the dimension in `DimensionAPI.serverDimensionsLoadEvent` using `DimensionAPI.addDimension`. (`DimensionAPI.addDimension` should not be used outside of the event.)
 
-##### In 1.18.2 and 1.19:
+##### In 1.19.3:
+
+```
+DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
+    Registry<DimensionOptions> registry = registryManager.get(RegistryKeys.DIMENSION);
+    
+    // get the dimension type
+    RegistryEntry<DimensionType> dimType = registryManager.get(Registry.DIMENSION_TYPE_KEY).getEntry(
+        RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier("namespace:dimension_type_id"))
+    ).orElseThrow(() -> new RuntimeException("Missing dimension type"));
+        
+    Identifier dimId = new Identifier("namespace:dimension_id");
+    
+    // get the biome registry for initializing the biome source
+    Registry<Biome> biomeRegistry = registryManager.get(Registry.BIOME_KEY);
+    BiomeSource biomeSource = new CustomBiomeSource(seed, biomeRegistry);
+        
+    // add the dimension
+    DimensionAPI.addDimension(
+        registry, dimId, dimType,
+        new CustomChunkGenerator()
+    );
+});
+```
+
+
+
+##### In 1.18.2 and 1.19.2:
 
 ```java
 DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {

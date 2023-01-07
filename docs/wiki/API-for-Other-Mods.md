@@ -14,7 +14,7 @@ Immersive Portals mod's API is now split across 2 mods, one is Immersive Portals
 
 `q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality.
 
-The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call API.
+The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
 
 If you have any issue using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/qouteall/ImmersivePortalsMod/discussions).
 
@@ -104,7 +104,7 @@ ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you 
 
 ##### In 1.19.3:
 
-```
+```java
 DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
     Registry<DimensionOptions> registry = registryManager.get(RegistryKeys.DIMENSION);
     
@@ -247,7 +247,7 @@ Using unsupported argument types will cause serialization/deserialization issues
 
 Example:
 
-```
+```java
 Portal portal = Portal.entityType.create(serverWorld);
 portal.setOriginPos(new Vec3d(0, 70, 0));
 portal.setDestinationDimension(World.NETHER);
@@ -297,7 +297,7 @@ Vanilla has the force-load functionality but it only loads the chunk and does no
 
 Example:
 
-```
+```java
 PortalAPI.addChunkLoaderForPlayer(
     serverPlayerEntity,
     new ChunkLoader(
@@ -336,6 +336,43 @@ That framebuffer will automatically be resized to be the same size as the game w
 Immersive Portals' datapack-custom-portal system allows converting a conventional portal (a portal that is similar to nether portal, for example the portal of Paradise Lost) to see-through when the player goes through the portal. That JSON file can be directly put into the mod jar. [Example in Paradise Lost mod](https://github.com/devs-immortal/Paradise-Lost/blob/1.18.2/src/main/resources/data/the_aether/custom_portal_generation/ip_aether_portal.json). If the mod author did not put the conversion generation file into the mod jar, you can also use your own datapack to add it.
 
 It converts when after the player goes through portal once. The portal is not converted when lighting the portal because ImmPtl didn't know how to select the destination and generate the frame, until the player goes through the portal once.
+
+## Configure Dependency
+
+In your `build.gradle`:
+
+Add this into `repositories`
+
+```
+maven { url 'https://jitpack.io' }
+```
+
+Add this into `dependencies`
+
+```
+// Dependency of Immersive Portals Core:
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:imm_ptl_core:v2.3.1-1.19'){
+	exclude(group: "net.fabricmc.fabric-api")
+	transitive(false)
+}
+
+// Dependency of the Miscellaneous Utility Library from qouteall
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v2.3.1-1.19'){
+	exclude(group: "net.fabricmc.fabric-api")
+	transitive(false)
+}
+
+// If you want the outer Immersive Portals mod (This is usually not needed)
+modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:build:v2.3.1-1.19'){
+	exclude(group: "net.fabricmc.fabric-api")
+	transitive(false)
+}
+```
+You should change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
+
+JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
+
+
 
 ## Mod Structure
 
@@ -377,39 +414,3 @@ The mod Immersive Portals has:
 * Dimension stack
 * Command stick
 * Portal helper
-
-## Configure Dependency
-
-In your `build.gradle`:
-
-Add this into `repositories`
-
-```
-maven { url 'https://jitpack.io' }
-```
-
-Add this into `dependencies`
-
-```
-// Dependency of Immersive Portals Core:
-modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:imm_ptl_core:v2.3.1-1.19'){
-	exclude(group: "net.fabricmc.fabric-api")
-	transitive(false)
-}
-
-// Dependency of the Miscellaneous Utility Library from qouteall
-modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v2.3.1-1.19'){
-	exclude(group: "net.fabricmc.fabric-api")
-	transitive(false)
-}
-
-// If you want the outer Immersive Portals mod (This is usually not needed)
-modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:build:v2.3.1-1.19'){
-	exclude(group: "net.fabricmc.fabric-api")
-	transitive(false)
-}
-```
-You should change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
-
-JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
-

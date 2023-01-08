@@ -212,6 +212,28 @@ Set the command in a specific index to the portal's command list. The index star
 
 Clears the portal's command list. Requires level-2 permission.
 
+### `/portal euler make_portal <originX> <originY> <originZ> <rotationX> <rotationY> <width> <height> <scale> <nbt>`
+
+Created a new portal with the specified position, rotation, size, scale transformation and nbt. The generated portal will point to 10 blocks above origin in the same dimension.
+
+The rotation is in euler angle (same as vanilla entity rotation). The Minecraft command system only works with 2-rotation Euler angles, which cannot express all orientations that a portal can have.
+
+This command requires level 2 permission.
+
+### `/portal euler set_rotation <rotationX> <rotationY>`
+
+Set the orientation using a Euler angle for the targeted portal.
+
+### `/portal euler set_this_side <originX> <originY> <originZ> <rotationX> <rotationY> <width> <height> <nbt>`
+
+Set the portal's position, orientation, size and nbt. The rotaion is in Euler angle.
+
+This command requires level 2 permission.
+
+### `/portal euler set_other_side <destinationX> <destinationY> <destinationZ> <rotationX> <rotationY>`
+
+Set the portal's destination and the corresponding other side's orientation using Euler angle.
+
 ---
 
 ## Global Portal Commands

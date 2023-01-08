@@ -36,11 +36,9 @@ If no dimension is flipped, this option will have no effect. The gravity changin
 
 This option can be either "Relative to World" or "Relative to View".
 
-1. If it's relative to world, the dimension connecting portal won't change your gravity. When entering a flipped dimension, your gravity relative to the world will not change **but the "viewing gravity" will change** and a rotation animation will perform. For example, if your gravity is downwards before, then after going into a flipped dimension your gravity will still be the same as the direction that water and lava flows down.
+1. If it's relative to world, the dimension connecting portal won't change your gravity. When entering a flipped dimension, your gravity relative to the world will not change **but the "viewing gravity" will change** and a rotation animation may perform. If your gravity is downwards before, then after going into a flipped dimension your gravity will still be the same as the direction that water and lava flows down.
 
 2. If it's relative to view, the dimension connecting portal will change your gravity. **The "viewing gravity" will not change** and it will not perform rotation animation. For example, if your gravity is downwards before, entering a flipped dimension will make your gravity upwards, which is the opposite of the direction that water and lava flows down, but you will see no "view rotation".
-
-It's sometimes confusing that not changing the view gravity means changing the gravity relative to world, and not changing the gravity relative to world means changing the view gravity.
 
 ### Per-Dimension Options
 

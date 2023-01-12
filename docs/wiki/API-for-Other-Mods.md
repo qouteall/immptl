@@ -275,7 +275,7 @@ To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal`
 
 #### About Rotations and Quaternions
 
-You can set the portal's rotating transformation by `setRotationTransformation()` . The rotation transformation is represented using quaternion. There is a vanilla quaternion class `net.minecraft.util.math.Quaternion` and ImmPtl's quaternion class `DQuaternion`. The vanilla quaternion uses float and is mutable. `DQuaternion` uses double and is immutable.
+You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. There is a vanilla quaternion class `net.minecraft.util.math.Quaternion` and ImmPtl's quaternion class `DQuaternion`. The vanilla quaternion uses float and is mutable. `DQuaternion` uses double and is immutable.
 
 A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0,1,0),45).toMcQuaternion()` . 
 

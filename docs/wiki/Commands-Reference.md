@@ -212,6 +212,12 @@ Set the command in a specific index to the portal's command list. The index star
 
 Clears the portal's command list. Requires level-2 permission.
 
+### `/portal rotate_portals_around <portals> <originX> <originY> <originZ> <axisX> <axisY> <axisZ> <angle>`
+
+Rotates some portals around a position along an axis.
+
+As the default animation moves in straight line, the rotation animation won't be perfect. It's recommended to use `/portal animation rotate_portals` command if you want rotation animation.
+
 ### `/portal euler make_portal <originX> <originY> <originZ> <rotationX> <rotationY> <width> <height> <scale> <nbt>`
 
 Created a new portal with the specified position, rotation, size, scale transformation and nbt. The generated portal will point to 10 blocks above origin in the same dimension.

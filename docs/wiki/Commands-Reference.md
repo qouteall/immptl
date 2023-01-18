@@ -32,7 +32,7 @@ Move the portal's destination by a vector in the other side's coordinate.
 ## Manage the Portal
 
 ### `/portal set_portal_nbt <nbt>`
-Set the portal's NBT data. [Portal NBT Data Format](./Portal-Attributes)
+Set the portal's NBT data. [Portal NBT Data Format](./Portal-Attributes.html)
 
 ### `/portal nbt <nbt>`
 
@@ -60,7 +60,7 @@ Move the portal by a vector in the portal orientation coordinate. For example, `
 
 ## Portal Cluster Management
 
-[How this mod manage bi-way and bi-faced portals](./Portal-Customization#1-nether-portal--4-portal-entities)
+[How this mod manage bi-way and bi-faced portals](./Portal-Customization.html#_1-nether-portal-4-portal-entities)
 
 ### `/portal complete_bi_way_portal`
 Create a new portal entity to make the portal bi-way. Duplicated portals will be removed.

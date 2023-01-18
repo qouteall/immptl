@@ -78,7 +78,7 @@ When placing the scale box, the face that you are pointing and your position wil
 
 ### Scale and Gravity Transformation
 
-You can use the manipulation wand to change whether the scale box transforms scale and gravity during teleportation. The scale change requires Pehkui mod. The gravity change requires Gravity API mod. [See Spacial Transformation](./Spatial-Transformati).
+You can use the manipulation wand to change whether the scale box transforms scale and gravity during teleportation. The scale change requires Pehkui mod. The gravity change requires Gravity API mod. [See Spacial Transformation](./Spatial-Transformation.html).
 
 ### Other Tips
 

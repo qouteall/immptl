@@ -50,7 +50,7 @@ You can use [datapack](./Datapack-Based-Custom-Portal-Generation#convert_vanilla
 
 ### How to make portal helper craft-able in survival?
 
-You can make other blocks to behave like portal helper. [Check this](./Portal-Customization#how-to-use-similar-functionality-in-survival-mode)
+You can make other blocks to behave like portal helper. [Check this](./Portal-Customization.html#how-to-use-similar-functionality-in-survival-mode)
 
 ### The nether portal is not see-through.
 

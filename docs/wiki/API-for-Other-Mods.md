@@ -337,7 +337,7 @@ Immersive Portals' datapack-custom-portal system allows converting a conventiona
 
 It converts when after the player goes through portal once. The portal is not converted when lighting the portal because ImmPtl didn't know how to select the destination and generate the frame, until the player goes through the portal once.
 
-## Configure Dependency
+## Configure Dependency (in Fabric)
 
 In your `build.gradle`:
 

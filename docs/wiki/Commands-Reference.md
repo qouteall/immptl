@@ -34,6 +34,10 @@ Move the portal's destination by a vector in the other side's coordinate.
 ### `/portal set_portal_nbt <nbt>`
 Set the portal's NBT data. [Portal NBT Data Format](./Portal-Attributes)
 
+### `/portal nbt <nbt>`
+
+Same as `/portal set_portal_nbt` but shorter.
+
 ### `/portal view_portal_data`
 View the portal's NBT data.
 
@@ -140,6 +144,18 @@ Pause the animation for the targeted portal.
 
 Resume the animation for the targeted portal.
 
+### `/portal animation view`
+
+View the animation data.
+
+### `/portal animation remove_at <index>`
+
+Remove a this-side animation driver in the specific index. The index starts from 0.
+
+### `/portal animation remove_last`
+
+Remove the last this-side animation driver.
+
 ### `/portal animation all_pause`
 
 Pause the animation for all the portals in the current dimension. Not a portal-targeted command.
@@ -168,13 +184,17 @@ Make the portal to be small and gradually expand from center.
 
 Start building a normal animation. Pause the portal animation.
 
-### `/portal animation build append_phase <durationTicks>`
+### `/portal animation build append_phase <durationTicks> [timingFunction]`
 
-Append a phase to the normal animation.
+Append a phase to the normal animation. The timing function can be either `linear`, `sine` or `circle` (The "circle" means the function graph is 1/4 of a circle. It only affects speed and doesn't affect the animation trajectory.).
 
 ### `/portal animation build finish [repeatCount]`
 
 Finish building the normal animation that repeats for a number of times. If `repeatCount` is missing, it will be an infinite animation.
+
+### `/portal animation build jump_to_phase <index>`
+
+Adjust the beginning time of the normal animation to jump to one phase. This command can be used after finishing building the animation. If it's used after finishing building the animation, it will target the last animaion.
 
 ## Other
 

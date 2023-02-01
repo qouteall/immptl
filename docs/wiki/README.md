@@ -20,6 +20,10 @@ In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Sodium 0.3
 
 In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases).
 
+### Iris Compatibility?
+
+In 1.19.2, this mod is only compatible with Iris 1.4.0.
+
 ### Mod Compatibility?
 
 **Immersive Portals mod is incompatible with a lot of mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** It's not recommended to use this mod in a large modpack unless you tested compatibility well. The small mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.

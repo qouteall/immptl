@@ -22,6 +22,8 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 ### Iris Compatibility?
 
+In 1.19.3, Fabric will tell incompatibiltiy warning when you use an incompatible version.
+
 In 1.19.2, this mod is only compatible with Iris 1.4.0.
 
 ### Mod Compatibility?

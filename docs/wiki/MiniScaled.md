@@ -74,7 +74,7 @@ You can place a scale box with rotations:
 
 ![](./scale_box_rotations.png)
 
-When placing the scale box, the face that you are pointing and your position will determine its rotation.
+When placing the scale box, the face that you are placing on and your position will determine its rotation.
 
 ### Scale and Gravity Transformation
 

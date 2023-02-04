@@ -238,6 +238,20 @@ Rotates some portals around a position along an axis.
 
 As the default animation moves in straight line, the rotation animation won't be perfect. It's recommended to use `/portal animation rotate_portals` command if you want rotation animation.
 
+### `/portal scale_portals_relative_to_point <portals> <portals> <originX> <originY> <originZ> <scale>`
+
+Scale the portals relative to one point.
+
+### `/portal turn_info_fake_enterable_mirror`
+
+You cannot go into a mirror, because after going into a mirror, the player should get mirrored. Currently there is no mod that provides the functionality of mirroring the player (imagine that the right hand appear on the left and turning right actually turns left).
+
+However, you can make a mirror fake-enterable, by using invisible portals. You need to make two symmetrical places each with a mirror, then put an invisible portal a little bit in front of the mirror.
+
+This command will turn a normal portal into a fake-enterable mirror. After using this command, you have to manually make the two sides symmetric. When removing that mirror, you also need to remove the two invisible portal entities.
+
+This command targets normal portals, not mirrors. The targeted portal should not have scaling transformation. This command can handle rotation transformation.
+
 ### `/portal euler make_portal <originX> <originY> <originZ> <rotationX> <rotationY> <width> <height> <scale> <nbt>`
 
 Created a new portal with the specified position, rotation, size, scale transformation and nbt. The generated portal will point to 10 blocks above origin in the same dimension.
@@ -366,6 +380,10 @@ Create some rooms near you and generate portals to connect these rooms. The room
 ### `/portal create_cube_surface_unwrapping <x1> <y1> <z1> <x2> <y2> <z2> <length>`
 
 By specifying a cube area and a length, it creates portals to "unwrap" the cube surface into a infinitely expanding plane. 
+
+### `/portal create_diagonal_portal <x1> <y1> <z1> <x2> <y2> <z2> <axis>`
+
+Create a bi-faced diagonal portal following the box region. The axis determines which direction will the portal align with box edge. In the faces that are perpendicular to the axis, the portal follows the diagonal line of the face.
 
 ---
 

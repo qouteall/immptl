@@ -12,13 +12,13 @@ The Fabric version of Immersive Portals mod contains some API for other mods to 
 
 Immersive Portals mod's API is now split across 2 mods, one is Immersive Portals Core (`imm_ptl_core`), the other is the Miscellaneous Utility Library from qouteall (`q_misc_util`).
 
-`q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality.
+`q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality. The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
 
-The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
+Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by default. 
 
 If you have any issue using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/qouteall/ImmersivePortalsMod/discussions).
 
-Example: [MiniScaled mod](https://github.com/qouteall/MiniScaledMod) uses ImmPtl API.
+Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use ImmPtl API.
 
 ## The Miscellaneous Utility API (`q_misc_util`)
 

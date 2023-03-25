@@ -20,15 +20,9 @@ In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Sodium 0.3
 
 In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases).
 
-### Iris Compatibility?
-
-In 1.19.3, Fabric will tell incompatibiltiy warning when you use an incompatible version.
-
-In 1.19.2, this mod is only compatible with Iris 1.4.0.
-
 ### Mod Compatibility?
 
-**Immersive Portals mod is incompatible with a lot of mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** It's not recommended to use this mod in a large modpack unless you tested compatibility well. The small mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.
+**Immersive Portals mod is incompatible with some mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** The small mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.
 
 **Any mod compatibility issue is NOT intentional.** The compatibility issues come from how the computer program works. If a mod is programmed upon the fact that only one dimension is loaded at client, that mod will break with ImmPtl.
 
@@ -48,7 +42,7 @@ If it shows "Memory not enough" warning, you can [allocate more RAM to Minecraft
 
 [Report Issues (Forge version)](https://github.com/iPortalTeam/ImmersivePortalsModForForge)
 
-This mod is very complex and the main part of the mod is only mainly developed by one person at spare time. Expect it to have some issues. But I will try to fix severe issues quickly. 
+This mod is very complex and the core part of the mod is only mainly developed by one person at spare time. Expect it to be imperfect.
 
 ### How to integrate with other mod's portals?
 

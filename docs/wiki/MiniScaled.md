@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 17
 ---
 
 
@@ -10,7 +10,9 @@ MiniScaled is a Fabric mod that provides easy-usable scale boxes using Immersive
 
 ![miniscaled1.png](https://i.loli.net/2021/09/30/J9bBF82tRu5yIkW.png)
 
-[Download Below](#download)   [Or Download from CurseForge](https://www.curseforge.com/minecraft/mc-mods/miniscaled)
+[Download Below](#download)
+
+[Download from CurseForge](https://www.curseforge.com/minecraft/mc-mods/miniscaled)
 
 ## How to Use
 
@@ -92,7 +94,9 @@ You can access the config by mod menu or directly edit `config/mini_scaled.json`
 
 ## Download
 
+Download from GitHub releases:
+
 <ClientOnly>
 <ModDownload
-    github_repo="qouteall/MiniScaledMod"
+    github_repo="iPortalTeam/MiniScaledMod"
     :locale_text="{download:'Download', preRelease:'Pre-Release', publishTime:'Publish time'}"></ModDownload></ClientOnly>

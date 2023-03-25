@@ -251,6 +251,8 @@ Checks every tick for the item entity that cannot be instantly picked up. (When 
 
 It will be triggered when the player experiences conventional dimension travel (with loading screen), for example going through a vanilla nether portal. This is useful for converting other mod's portal.
 
+**This only works for the portals that are similar to nether portal**, such as the Lost Paradise (Aether) portal. "Similar to nether portal" means that the two side's portal block structure are composed by inner portal blocks and outer frame blocks.
+
 ## Other Examples
 
 One-way end portal using bedrock as frame.

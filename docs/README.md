@@ -2,7 +2,7 @@
 toc: false
 ---
 
-<div style="font-size:2.5em;display:flex;align-items:center"><figure><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.3em"></figure>     Immersive Portals</div>
+<div style="font-size:2.5em;display:flex;align-items:center"><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.5em">Immersive Portals</div>
 
 An open-source Minecraft mod that provides see-through portals and seamless teleportation.
 

@@ -2,7 +2,7 @@
 toc: false
 ---
 
-<div style="font-size:2.5em;display:flex;align-items:center;"><figure><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.3em;margin-right:0.7em"></figure>     沉浸传送门</div>
+<div style="font-size:2.5em;display:flex;align-items:center"><img src="/images/immptl.png" style="width:2em;height:2em;margin:0.5em">沉浸传送门</div>
 
 沉浸传送门(Immersive Portals)是一个针对我的世界(Minecraft)的模组，实现透视传送门并无缝传送。
 

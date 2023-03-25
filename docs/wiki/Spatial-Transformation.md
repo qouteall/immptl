@@ -50,4 +50,4 @@ This mod has special compatibility with [Pehkui mod](https://www.curseforge.com/
 
 Mirrors do not allow teleportation. Because when the player goes into a mirror, the player itself should get mirrored. Currently there is no mod that provides the functionality of mirroring the player (imagine that the right hand appear on the left and turning right actually turns left).
 
-However, you can create a fake-enterable mirror, by using command `/portal turn_into_fake_enterable_mirror` on a normal portal.
+However, you can create a fake-enterable mirror, by using command `/portal turn_into_fake_enterable_mirror` on a normal portal. [Details about that command](./Commands-Reference.html#portal-turn-info-fake-enterable-mirror).

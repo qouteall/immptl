@@ -22,7 +22,7 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 ### Mod Compatibility?
 
-**Immersive Portals mod is incompatible with some mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** The small mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.
+**Immersive Portals mod is incompatible with some mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** The mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.
 
 **Any mod compatibility issue is NOT intentional.** The compatibility issues come from how the computer program works. If a mod is programmed upon the fact that only one dimension is loaded at client, that mod will break with ImmPtl.
 
@@ -30,11 +30,9 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 ### Will the portal impact performance?
 
-Yes. Portals will make the game load more chunks and render more things, it will definitely impact performance, especially with dimension stack, although ImmPtl already have some optimizations to mitigate the performance impact.
+Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make it compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above).
 
-You can use Sodium (but not all Sodium versions are compatible with ImmPtl, see the above).
-
-If it shows "Memory not enough" warning, you can [allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html).
+It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes it will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
 
 ### Where to report bugs or compatibility issues?
 
@@ -42,7 +40,7 @@ If it shows "Memory not enough" warning, you can [allocate more RAM to Minecraft
 
 [Report Issues (Forge version)](https://github.com/iPortalTeam/ImmersivePortalsModForForge)
 
-This mod is very complex and the core part of the mod is only mainly developed by one person at spare time. Expect it to be imperfect.
+**This mod is very complex and the core part of the mod is only mainly developed by only one person at spare time for free. Expect it to be imperfect.**
 
 ### How to integrate with other mod's portals?
 

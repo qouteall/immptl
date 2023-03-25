@@ -6,7 +6,7 @@ Download from GitHub releases:
 
 <ClientOnly>
 <ModDownload
-    github_repo="iPortal/ImmersivePortalsMod"
+    github_repo="iPortalTeam/ImmersivePortalsMod"
     :locale_text="{download:'Download', preRelease:'Pre-Release', publishTime:'Publish time'}"></ModDownload></ClientOnly>
 
 Or [download from CurseForge](https://www.curseforge.com/minecraft/mc-mods/immersive-portals-mod) or [download from Modrinth](https://modrinth.com/mod/immersiveportals)

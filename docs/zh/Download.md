@@ -4,7 +4,7 @@
 
 <ClientOnly>
 <ModDownload
-    github_repo="qouteall/ImmersivePortalsMod"
+    github_repo="iPortalTeam/ImmersivePortalsMod"
     :locale_text="{download:'下载', preRelease:'预览版', publishTime:'发布时间'}"></ModDownload></ClientOnly>
 
 或[从CurseForge上下载](https://www.curseforge.com/minecraft/mc-mods/immersive-portals-mod) 或 [从Modrinth上下载](https://modrinth.com/mod/immersiveportals)

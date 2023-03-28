@@ -44,7 +44,9 @@ This option can be either "Relative to World" or "Relative to View".
 
 By clicking "Edit" you can edit the selected dimension entry's options:
 
-![](https://s2.loli.net/2021/12/31/9VBFmxTPLn17oRK.png)
+![2023-03-28_21.35.27](./dim_stack_edit.png)
+
+
 
 #### Scale
 
@@ -77,6 +79,10 @@ If Bottom Y is left empty, it will use the dimension type's `min_y` property. If
 #### Bedrock Replacement
 
 Specify a block that the bedrock will be replaced into. If empty, the bedrock will not be replaced.
+
+#### Connects Previous, Connects Next
+
+By disabling it, a specific portal will be removed from the dimension stack.
 
 ### Re-configure Dimension Stack Using the Command
 

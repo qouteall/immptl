@@ -10,9 +10,14 @@ The Fabric version of Immersive Portals mod contains some API for other mods to 
 
 ## API Overview
 
-Immersive Portals mod's API is now split across 2 mods, one is Immersive Portals Core (`imm_ptl_core`), the other is the Miscellaneous Utility Library from qouteall (`q_misc_util`).
+Immersive Portals mod's API is now split across 2 mods:
 
-`q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality. The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
+* Immersive Portals Core (`imm_ptl_core`) 
+* qouteall's Miscellaneous Utility Library (`q_misc_util`)
+
+`q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality.
+
+The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
 
 Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by default. 
 
@@ -102,7 +107,7 @@ The utility library supports another way of adding dimensions other than using J
 
 ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you need to keep the dimension type json and delete the dimension json. Then add the dimension in `DimensionAPI.serverDimensionsLoadEvent` using `DimensionAPI.addDimension`. (`DimensionAPI.addDimension` should not be used outside of the event.)
 
-##### In 1.19.3:
+##### In 1.19.3 and 1.19.4:
 
 ```java
 DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
@@ -127,7 +132,11 @@ DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManag
 });
 ```
 
+To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable. For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
 
+```java
+LifecycleHack.markNamespaceStable("aaa");
+```
 
 ##### In 1.18.2 and 1.19.2:
 
@@ -155,12 +164,6 @@ DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManag
     // mark it non-persistent so it won't be saved into level.dat. (This is not needed in 1.19)
     DimensionAPI.markDimensionNonPersistent(dimId);
 });
-```
-
-To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable. For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
-
-```java
-LifecycleHack.markNamespaceStable("aaa");
 ```
 
 ##### In 1.17.1 and 1.18.1:
@@ -275,9 +278,9 @@ To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal`
 
 #### About Rotations and Quaternions
 
-You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. There is a vanilla quaternion class `net.minecraft.util.math.Quaternion` and ImmPtl's quaternion class `DQuaternion`. The vanilla quaternion uses float and is mutable. `DQuaternion` uses double and is immutable.
+You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. ImmPtl uess its own `DQuaternion` which is immutable.
 
-A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0,1,0),45).toMcQuaternion()` . 
+A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0, 1, 0), 45).toMcQuaternion()` . 
 
 About quaternions, you just need to know these: 
 
@@ -289,7 +292,7 @@ About quaternions, you just need to know these:
 
 Quaternion can not only represent a rotating process, it can also represent an orientation.  You can manipulate portal orientation by `PortalAPI.getPortalOrientationQuaternion` and `PortalAPI.setPortalOrientationQuaternion` .
 
-ImmPtl does not use Euler angle for rotation because Euler angle requires handling many edge cases and is more complex.
+ImmPtl does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
 
 ### Chunk Loading API
 
@@ -368,49 +371,16 @@ modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:build:v2.3.1-1.19
 	transitive(false)
 }
 ```
-You should change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
+You need to change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 
+## Add Mixin Extras
 
+**Starting from MC 1.19.4, ImmPtl depends on [MixinExtras](https://github.com/LlamaLad7/MixinExtras).** MixinExtras is an extension for Mixin that provide ways to transform game code in more flexible and more mod-compatible ways. You need to add MixinExtras in `dependencies`:
 
-## Mod Structure
+```
+api("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
+annotationProcessor("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
+```
 
-This mod (Fabric version)'s mod id is `immersive_portals`. It has 3 mods jar-in-jar.
-
-* Immersive Portals Core (modid:`imm_ptl_core`)
-* Miscellaneous Utility from qouteall (modid:`q_misc_util`)
-* Cloth Config (for config GUI)
-
-
-
-The Immersive Portals Core contains the core portal functionality:
-
-* Recursive portal rendering
-* Client multi-world loading
-* Server-side remote chunk loading
-* Remote chunk/entity networking synchronization
-* Client dimension transition without loading screen and multi-dimensional position synchronization
-* Global portal management
-* Cross portal block interaction, cross portal sound
-* Cross portal entity rendering
-* Cross portal collision handling
-* Datapack-based custom portal generation (and general breakable portal)
-* GUI portal rendering
-* Integration with Pehkui, Sodium, Iris
-
-The Core registers portal entity types and portal placeholder block. The Core (hopefully) does not change existing vanilla behavior.
-
-The mod `q_misc_util` has:
-
-* Dimension API and Dynamic Dimension Management
-* Remote procedure call
-
-The mod Immersive Portals has:
-
-* Enhanced nether portals
-* Enhanced end portal
-* Alternate dimensions
-* Dimension stack
-* Command stick
-* Portal helper

@@ -375,7 +375,7 @@ You need to change the version `v2.3.1-1.19` to the latest version. See [Jitpack
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 
-## Add Mixin Extras
+### Add Mixin Extras
 
 **Starting from MC 1.19.4, ImmPtl depends on [MixinExtras](https://github.com/LlamaLad7/MixinExtras).** MixinExtras is an extension for Mixin that provide ways to transform game code in more flexible and more mod-compatible ways. You need to add MixinExtras in `dependencies`:
 

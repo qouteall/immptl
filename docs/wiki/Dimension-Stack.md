@@ -16,9 +16,9 @@ Use [vertical connecting portals](./Portals#vertical-dimension-connecting-portal
 
 
 
-You can see the "Dimension Stack" button when creating a new world.
+When creating a new world, you can see the "Dimension Stack" button in the "More" tab.
 
-![](https://i.loli.net/2021/11/20/helqg7vkcdML5n3.png)
+![](./dim_stack_button_1_19_4.png)
 
 ![](./dim_stack_gui.png)
 

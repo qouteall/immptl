@@ -12,7 +12,7 @@ In Fabric version, you can access the config GUI via the mod menu (mod menu is p
 
 You can also access the config GUI by using command `/imm_ptl_client_debug config` in game (this does not require the mod menu).
 
-The config file is `/config/immersive_portals_fabric.json` (the config file includes both client and server configs).
+The config file is `/config/immersive_portals.json` (the config file includes both client and server configs).
 
 ## Client-Side Performance Configurations
 

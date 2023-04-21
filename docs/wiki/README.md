@@ -30,7 +30,7 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 ### Will the portal impact performance?
 
-Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make it compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above).
+Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above). You can install Sodium and Starlight to improve performance.
 
 It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes it will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
 

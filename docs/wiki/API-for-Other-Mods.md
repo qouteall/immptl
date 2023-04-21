@@ -25,6 +25,100 @@ If you have any issue using the API, you can contact qouteall via [discord](http
 
 Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use ImmPtl API.
 
+
+
+## Immersive Portals API (`imm_ptl_core`)
+
+### Create a Portal
+
+Example:
+
+```java
+Portal portal = Portal.entityType.create(serverWorld);
+portal.setOriginPos(new Vec3d(0, 70, 0));
+portal.setDestinationDimension(World.NETHER);
+portal.setDestination(new Vec3d(100, 70, 100));
+portal.setOrientationAndSize(
+    new Vec3d(1, 0, 0), // axisW
+    new Vec3d(0, 1, 0), // axisH
+    4, // width
+    4 // height
+);
+portal.world.spawnEntity(portal);
+```
+
+The portal can face any rotation, be anywhere, point to any position in any dimension.
+
+It's recommended to check [Portal Attributes](./Portal-Attributes) .
+
+![](https://i.loli.net/2021/11/20/XbnLyzM2pWOEIwl.png)
+
+`axisW` and `axisH` are unit vectors and should be perpendicular to each other. The portal orientation has nothing to do with pitch and yaw (because pitch and yaw cannot represent tilted rotations).
+
+**If the portal attribute gets changed on the server side after the portal has spawned, call `portal.reloadAndSyncToClient()` to sync the changes to client.**
+
+To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal` `PortalAPI.createFlippedPortal` . [How bi-way portals and bi-faced portals are organized](./Portal-Customization#1-nether-portal--4-portal-entities)
+
+#### About Rotations and Quaternions
+
+You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. ImmPtl uess its own `DQuaternion` which is immutable.
+
+A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0, 1, 0), 45).toMcQuaternion()` . 
+
+About quaternions, you just need to know these: 
+
+* A quaternion can be seen as a unit 4D vector. If the 4D vector is not unit-length, it will not be a valid rotation. 
+* Hamilton product combines two rotating transformations. `a.hamiltonProduct(b)` gives the rotation that firstly apply `b` and then `a` . The sequence matters.
+* Conjugate means getting the inverse rotation.
+* Having the 4 numbers negated does not change the corresponding rotation. 
+* The quaternion can be interpolated on the 4D sphere surface.
+
+Quaternion can not only represent a rotating process, it can also represent an orientation.  You can manipulate portal orientation by `PortalAPI.getPortalOrientationQuaternion` and `PortalAPI.setPortalOrientationQuaternion` .
+
+ImmPtl does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
+
+### Chunk Loading API
+
+Vanilla has the force-load functionality but it only loads the chunk and does not synchronize the chunk to player client. This mod supports loading chunks and synchronize the chunk (blocks, entities, etc.) to the specific player.
+
+Example:
+
+```java
+PortalAPI.addChunkLoaderForPlayer(
+    serverPlayerEntity,
+    new ChunkLoader(
+        new DimensionalChunkPos(
+            World.OVERWORLD,
+            100, // chunk x
+            100 // chunk z
+        ),
+        3 // radius in chunks
+    )
+);
+```
+
+Call `removeChunkLoaderForPlayer` when you want to unload.
+
+### Access Multiple Client Worlds
+
+This mod eliminates the limitation that only one dimension can be loaded on client at the same time. If you want to get the nether world, use `ClientWorldLoader.getWorld(World.NETHER)` . The client world will be created when it's used at the first time.
+
+If the client experiences conventional dimension change (with loading screen) then all worlds will be unloaded and recreated later.
+
+### GUI Portal
+
+Use ` GuiPortalRendering.submitNextFrameRendering(worldRenderInfo, frameBuffer)` to ask it to render the world into the framebuffer in the next frame. The rendered dimension, position, camera transformation can be specified in the `WorldRenderInfo`.
+
+That framebuffer will automatically be resized to be the same size as the game window.
+
+[Example](https://github.com/qouteall/ImmersivePortalsMod/blob/1.18/imm_ptl_core/src/main/java/qouteall/imm_ptl/core/api/example/ExampleGuiPortalRendering.java)
+
+![](https://i.loli.net/2021/06/07/AKBYLdxikuEUR6o.png)
+
+
+
+
+
 ## The Miscellaneous Utility API (`q_misc_util`)
 
 ### Dimension API
@@ -243,94 +337,6 @@ The supported argument types are
 * `Identifier`, `RegistryKey<World>`, `RegistryKey<Biome>`, `BlockPos`, `Vec3d`, `UUID`, `Block`, `Item`, `BlockState`, `ItemStack`, `CompoundTag`, `Text`
 
 Using unsupported argument types will cause serialization/deserialization issues.
-
-## Immersive Portals API (`imm_ptl_core`)
-
-### Create a Portal
-
-Example:
-
-```java
-Portal portal = Portal.entityType.create(serverWorld);
-portal.setOriginPos(new Vec3d(0, 70, 0));
-portal.setDestinationDimension(World.NETHER);
-portal.setDestination(new Vec3d(100, 70, 100));
-portal.setOrientationAndSize(
-    new Vec3d(1, 0, 0), // axisW
-    new Vec3d(0, 1, 0), // axisH
-    4, // width
-    4 // height
-);
-portal.world.spawnEntity(portal);
-```
-
-The portal can face any rotation, be anywhere, point to any position in any dimension.
-
-It's recommended to check [Portal Attributes](./Portal-Attributes) .
-
-![](https://i.loli.net/2021/11/20/XbnLyzM2pWOEIwl.png)
-
-`axisW` and `axisH` are unit vectors and should be perpendicular to each other. The portal orientation has nothing to do with pitch and yaw (because pitch and yaw cannot represent tilted rotations).
-
-If the portal attribute gets changed on the server side after the portal has spawned, call `reloadAndSyncToClient` to sync the changes to client.
-
-To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal` `PortalAPI.createFlippedPortal` . [How bi-way portals and bi-faced portals are organized](./Portal-Customization#1-nether-portal--4-portal-entities)
-
-#### About Rotations and Quaternions
-
-You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. ImmPtl uess its own `DQuaternion` which is immutable.
-
-A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0, 1, 0), 45).toMcQuaternion()` . 
-
-About quaternions, you just need to know these: 
-
-* A quaternion can be seen as a unit 4D vector. If the 4D vector is not unit-length, it will not be a valid rotation. 
-* Hamilton product combines two rotating transformations. `a.hamiltonProduct(b)` gives the rotation that firstly apply `b` and then `a` . The sequence matters.
-* Conjugate means getting the inverse rotation.
-* Having the 4 numbers negated does not change the corresponding rotation. 
-* The quaternion can be interpolated on the 4D sphere surface.
-
-Quaternion can not only represent a rotating process, it can also represent an orientation.  You can manipulate portal orientation by `PortalAPI.getPortalOrientationQuaternion` and `PortalAPI.setPortalOrientationQuaternion` .
-
-ImmPtl does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
-
-### Chunk Loading API
-
-Vanilla has the force-load functionality but it only loads the chunk and does not synchronize the chunk to player client. This mod supports loading chunks and synchronize the chunk (blocks, entities, etc.) to the specific player.
-
-Example:
-
-```java
-PortalAPI.addChunkLoaderForPlayer(
-    serverPlayerEntity,
-    new ChunkLoader(
-        new DimensionalChunkPos(
-            World.OVERWORLD,
-            100, // chunk x
-            100 // chunk z
-        ),
-        3 // radius in chunks
-    )
-);
-```
-
-Call `removeChunkLoaderForPlayer` when you want to unload.
-
-### Access Multiple Client Worlds
-
-This mod eliminates the limitation that only one dimension can be loaded on client at the same time. If you want to get the nether world, use `ClientWorldLoader.getWorld(World.NETHER)` . The client world will be created when it's used at the first time.
-
-If the client experiences conventional dimension change (with loading screen) then all worlds will be unloaded and recreated later.
-
-### GUI Portal
-
-Use ` GuiPortalRendering.submitNextFrameRendering(worldRenderInfo, frameBuffer)` to ask it to render the world into the framebuffer in the next frame. The rendered dimension, position, camera transformation can be specified in the `WorldRenderInfo`.
-
-That framebuffer will automatically be resized to be the same size as the game window.
-
-[Example](https://github.com/qouteall/ImmersivePortalsMod/blob/1.18/imm_ptl_core/src/main/java/qouteall/imm_ptl/core/api/example/ExampleGuiPortalRendering.java)
-
-![](https://i.loli.net/2021/06/07/AKBYLdxikuEUR6o.png)
 
 
 

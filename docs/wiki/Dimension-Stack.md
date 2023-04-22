@@ -32,7 +32,7 @@ A dimension can appear multiple times in the list. For example:
 
 In this example, the overworld appears twice. In this case, the end's floor will have a one-way portal that points to overworld. At the same time, the void, overworld and the nether are stacked normally.
 
-One dimension cannot have two connections on floor or ceiling. If such conflict exists, the arrow will be in red.
+One dimension cannot hold two connections on its floor. Same for ceiling. If such conflict exists, the arrow will be in red.
 
 ### Per-Dimension Options
 

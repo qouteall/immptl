@@ -14,6 +14,8 @@ MiniScaled is a Fabric mod that provides easy-usable scale boxes using Immersive
 
 [Download from CurseForge](https://www.curseforge.com/minecraft/mc-mods/miniscaled)
 
+[Download from Modrinth](https://modrinth.com/mod/miniscaled)
+
 ## How to Use
 
 (This describes the latest version of MiniScaled)
@@ -30,7 +32,7 @@ In creative mode, you can get scale box entrances and the scale box manipulation
 
 ### How the Entrance Works
 
-The actual scale box is in another dimension (`mini_scaled:void`). The scale boxes are discriminated by its color, size and owner. (You can enter a scale box owned by other players.)
+The actual scale box is in another dimension (`mini_scaled:void`). The scale boxes are discriminated by its color, size and owner. (You can enter a scale box owned by other players, unless access control is enabled.)
 
 The scale box entrance item is just an entrance and does not hold the actual scale box. If you lose your entrance item, you can create another entrance with the same size and color.
 
@@ -53,6 +55,7 @@ When creating an entrance, you will be also given a scale box manipulation wand.
 * Shrink
 * Toggle gravity change
 * Toggle scale change
+* Toggle access control
 
 ### Expanding and Shrinking the Scale Box
 
@@ -81,6 +84,14 @@ When placing the scale box, the face that you are placing on and your position w
 ### Scale and Gravity Transformation
 
 You can use the manipulation wand to change whether the scale box transforms scale and gravity during teleportation. The scale change requires Pehkui mod. The gravity change requires Gravity API mod. [See Spacial Transformation](./Spatial-Transformation.html).
+
+### Access Control
+
+The manipulation wand can change the access control mode of a scale box. If access control is enabled, only the owner can enter the scale box, place the scale box and interact with the scale box.
+
+Other players can still break a scale box with access control (enabling access control does not turn scale box into bedrock).
+
+Note: After enabling access control, other players cannot go into the scale box via the portal, but they can still enter the scale box by other methods, such as `/tp` command, or setting spawnpoint inside the scale box before access control is enabled.
 
 ### Other Tips
 

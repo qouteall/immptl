@@ -24,6 +24,8 @@ In survival mode, the crafting recipe is:
 
 Use left click to put blue portal, use right click to put orange portal. **The portal can link to any place in any dimension**. The portal gun can shoot through portals.
 
+Each player's portal does not interfere with other players'.
+
 ## Download
 
 Download from GitHub releases:

@@ -26,6 +26,10 @@ Use left click to put blue portal, use right click to put orange portal. **The p
 
 Each player's portal does not interfere with other players'.
 
+#### Make the portal gun to only work on some blocks
+
+By using commands, you can obtain a portal gun that only works on some blocks. For example, `/give @p portalgun:portal_gun{allowedBlocks:["#minecraft:ice","minecraft:stone"]} 1` gives a portal gun that only works on stone block and ice blocks (including ice, packed ice, blue ice and frosted ice). The `minecraft:stone` is the block id of stone. The `#minecraft:ice` refers to the `minecraft:ice` block tag.
+
 ## Download
 
 Download from GitHub releases:

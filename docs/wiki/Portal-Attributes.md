@@ -117,6 +117,8 @@ NBT tag: `interactable`
 
 Whether the portal is visible. An invisible portal can still do teleportation, cross-portal collision and chunk loading.
 
+This is different to the vanilla entity visibility (the armor stand's `Invisible` tag). In the portal gun mod, when a portal is inactive, it's invisible but its vanilla visibility is still on, the overlay still renders.
+
 NBT tag: `isVisible`
 
 #### Specific Accessor

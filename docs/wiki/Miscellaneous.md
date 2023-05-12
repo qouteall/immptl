@@ -6,6 +6,28 @@ order: 19
 
 # Miscellaneous
 
+### Iris Shader Compatibility
+
+Immersive Portals roughly works with some Iris shaderpacks. Not all shaderpacks are compatible (Sildurs Vibrant shader and path tracing shaders are incompatible). It's recommended to use BSL shader.
+
+It's recommended to turn off settings such as TAA, Anti-Aliasing, Motion Blur in the shaderpack's settings.
+
+![](./shader_compat.png)
+
+The portal rendering with shader **is not perfect because of technical difficulties. The Iris/OptiFine shaderpack standard is not designed to work with portal rendering. I already tried hard to hack the shader rendering process to make it work with portals.**
+
+Following things cannot be correctly rendered with shaders:
+
+* Semi-transparent things (e.g. stained glass) in front of the portal.  (Due to that, all mirrors will cover the glass texture with shaders on)
+* Portal overlay
+* Fuse-view portals
+* Cross portal entity rendering
+* Temporal Anti Aliasing (TAA) when a portal is in view
+* Motion Blur when a portal is in view
+* World Curvature with portals
+
+Other than that, effects like rain distortion will be abnormal with portals. And the portal rendering with shader does not work on some ancient videocards.
+
 ### Could a Server with This Mod Work with Vanilla Client?
 
 No. Because
@@ -29,19 +51,7 @@ In MC 1.18 and above, this mod is incompatible with OptiFine. Because OptiFine i
 
 In older MC versions, this mod is problematic with OptiFine so it's not recommended to use this mod with OptiFine.
 
-### Rendering Issues with Iris Shaders
 
-Following things cannot be correctly rendered with shaders:
-
-* Semi-transparent things (e.g. stained glass) in front of the portal.  (Due to that, all mirrors will cover the glass texture with shaders on)
-* Portal overlay
-* Fuse-view portals
-* Cross portal entity rendering
-* Temporal Anti Aliasing (TAA) when a portal is in view
-* Motion Blur when a portal is in view
-* World Curvature with portals
-
-SEUS PTGI shader is incompatible.
 
 ### What Happens if I Remove ImmPtl?
 

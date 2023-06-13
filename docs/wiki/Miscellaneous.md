@@ -8,9 +8,9 @@ order: 19
 
 ### Iris Shader Compatibility
 
-Immersive Portals roughly works with some Iris shaderpacks. Not all shaderpacks are compatible (Sildurs Vibrant shader and path tracing shaders are incompatible). It's recommended to use BSL shader.
+Immersive Portals mod roughly works with some Iris shaderpacks. Not all shaderpacks are compatible (Sildurs Vibrant shader and path tracing shaders are incompatible).
 
-It's recommended to turn off settings such as TAA, Anti-Aliasing, Motion Blur in the shaderpack's settings.
+It's recommended to turn off settings such as TAA, Anti-Aliasing and Motion Blur in the shaderpack's settings.
 
 ![](./shader_compat.png)
 
@@ -27,6 +27,8 @@ Following things cannot be correctly rendered with shaders:
 * World Curvature with portals
 
 Other than that, effects like rain distortion will be abnormal with portals. And the portal rendering with shader does not work on some ancient videocards.
+
+As I tested, BSL shader works mostly fine with Immersive Portals.
 
 ### Could a Server with This Mod Work with Vanilla Client?
 

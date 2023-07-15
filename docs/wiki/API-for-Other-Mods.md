@@ -353,7 +353,11 @@ In your `build.gradle`:
 Add this into `repositories`
 
 ```
+// the repository for ImmPtl
 maven { url 'https://jitpack.io' }
+
+// the repository for Cloth Config
+maven { url 'https://maven.shedaniel.me' }
 ```
 
 Add this into `dependencies`
@@ -369,6 +373,11 @@ modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:imm_ptl_core:v2.3
 modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v2.3.1-1.19'){
 	exclude(group: "net.fabricmc.fabric-api")
 	transitive(false)
+}
+
+// Cloth config (dependency of ImmPtl)
+modImplementation("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
+    exclude(group: "net.fabricmc.fabric-api")
 }
 
 // If you want the outer Immersive Portals mod (This is usually not needed)

@@ -6,25 +6,49 @@ order: 2
 
 # Portal Customization
 
+## Portal Wand
 
-## Portal Helper Block
+The portal wand is a tool for easily creating and editing portals in creative mode. You can find the portal wand in "Tools & Utilities" tab.
 
-This mod provides a new block called "Portal Helper".
-You can build two frames using that block and use flint and steel to light one. Then a new two-way two-faced portal will be generated. The portal's rotation and scale transformation will adapt to the shape difference.
+The portal wand has 3 modes: Create Portal, Drag Portal and Copy Portal. Pressing shift and right-click at the same time to switch mode. Use shift + left-click to show portal wand settings and change cursor alignment.
 
-![](https://i.loli.net/2021/11/20/r3kjeCpyuFEbIBX.png)
+> Portal wand does not exist in old versions of this mod. Some portal wand functionality are missing in old versions. It's recommended to use portal wand in the latest version.
 
-![](https://i.loli.net/2021/11/20/SGnbtJe35TPo1rC.png)
+### Create Portal mode
 
-If no linkable frame is found, it will generate a new frame nearby.
+![](./wand_create.png)
 
-Unlike nether portals, the generated portal won't break when the frame breaks. To remove the portal, you need to use the command `/portal delete_portal` or `/portal eradicate_portal_cluster` (See below).
+To create a portal, you need to select the 3 anchors for each side of the portal by right-clicking.
 
-The portal helper cannot link to a frame that's far away or in another dimension. However, you can use commands to edit the portal and set the portal destination to any position in any dimension.
+The cursor will be on the surface of blocks. By default, the cursor will align to half-block positions. Use shift + left-click to change cursor alignment.
 
-### How to Use Similar Functionality in Survival Mode
+After selecting the 6 anchors, a square portal will be generated. The two sides of the portal can be far away and can be in different dimensions.
 
-Portal helper generates unbreakable portals and is intended to be used in creative mode. To use similar functionality in survivial mode, you can configure a similar [custom datapack portal generation](./Datapack-Based-Custom-Portal-Generation#portal_helper_likejson-a-diamond-portal-that-links-to-the-nearby-same-shaped-portal-in-the-same-dimension-similar-to-portal-helper-but-breakable). It generates breakable portals, and the frame block can be specified as any block.
+### Drag Portal Mode
+
+In the dragging mode, you can hold the right-button to drag a point on a portal. It will drag that point along a plane. The plane is determined by your looking direction.
+
+![](./wand_drag.png)
+
+Before releasing right-button, clicking left-button will undo dragging.
+
+The point selection on portal is also controlled by the cursor alignment setting which can be changed by shift + left-click.
+
+By left-clicking on portal, a point on portal can be locked. Then you can drag other points and keep the locked point unmoved:
+
+![](./wand_drag_lock.png)
+
+Left-click on the lock to unlock.
+
+By left-clicking on the places near portal edge, the portal's width and height can be locked.
+
+![2023-07-16_11.03.51](./wand_drag_lock_size.png)
+
+### Copy Portal Mode
+
+When selecting a portal to copy/cut, use right-click to copy the portal and use left-click to cut the portal. Then use right-click to place the portal.
+
+When copying bi-way bi-faced portal, it will only copy out one-way one-faced portal. It will give you a command stick to make the newly placed portal bi-way and bi-faced.
 
 ## Manage Portals Using Commands
 
@@ -123,6 +147,28 @@ By using `/portal set_portal_specific_accessor` command you can make a portal en
 You can manage overlapped portals using `/portal multidest` command.
 
 (Portal targeted commands can still be used on the portal that's not accessible to you)
+
+## Portal Helper Block
+
+Note: it's recommended to use portal wand instead of portal helper.
+
+This mod provides a new block called "Portal Helper".
+
+You can build two frames using that block and use flint and steel to light one. Then a new two-way two-faced portal will be generated. The portal's rotation and scale transformation will adapt to the shape difference.
+
+![](https://i.loli.net/2021/11/20/r3kjeCpyuFEbIBX.png)
+
+![](https://i.loli.net/2021/11/20/SGnbtJe35TPo1rC.png)
+
+If no linkable frame is found, it will generate a new frame nearby.
+
+Unlike nether portals, the generated portal won't break when the frame breaks. To remove the portal, you need to use the command `/portal delete_portal` or `/portal eradicate_portal_cluster` (See below).
+
+The portal helper cannot link to a frame that's far away or in another dimension. However, you can use commands to edit the portal and set the portal destination to any position in any dimension.
+
+### How to Use Similar Functionality in Survival Mode
+
+Portal helper generates unbreakable portals and is intended to be used in creative mode. To use similar functionality in survivial mode, you can configure a similar [custom datapack portal generation](./Datapack-Based-Custom-Portal-Generation#portal_helper_likejson-a-diamond-portal-that-links-to-the-nearby-same-shaped-portal-in-the-same-dimension-similar-to-portal-helper-but-breakable). It generates breakable portals, and the frame block can be specified as any block.
 
 ## Common Questions
 

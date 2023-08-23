@@ -54,6 +54,9 @@ export default defineUserConfig({
 
     plugins: {
       // externalLinkIcon: false,
+      mdEnhance: {
+        tabs: true,
+      },
     }
 
 

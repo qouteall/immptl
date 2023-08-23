@@ -201,8 +201,6 @@ The utility library supports another way of adding dimensions other than using J
 
 ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you need to keep the dimension type json and delete the dimension json. Then add the dimension in `DimensionAPI.serverDimensionsLoadEvent` using `DimensionAPI.addDimension`. (`DimensionAPI.addDimension` should not be used outside of the event.)
 
-##### In 1.19.3 and 1.19.4:
-
 ```java
 DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
     Registry<DimensionOptions> registry = registryManager.get(RegistryKeys.DIMENSION);
@@ -231,6 +229,8 @@ To remove the screen of "worlds using experimental settings are not supported", 
 ```java
 LifecycleHack.markNamespaceStable("aaa");
 ```
+
+::: details In older versions
 
 ##### In 1.18.2 and 1.19.2:
 
@@ -287,6 +287,8 @@ DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManag
     DimensionAPI.markDimensionNonPersistent(dimensionId);
 });
 ```
+
+:::
 
 ### Networking Utility (Remote Procedure Call)
 
@@ -350,6 +352,32 @@ It converts when after the player goes through portal once. The portal is not co
 
 In your `build.gradle`:
 
+::: tabs
+
+@tab MC 1.20.1
+
+Add this into `repositories`
+
+```
+// the repository for ImmPtl
+maven { url 'https://jitpack.io' }
+
+// the repository for Cloth Config
+maven { url 'https://maven.shedaniel.me' }
+```
+
+Add this into `dependencies`
+
+```
+modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:imm_ptl_core:v3.2.1-mc1.20.1")
+modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v3.2.1-mc1.20.1")
+modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:build:v3.2.1-mc1.20.1")
+```
+
+
+
+@tab older
+
 Add this into `repositories`
 
 ```
@@ -386,11 +414,10 @@ modImplementation ('com.github.iPortalTeam.ImmersivePortalsMod:build:v2.3.1-1.19
 	transitive(false)
 }
 ```
+
 You need to change the version `v2.3.1-1.19` to the latest version. See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
-
-### Add Mixin Extras
 
 **Starting from MC 1.19.4, ImmPtl depends on [MixinExtras](https://github.com/LlamaLad7/MixinExtras).** MixinExtras is an extension for Mixin that provide ways to transform game code in more flexible and more mod-compatible ways. You need to add MixinExtras in `dependencies`:
 
@@ -398,4 +425,8 @@ JitPack will build it when you firstly use it. If you encounter `Read time out`,
 api("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
 annotationProcessor("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
 ```
+
+
+
+:::
 

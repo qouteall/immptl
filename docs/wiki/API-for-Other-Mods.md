@@ -374,7 +374,9 @@ modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v3.2.
 modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:build:v3.2.1-mc1.20.1")
 ```
 
+Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/releases). See [Jitpack](https://jitpack.io/#qouteall/ImmersivePortalsMod)
 
+JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 
 @tab older
 

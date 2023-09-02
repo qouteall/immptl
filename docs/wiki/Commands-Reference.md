@@ -114,6 +114,28 @@ Multiply the portal's scale by a number.
 
 Divide the portal's scale by a number.
 
+## Shape
+
+### `/portal set_portal_size <width> <height>`
+
+Reset the portal's shape, making it square and set its width and height.
+
+### `/portal shape sculpt [adjustPortalBounds]`
+
+Sculpt the portal by the blocks that it touches. It can handle the blocks with irregular shapes, such as cauldron block.
+
+The argument `adjustPortalBounds` is true by default. If true, the portal's position, width and height will be shrinked to fit the portal shape if necessary.
+
+### `/portal shape reset`
+
+Reset the portal shape to the rectangular shape.
+
+### `/portal adjust_portal_to_fit_square_frame`
+
+**This command is deprecated.** This command can only handle square shapes. It's recommended to use `/portal shape sculpt` which is more powerful.
+
+Automatically adjust the portal size and position to fit a square frame. Can handle the frames that is not aligned with blocks (for example, fence blocks and end rod blocks).
+
 ## Player-specific Property
 
 ### `/portal set_portal_specific_accessor <player>`
@@ -207,14 +229,6 @@ Make the portal entity's shape to be an ellipse. If the portal's width equals he
 ### `/portal reset_portal_orientation`
 
 Resets the portal orientation.
-
-### `/portal adjust_portal_to_fit_square_frame`
-
-Automatically adjust the portal size and position to fit a square frame. Can handle the frames that is not aligned with blocks (for example, fence blocks and end rod blocks).
-
-### `/portal set_portal_size <width> <height>`
-
-Remove the portal's custom shape, making it square and set its width and height.
 
 ### `/portal add_command_on_teleported <command>`
 

@@ -95,6 +95,10 @@ There are some portal-targeted commands for managing portals. You need to point 
 
 - Make the portal to damage the entities that cross this portal: `/portal set_portal_nbt {commandsOnTeleported:["/effect give @s minecraft:instant_damage 1"]}`
 
+- Sculpt the portal using blocks `/portal shape sculpt`
+
+- Reset the portal shape `/portal sha`
+
 [See All Portal-Targeted Commands](./Commands-Reference#portal-targeted-commands)
 
 [Portal Attributes](./Portal-Attributes)

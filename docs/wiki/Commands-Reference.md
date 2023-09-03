@@ -124,7 +124,7 @@ Reset the portal's shape, making it square and set its width and height.
 
 Sculpt the portal by the blocks that it touches. It can handle the blocks with irregular shapes, such as cauldron block.
 
-The argument `adjustPortalBounds` is true by default. If true, the portal's position, width and height will be shrinked to fit the portal shape if necessary.
+The argument `adjustPortalBounds` is true by default. If true, the portal's width and height will be shrinked to fit the portal shape if necessary.
 
 ### `/portal shape reset`
 

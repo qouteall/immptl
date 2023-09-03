@@ -97,7 +97,7 @@ There are some portal-targeted commands for managing portals. You need to point 
 
 - Sculpt the portal using blocks `/portal shape sculpt`
 
-- Reset the portal shape `/portal sha`
+- Reset the portal shape `/portal shape reset`
 
 [See All Portal-Targeted Commands](./Commands-Reference#portal-targeted-commands)
 

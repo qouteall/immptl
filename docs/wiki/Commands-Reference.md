@@ -306,6 +306,10 @@ Can only be used by a player. Converts the normal portal entity that you are poi
 
 Delete the global portal that you are pointing to.
 
+### `/portal global view_global_portals`
+
+View the global portals in the current dimension.
+
 ### `/portal global create_inward_wrapping <x1> <z1> <x2> <z2>`
 
 Create an inward wrapping zone. The created portals are global portals. The two XZ coordinates define the wrapping area. The generated portals go from y level 0 to y level 256.

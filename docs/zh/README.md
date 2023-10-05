@@ -6,7 +6,7 @@ toc: false
 
 沉浸传送门(Immersive Portals)是一个针对我的世界(Minecraft)的模组，实现透视传送门并无缝传送。
 
-![](https://i.loli.net/2021/09/30/chHMG45dsnZNqep.png)
+![](./immptl_image_1.20.png)
 
 
 

@@ -50,6 +50,8 @@ When selecting a portal to copy/cut, use right-click to copy the portal and use 
 
 When copying bi-way bi-faced portal, it will only copy out one-way one-faced portal. It will give you a command stick to make the newly placed portal bi-way and bi-faced.
 
+> The pasted portal will be in entity type `immersive_portals:portal`, even if you copy a nether portal. Some special functaionlity (including nether portal sound and particle, nether portal breaking mechanism) will be lost.
+
 ## Manage Portals Using Commands
 
 [Description of All Commands](./Commands-Reference)

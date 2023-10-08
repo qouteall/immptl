@@ -12,18 +12,20 @@ The Fabric version of Immersive Portals mod contains some API for other mods to 
 
 Immersive Portals mod's API is now split across 2 mods:
 
-* Immersive Portals Core (`imm_ptl_core`) 
-* qouteall's Miscellaneous Utility Library (`q_misc_util`)
-
-`q_misc_util` contains the dimension API and remote procedure call utility. `imm_ptl_core` contains the portal functionality.
-
-The mod `imm_ptl_core` is incompatible with some mods, but `q_misc_util` is compatible with most mods and you can safely include `q_mist_util` if you only want to use the dimension API and remote procedure call function.
+* Immersive Portals Core (`imm_ptl_core`). It allows adding and managing see-through portals. It also enables the client to load multiple dimensions at the same time. It also contains chunk loading facilities. It requires both client and server to install.
+* Miscellaneous Utility Library from qouteall (`q_misc_util`). It contains the dimension API and some utilities. It allows dynamically adding and removing dimensions without restarting the server. It can work as server-only (if the client does not install it, the command completion of dimension id won't be updated).
 
 Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by default. 
 
-If you have any issue using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/qouteall/ImmersivePortalsMod/discussions).
+If you have any question using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/iPortalTeam/ImmersivePortalsMod/discussions).
 
 Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use ImmPtl API.
+
+
+
+## 1.20.2 Update Note
+
+Starting from mod version 4.0.0 (MC 1.20.2), the dimension API gets overhauled. And some other APIs changed.
 
 
 
@@ -32,6 +34,26 @@ Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) an
 ### Create a Portal
 
 Example:
+
+::: tabs
+
+@tab Official Mapping
+
+```java
+Portal portal = Portal.entityType.create(serverLevel);
+portal.setOriginPos(new Vec3(0, 70, 0));
+portal.setDestinationDimension(Level.NETHER);
+portal.setDestination(new Vec3(100, 70, 100));
+portal.setOrientationAndSize(
+    new Vec3(1, 0, 0), // axisW
+    new Vec3(0, 1, 0), // axisH
+    4, // width
+    4 // height
+);
+portal.level().addFreshEntity(portal);
+```
+
+@tab Yarn Mapping
 
 ```java
 Portal portal = Portal.entityType.create(serverWorld);
@@ -44,8 +66,12 @@ portal.setOrientationAndSize(
     4, // width
     4 // height
 );
-portal.world.spawnEntity(portal);
+portal.world().spawnEntity(portal);
 ```
+
+:::
+
+
 
 The portal can face any rotation, be anywhere, point to any position in any dimension.
 
@@ -55,7 +81,7 @@ It's recommended to check [Portal Attributes](./Portal-Attributes) .
 
 `axisW` and `axisH` are unit vectors and should be perpendicular to each other. The portal orientation has nothing to do with pitch and yaw (because pitch and yaw cannot represent tilted rotations).
 
-**If the portal attribute gets changed on the server side after the portal has spawned, call `portal.reloadAndSyncToClient()` to sync the changes to client.**
+**If the portal attribute gets changed on the server side after the portal has spawned, call `portal.reloadAndSyncToClientNextTick()` to sync the changes to client.**
 
 To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal` `PortalAPI.createFlippedPortal` . [How bi-way portals and bi-faced portals are organized](./Portal-Customization#1-nether-portal--4-portal-entities)
 
@@ -63,7 +89,7 @@ To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal`
 
 You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. ImmPtl uess its own `DQuaternion` which is immutable.
 
-A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3d(0, 1, 0), 45).toMcQuaternion()` . 
+A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3(0, 1, 0), 45).toMcQuaternion()` . 
 
 About quaternions, you just need to know these: 
 
@@ -83,25 +109,45 @@ Vanilla has the force-load functionality but it only loads the chunk and does no
 
 Example:
 
+::: tabs
+
+@tab Official Mapping
+
 ```java
-PortalAPI.addChunkLoaderForPlayer(
-    serverPlayerEntity,
-    new ChunkLoader(
-        new DimensionalChunkPos(
-            World.OVERWORLD,
-            100, // chunk x
-            100 // chunk z
-        ),
-        3 // radius in chunks
-    )
+ChunkLoader chunkLoader = new ChunkLoader(
+    new DimensionalChunkPos(
+        Level.OVERWORLD,
+        100, // chunk x
+        100 // chunk z
+    ),
+    3 // radius in chunks
 );
+
+PortalAPI.addChunkLoaderForPlayer(serverPlayer, chunkLoader);
 ```
 
-Call `removeChunkLoaderForPlayer` when you want to unload.
+@tab Yarn Mapping
+
+```java
+ChunkLoader chunkLoader = new ChunkLoader(
+    new DimensionalChunkPos(
+        World.OVERWORLD,
+        100, // chunk x
+        100 // chunk z
+    ),
+    3 // radius in chunks
+);
+
+PortalAPI.addChunkLoaderForPlayer(serverPlayer, chunkLoader);
+```
+
+:::
+
+After adding the chunk loader, you probably need to store the `ChunkLoader` object reference, and call `removeChunkLoaderForPlayer` when you want to stop loading (Note: in the latest version, it removes chunk loader by reference, not value).
 
 ### Access Multiple Client Worlds
 
-This mod eliminates the limitation that only one dimension can be loaded on client at the same time. If you want to get the nether world, use `ClientWorldLoader.getWorld(World.NETHER)` . The client world will be created when it's used at the first time.
+This mod eliminates the limitation that only one dimension can be loaded on client at the same time. If you want to get the nether world, use `ClientWorldLoader.getWorld(Level.NETHER)` . The client world will be created when it's used at the first time.
 
 If the client experiences conventional dimension change (with loading screen) then all worlds will be unloaded and recreated later.
 
@@ -111,7 +157,7 @@ Use ` GuiPortalRendering.submitNextFrameRendering(worldRenderInfo, frameBuffer)`
 
 That framebuffer will automatically be resized to be the same size as the game window.
 
-[Example](https://github.com/qouteall/ImmersivePortalsMod/blob/1.18/imm_ptl_core/src/main/java/qouteall/imm_ptl/core/api/example/ExampleGuiPortalRendering.java)
+[Example](https://github.com/iPortalTeam/ImmersivePortalsMod/blob/1.20.2/imm_ptl_core/src/main/java/qouteall/imm_ptl/core/api/example/ExampleGuiPortalRendering.java)
 
 ![](https://i.loli.net/2021/06/07/AKBYLdxikuEUR6o.png)
 
@@ -123,106 +169,91 @@ That framebuffer will automatically be resized to be the same size as the game w
 
 ### Dimension API
 
-#### Basic Concepts of Dimensions
-
-Minecraft allows defining dimension types, biomes and other things via datapacks. Fabric will turn mod files in `resources` into virtual datapacks.
-
-You can get a `DynamicRegistryManager` from a server, then you can get the dimension type registry from the registry manager, and then you can get the dimension type from the dimension type registry.
-
-A dimension consists of:
-
-* A dimension id (Its type is `RegistryKey<World>`. An `Identifier` can be converted to `RegistryKey<World>`)
-* A dimension type. It defines the world height, skylight and other properties. (You can define your dimension types in json files. Then you can get it from the `DynamicRegistryManager`)
-* A chunk generator. It does world generation of that dimension. To create the chunk generator, you probably need to access the registries to get the biomes and other things via `DynamicRegistryManager`.
-
-A `DimensionOptions` contains a dimension type `RegistryEntry` and a chunk generator.
-
-In Mojang mapping, `DynamicRegistryManager` is `RegistryAccess`, `RegistryKey` is `ResourceKey`, `DimensionOptions` is `WorldStem`, `GeneratorOptions` is `WorldGenSettings`, `RegistryEntry` is `Holder`, `Identifier` is `ResourceLocation`.
+The `q_misc_util` mod can work on server when the client does not install that mod. However, if the client does not have that mod, the dimension id list in command completion won't get updated when a dimension is added or removed dynamically. 
 
 #### Dynamically Adding and Removing Dimensions
 
-The Dimension API supports dynamically adding and removing dimensions when the server is running. 
+Add and remove a new dimension dynamically:
 
-Add a new dimension dynamically:
+::: tabs
+
+@tab Official Mapping
 
 ```java
-DynamicRegistryManager manager = MiscHelper.getServer().getRegistryManager();
+MinecraftServer server = ...;
 
-// get the dimension type
-RegistryEntry<DimensionType> dimensionType = manager.getEntry(
-    RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier("namespace:dimension_type_id"))
-).get();
+RegistryAccess.Frozen registryAccess = server.registryAccess();
+
+Registry<DimensionType> dimTypeRegistry =
+    registryAccess.registryOrThrow(Registries.DIMENSION_TYPE);
+
+// get the dimension type holder
+Holder<DimensionType> dimType = dimTypeRegistry.getHolder(DIM_TYPE_KEY).orElseThrow();
 
 // add the dimension
-DimensionAPI.addDimensionDynamically(
-    new Identifier("namespace:new_dimension_id"),
-    new DimensionOptions(
-        dimensionType,
+DimensionAPI.addDimension(
+    server,
+    new ResourceLocation("namespace:new_dimension_id"),
+    new LevelStem(
+        dimType,
         new CustomChunkGenerator(...)
     )
 );
+
+// ...
+
+// remove the dimension
+DimensionAPI.removeDimensionDynamically(server.getLevel(DIM_KEY));
 ```
 
-That code will add the new dimension to the server world map and send dimension sync packets to client. You should not do this during server initialization.
-
-When the server restarts, the dynamically added dimension will vanish. To make sure that dynamically added dimensions are still present when the server restarts, you need to save the dimension configuration:
+@tab Yarn Mapping
 
 ```java
-RegistryKey<World> dimId = RegistryKey.of(Registry.WORLD_KEY, new Identifier("namespace:new_dimension_id"));
+MinecraftServer server = ...;
 
-DimensionAPI.saveDimensionConfiguration(dimId);
+DynamicRegistryManager.Immutable registryAccess = server.getRegistryManager();
+
+Registry<DimensionType> dimTypeRegistry =
+    registryAccess.get(RegistryKeys.DIMENSION_TYPE);
+
+// get the dimension type holder
+RegistryEntry<DimensionType> dimType = dimTypeRegistry.getEntry(DIM_TYPE_KEY).orElseThrow();
+
+// add the dimension
+DimensionAPI.addDimension(
+    server,
+    new Identifier("namespace:new_dimension_id"),
+    new LevelStem(
+        dimType,
+        new CustomChunkGenerator(...)
+    )
+);
+
+// ...
+
+// remove the dimension
+DimensionAPI.removeDimensionDynamically(server.getWorld(DIM_KEY));
 ```
 
-Then it will save the configuration as a json file in the folder `q_dimension_configs` in the world saving.
+:::
 
-Remove a dimension dynamically:
+When creating a new `ChunkGenerator`, you can use the content from the `RegistryAccess`. The added dimension's configuration will be saved into `level.dat` file. The chunk generator need to have a working codec.
 
-```java
-RegistryKey<World> dimId = RegistryKey.of(Registry.WORLD_KEY, new Identifier("namespace:new_dimension_id"));
+The added dimension's id should not duplicate with existing dimension. You can use `DimensionAPI.addDimensionIfNotExists` to avoid adding dimension if the dimension with that id already exists.
 
-ServerWorld world = MiscHelper.getServer().getWorld(dimId);
-
-DimensionAPI.removeDimensionDynamically(world);
-```
-
-That code will remove the dimension from the server world map and send sync packets to client. This will not delete the world saving (blocks, entities) of that dimension. If you re-add the dimension, the blocks and entities will still be there.
-
-If you saved that dimension's configuration, you need to delete the configuration:
-
-```java
-DimensionAPI.deleteDimensionConfiguration(dimId);
-```
-
-**NOTE: currently the saved extra dimension configurations won't be updated by DFU. It means that if that dimension's chunk generator uses vanilla data formats and the format changes, the dimension will fail to load. The world data of that dimension won't be lost.**
+Removing a dimension does not delete its world saving file.
 
 #### Adding Dimensions During Server Initialization
 
-The utility library supports another way of adding dimensions other than using JSON files. It does not require hardcoding things of your dimension. You can create the chunk generator at runtime. You can use configs to control whether to add the dimensions. It does not require hardcoding the seed.
-
-ImmPtl's dimension API overcomes these obstacles. To use the dimension API, you need to keep the dimension type json and delete the dimension json. Then add the dimension in `DimensionAPI.serverDimensionsLoadEvent` using `DimensionAPI.addDimension`. (`DimensionAPI.addDimension` should not be used outside of the event.)
+Sometimes you want to add a new dimension during server startup, but want to add dimension based on config file or some other dynamic things, so the dimension cannot be hardcoded in JSON, then you can do this:
 
 ```java
-DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
-    Registry<DimensionOptions> registry = registryManager.get(RegistryKeys.DIMENSION);
-    
-    // get the dimension type
-    RegistryEntry<DimensionType> dimType = registryManager.get(Registry.DIMENSION_TYPE_KEY).getEntry(
-        RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier("namespace:dimension_type_id"))
-    ).orElseThrow(() -> new RuntimeException("Missing dimension type"));
-        
-    Identifier dimId = new Identifier("namespace:dimension_id");
-    
-    // get the biome registry for initializing the biome source
-    Registry<Biome> biomeRegistry = registryManager.get(Registry.BIOME_KEY);
-    BiomeSource biomeSource = new CustomBiomeSource(seed, biomeRegistry);
-        
-    // add the dimension
-    DimensionAPI.addDimension(
-        registry, dimId, dimType,
-        new CustomChunkGenerator()
-    );
+DimensionAPI.SERVER_DIMENSIONS_LOAD_EVENT.register(server -> {
+    DimensionAPI.addDimensionIfNotExists(...);
 });
 ```
+
+#### Disable "Experimental setting" warning
 
 To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable. For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
 

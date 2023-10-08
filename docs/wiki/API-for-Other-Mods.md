@@ -261,65 +261,7 @@ To remove the screen of "worlds using experimental settings are not supported", 
 LifecycleHack.markNamespaceStable("aaa");
 ```
 
-::: details In older versions
 
-##### In 1.18.2 and 1.19.2:
-
-```java
-DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
-    Registry<DimensionOptions> registry = generatorOptions.getDimensions();
-    
-    // get the dimension type
-    RegistryEntry<DimensionType> dimType = registryManager.get(Registry.DIMENSION_TYPE_KEY).getEntry(
-        RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier("namespace:dimension_type_id"))
-    ).orElseThrow(() -> new RuntimeException("Missing dimension type"));
-        
-    Identifier dimId = new Identifier("namespace:dimension_id");
-    
-    // get the biome registry for initializing the biome source
-    Registry<Biome> biomeRegistry = registryManager.get(Registry.BIOME_KEY);
-    BiomeSource biomeSource = new CustomBiomeSource(seed, biomeRegistry);
-        
-    // add the dimension
-    DimensionAPI.addDimension(
-        registry, dimId, dimType,
-        new CustomChunkGenerator()
-    );
-    
-    // mark it non-persistent so it won't be saved into level.dat. (This is not needed in 1.19)
-    DimensionAPI.markDimensionNonPersistent(dimId);
-});
-```
-
-##### In 1.17.1 and 1.18.1:
-
-```java
-DimensionAPI.serverDimensionsLoadEvent.register((generatorOptions, registryManager) -> {
-    SimpleRegistry<DimensionOptions> registry = generatorOptions.getDimensions();
-    long seed = generatorOptions.getSeed();
-    
-    // get the dimension type
-    DimensionType dimensionType = registryManager.get(Registry.DIMENSION_TYPE_KEY)
-        .get(new Identifier("namespace:dimension_type_id"));
-    Validate.notNull(dimensionType);
-    
-    // get the biome registry for initializing the biome source
-    MutableRegistry<Biome> biomeRegistry = registryManager.get(Registry.BIOME_KEY);
-    BiomeSource biomeSource = new CustomBiomeSource(seed, biomeRegistry);
-    
-    // directly register the dimension
-    Identifier dimensionId = new Identifier("namespace:dimension_id");
-    DimensionAPI.addDimension(
-        seed, registry, dimensionId, () -> dimensionType,
-        new CustomChunkGenerator(seed, biomeSource)
-    );
-    
-    // mark it non-persistent so it won't be saved into level.dat
-    DimensionAPI.markDimensionNonPersistent(dimensionId);
-});
-```
-
-:::
 
 ### Networking Utility (Remote Procedure Call)
 

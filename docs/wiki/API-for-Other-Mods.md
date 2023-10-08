@@ -25,9 +25,7 @@ Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) an
 
 ## 1.20.2 Update Note
 
-Starting from mod version 4.0.0 (MC 1.20.2), the dimension API gets overhauled. And some other APIs changed.
-
-
+Starting from mod version 4.0.0 (MC 1.20.2), the dimension API gets overhauled. And some other APIs changed. The documentation of old versions is [here](./Old-API.html).
 
 ## Immersive Portals API (`imm_ptl_core`)
 
@@ -223,7 +221,7 @@ RegistryEntry<DimensionType> dimType = dimTypeRegistry.getEntry(DIM_TYPE_KEY).or
 DimensionAPI.addDimension(
     server,
     new Identifier("namespace:new_dimension_id"),
-    new LevelStem(
+    new DimensionOptions(
         dimType,
         new CustomChunkGenerator(...)
     )
@@ -288,11 +286,25 @@ McRemoteProcedureCall.tellClientToInvoke(
 
 If you want the client to send a packet to ask the server to invoke this method (on the server thread):
 
+::: tabs
+
+@tab Official Mapping
+
+```java
+public class AAARemoteCallableBBB{
+    public static void serverMethod(ServerPlayer player, Block arg1) {...}
+}
+```
+
+@tab Yarn Mapping
+
 ```java
 public class AAARemoteCallableBBB{
     public static void serverMethod(ServerPlayerEntity player, Block arg1) {...}
 }
 ```
+
+:::
 
 Do this
 
@@ -309,7 +321,20 @@ The supported argument types are
 
 * The types that Gson can directly serialize/deserialize,
   including `int`, `double`, `boolean`, `long`, `String`, `int[]`, `Map<String,String>`, Enums, Plain old java objects
+
+and:
+
+::: tabs
+
+@tab Official Mapping
+
+* `ResourceLocation`, `ResourceKey<Level>`, `ResourceKey<Biome>`, `BlockPos`, `Vec3`, `UUID`, `Block`, `Item`, `BlockState`, `ItemStack`, `CompoundTag`, `Component`
+
+@tab Yarn Mapping
+
 * `Identifier`, `RegistryKey<World>`, `RegistryKey<Biome>`, `BlockPos`, `Vec3d`, `UUID`, `Block`, `Item`, `BlockState`, `ItemStack`, `CompoundTag`, `Text`
+
+:::
 
 Using unsupported argument types will cause serialization/deserialization issues.
 
@@ -327,7 +352,7 @@ In your `build.gradle`:
 
 ::: tabs
 
-@tab MC 1.20.1
+@tab Starting from MC 1.20.1
 
 Add this into `repositories`
 

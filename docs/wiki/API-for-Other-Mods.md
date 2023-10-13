@@ -17,11 +17,9 @@ Immersive Portals mod's API is now split across 2 mods:
 
 Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by default. 
 
-If you have any question using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/iPortalTeam/ImmersivePortalsMod/discussions).
+Here is the brief documentation of the API. You can also refer to the JavaDoc in code. If you have any question using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/iPortalTeam/ImmersivePortalsMod/discussions).
 
 Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use ImmPtl API.
-
-
 
 ## 1.20.2 Update Note
 
@@ -64,7 +62,7 @@ portal.setOrientationAndSize(
     4, // width
     4 // height
 );
-portal.world().spawnEntity(portal);
+portal.getWorld().spawnEntity(portal);
 ```
 
 :::

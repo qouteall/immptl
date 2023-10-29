@@ -6,6 +6,12 @@ order: 19
 
 # Miscellaneous
 
+### Text Translation
+
+[Contribute text translation on Crowdin](https://crowdin.com/project/immersive-portals-mod). Thanks to the translation contributors.
+
+If you want to add another language, please contact qouteall.
+
 ### Iris Shader Compatibility
 
 Immersive Portals mod roughly works with some Iris shaderpacks. Not all shaderpacks are compatible (Sildurs Vibrant shader and path tracing shaders are incompatible).

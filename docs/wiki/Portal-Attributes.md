@@ -28,13 +28,6 @@ NBT tags: `width` `height`
 
 It's recommended to use command `/portal set_portal_size` to edit this attribute.
 
-#### The Special Shape
-Optional. Consists of various 2d triangles.
-
-NBT tag: `specialShape` (It's a number list. Every 2 numbers represent a 2d point(x axis is axisW and y axis is axisH). Every 3 points represent a triangle)
-
-Example: Give the portal a triangular shape `/portal set_portal_nbt {width:2,height:2,specialShape:[-1.0d,0.0d,1.0d,0.0d,0d,1.0d],cullableXStart:0,cullableXEnd:0,cullableYStart:0,cullableYEnd:0}`
-
 ### Transformation Attributes
 
 #### Destination Dimension

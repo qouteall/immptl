@@ -8,7 +8,7 @@ order: 19
 
 ### Text Translation
 
-[Contribute text translation on Crowdin](https://crowdin.com/project/immersive-portals-mod). Thanks to the translation contributors.
+You can [contribute text translation on Crowdin](https://crowdin.com/project/immersive-portals-mod). Thanks to the translation contributors.
 
 If you want to add another language, please contact qouteall.
 

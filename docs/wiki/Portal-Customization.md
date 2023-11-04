@@ -8,7 +8,7 @@ order: 2
 
 ## Portal Wand
 
-The portal wand is a tool for easily creating and editing portals in creative mode. You can find the portal wand in "Tools & Utilities" tab.
+The portal wand is a tool for easily creating and editing portals in creative mode. You can find the portal wand in the creative mode inventory.
 
 The portal wand has 3 modes: Create Portal, Drag Portal and Copy Portal. Pressing shift and right-click at the same time to switch mode. Use shift + left-click to show portal wand settings and change cursor alignment.
 
@@ -117,6 +117,8 @@ Don't use `/tp` command to move the portal. Use `/portal set_portal_position` an
 ### The Portal Orientation is Unrelated to the `Rotation` Tag
 
 The vanilla entity rotation only has 2 degrees of freedom, the head cannot "tilt". However, the portal can be in any orientation. It can be tilted. The portal's orientation is determined by the `axisW` and `axisH` tags, not the `Rotation` tag. Changing the vanilla rotation to a portal has no effect.
+
+You can use `/portal euler ...` commands to manipulate the portal orientation using vanilla rotation.
 
 ### Command Stick
 You can see the command sticks in the creative mode inventory's miscellaneous tab. Using a command stick to right-click can invoke a specific command.

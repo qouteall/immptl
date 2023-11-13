@@ -28,9 +28,9 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 **Fixing compatibility issues requires tons of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
 
-If you encounter compatibility issue in a large modpack, binary search is a way of finding the incompatibe mod (see below).
+If you encounter compatibility issue in a large modpack, [binary search is a way of finding the incompatibe mod](#how-to-find-the-possible-incompatibe-mod).
 
-If you are a mod developer, [the possible cases of incompatibility may come from these ways](./API-for-Other-Mods.html#Possible-Sources-of-Mod-Incompatibility-with-Immersive-Portals).
+If you are a mod developer, [the possible cases of incompatibility may come from these ways](./API-for-Other-Mods.html#possible-sources-of-mod-incompatibility-with-immersive-portals).
 
 ### Will the portal impact performance?
 

@@ -434,7 +434,7 @@ annotationProcessor("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
 
 Immersive Portals mod deeply changes game mechanics and eliminated a lot of vanilla restrictions, so it may be incompatible with some mods in these ways:
 
-**The mod that's based on the fact that only one dimension is loaded on client may be incompatible with ImmPtl. ** 
+**The mod that's developed based on the fact that only one dimension is loaded on client may be incompatible with ImmPtl.**
 
 The latest version of ImmPtl does not change the player's dimension, so the mod can compare the `Level` with `player.level()` to know whether it's rendering or ticking the dimension that the player is not in.
 

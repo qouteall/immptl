@@ -64,7 +64,9 @@ It can only link to an empty obsidian frame with the same shape and orientation 
 
 ### How to find the possible incompatibe mod?
 
-If you don't know which specific mod is incompatible, binary search is a way of finding the incompatible mod without removing the mods one-by-one. The procedure is simple:
+If you encounter compatibility issue (an issue that does not arise with only Immersive Portals mod), you can firstly check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22).
+
+If the compatibility issue is not yet known, **binary search** is a way of finding the incompatible mod without removing the mods one-by-one. The procedure is simple:
 
 1. Backup the world (because loading the world without the mod cause its content to be removed).
 2. Remove half of the existing mods, and put them aside.
@@ -74,3 +76,4 @@ If you don't know which specific mod is incompatible, binary search is a way of 
    If NO: Swap out the current mods with the ones set aside, and repeat from step 1.
 5. Repeat this process until the problematic mod(s) have been found.
 
+If you find a new compatibility issue, please report it on GitHub.

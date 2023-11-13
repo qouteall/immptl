@@ -28,6 +28,10 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 **Fixing compatibility issues requires tons of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
 
+If you encounter compatibility issue in a large modpack, binary search is a way of finding the incompatibe mod (see below).
+
+If you are a mod developer, [the possible cases of incompatibility may come from these ways](./API-for-Other-Mods.html#Possible-Sources-of-Mod-Incompatibility-with-Immersive-Portals).
+
 ### Will the portal impact performance?
 
 Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above).
@@ -57,3 +61,16 @@ This mod does not change existing vanilla portals. You need to light new portals
 ### The nether portal does not link.
 
 It can only link to an empty obsidian frame with the same shape and orientation (unless you change the nether portal mode to `adaptive`). It will not link to a vanilla nether portal.
+
+### How to find the possible incompatibe mod?
+
+If you don't know which specific mod is incompatible, binary search is a way of finding the incompatible mod without removing the mods one-by-one. The procedure is simple:
+
+1. Backup the world (because loading the world without the mod cause its content to be removed).
+2. Remove half of the existing mods, and put them aside.
+3. Run the game.
+4. Does the issue still exist?
+   If YES: Repeat from step 2 with the current mods.
+   If NO: Swap out the current mods with the ones set aside, and repeat from step 1.
+5. Repeat this process until the problematic mod(s) have been found.
+

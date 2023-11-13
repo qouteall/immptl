@@ -428,3 +428,17 @@ annotationProcessor("com.github.LlamaLad7:MixinExtras:0.2.0-beta.4")
 
 :::
 
+
+
+## Possible Sources of Mod Incompatibility with Immersive Portals
+
+Immersive Portals mod deeply changes game mechanics and eliminated a lot of vanilla restrictions, so it may be incompatible with some mods in these ways:
+
+**The mod that's based on the fact that only one dimension is loaded on client may be incompatible with ImmPtl. ** 
+
+The latest version of ImmPtl does not change the player's dimension, so the mod can compare the `Level` with `player.level()` to know whether it's rendering or ticking the dimension that the player is not in.
+
+For the mods that store per-dimension data on client, making the data attached to `Level`(`World`) or `LevelRenderer` (`WorldRenderer`) may solve the issue.
+
+The networking packets to client does not include the dimension information, so ImmPtl wraps some packets as "redirected packet" to attach dimension information. For the mods that send synchronization packets to client, for example, sending packets to synchronize custom data of entity or block entity, it may fail to find the entity or block entity in the current `Level` because that packet is not redirected. The mod can choose to use [Cardinal Components](https://github.com/Ladysnake/Cardinal-Components-API) to sync the additional data (ImmPtl has special code to make Cardinal Components packet redirected).
+

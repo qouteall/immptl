@@ -175,7 +175,7 @@ NBT tag: `renderingMergable`
 
 #### Whether to Render Yourself
 
-If false, you cannot see yourself from the portal.
+If false, you cannot see yourself (myself) from the portal.
 
 NBT tag: `doRenderPlayer`
 

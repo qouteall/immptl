@@ -374,6 +374,8 @@ Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPort
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 
+Note: for the current latest version, use version `38770dd` (this will be resolved when new version releases)
+
 @tab older
 
 Add this into `repositories`

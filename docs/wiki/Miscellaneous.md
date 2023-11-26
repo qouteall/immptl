@@ -82,3 +82,9 @@ About lighting: The nether portals by default has glowstone-level lighting. For 
 ### Upgrade a World that Have Immersive Portals Things
 
 For example if you have a world in MC 1.15.2 that contains immersive portals, and then you want to upgrade the world to 1.18.2, then you need to firstly upgrade to 1.16.5 then 1.17.1 then 1.18.2. Otherwise the portals may get lost.
+
+### The website source
+
+[This wiki on GitHub](https://github.com/qouteall/immptl)
+
+Fell free to create a PR if you want to suggest changes.

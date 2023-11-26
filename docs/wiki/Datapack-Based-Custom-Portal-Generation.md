@@ -241,6 +241,8 @@ Activates when the player right-clicks using an item.
 * `item` Item id.
 * `consume` Boolean (false if missing). If true, the item will be consumed if the generation performed (except in creative mode).
 
+It also works with block placement. For example, setting the item to `minecraft:dirt` will make it trigger when the player places a dirt block.
+
 #### `type` : `imm_ptl:throw_item`
 
 Checks every tick for the item entity that cannot be instantly picked up. (When a player throws one item it cannot be instantly picked up because the item entity has pick-up delay.) If an item is not thrown within 2 seconds, it will have no pick-up delay and cannot trigger the generation. The item can survive in lava for 1 tick, so throwing a non-fire-proof item into lava could still trigger the generation.

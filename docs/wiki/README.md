@@ -2,8 +2,6 @@
 
 This wiki describes the latest version of Immersive Portals Mod (ImmPtl).
 
-[This wiki on GitHub](https://github.com/qouteall/immptl)
-
 ## Common Questions
 
 ### Can I use it in multiplayer?
@@ -12,7 +10,7 @@ Yes. The server and client must both install this mod. (This mod is not a plugin
 
 ### Sodium Compatibility?
 
-In MC 1.19.x+, Fabric will tell incompatibiltiy warning when you use an incompatible version.
+Start from MC 1.19.x+, this mod is **compatible with only one version of Sodium**. Fabric will show the error when you are using an incompatible version of Sodium. The same applies to Iris.
 
 In MC 1.18.2, the latest version of ImmPtl is roughly compatible with Sodium 0.4.1.
 
@@ -24,9 +22,11 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 **Immersive Portals mod is incompatible with some mods. It's recommended to check [Known compatibility issues](https://github.com/qouteall/ImmersivePortalsMod/issues?q=is%3Aissue+is%3Aopen+label%3A%22Mod+Compatibility%22) before using this mod.** The mods that don't touch inner game mechanics are likely to be compatible with ImmPtl.
 
-**Any mod compatibility issue is NOT intentional.** The compatibility issues come from how the computer program works. If a mod is programmed upon the fact that only one dimension is loaded at client, that mod will break with ImmPtl.
+**This mod deeply changes the game engine and eliminted the game engine's limitation to achieve the result.** Vanilla Minecraft does not allow loading multiple dimensions on client at the same time. Vanilla's rendering engine also does not work with portal rendering. The see-through portal and seamless teleportation cannot be achieved without deeply changing the game engine. 
 
-**Fixing compatibility issues requires tons of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
+**Any mod compatibility issue is NOT intentional. ** Other mods use the game engine in some ways and this mod changes the game engine, so there may be incompatibility. Incompatibilities are not made intentionally. The compatibility issues come from how computer programs work.
+
+**Fixing compatibility issues requires a lot of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
 
 If you encounter compatibility issue in a large modpack, [binary search is a way of finding the incompatibe mod](#how-to-find-the-possible-incompatibe-mod).
 
@@ -36,7 +36,7 @@ If you are a mod developer, [the possible cases of incompatibility may come from
 
 Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above).
 
-It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes it will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
+It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes the official launcher will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
 
 ### Where to report bugs or compatibility issues?
 

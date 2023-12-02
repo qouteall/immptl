@@ -24,7 +24,7 @@ In 1.16.5 you can use [this](https://github.com/qouteall/sodium-fabric/releases)
 
 **This mod deeply changes the game engine and eliminted the game engine's limitation to achieve the result.** Vanilla Minecraft does not allow loading multiple dimensions on client at the same time. Vanilla's rendering engine also does not work with portal rendering. The see-through portal and seamless teleportation cannot be achieved without deeply changing the game engine. 
 
-**Any mod compatibility issue is NOT intentional. ** Other mods use the game engine in some ways and this mod changes the game engine, so there may be incompatibility. Incompatibilities are not made intentionally. The compatibility issues come from how computer programs work.
+**Any mod compatibility issue is NOT intentional.** Other mods use the game engine in some ways and this mod changes the game engine, so there may be incompatibility. Incompatibilities are not made intentionally. The compatibility issues come from how computer programs work.
 
 **Fixing compatibility issues requires a lot of efforts.** Compatibility issues can be fixed by ad-hoc hacking which is both hard and fragile. This mod is compatible with Sodium and Iris via ad-hoc hacking which is fragile (It's possible that next version of Sodium/Iris will not be compatible with ImmPtl). The close-sourced mods such as OptiFine are much harder to do ad-hoc hacking with so I marked OptiFine as incompatible.
 

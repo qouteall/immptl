@@ -77,3 +77,12 @@ If the compatibility issue is not yet known, **binary search** is a way of findi
 5. Repeat this process until the problematic mod(s) have been found.
 
 If you find a new compatibility issue, please report it on GitHub.
+
+### It does not render far content in portal.
+
+This mod will automatically reduce cross-portal chunk loading range and rendering range when the FPS is low or when the free memory amount is low, to reduce lagging.
+
+If you don't want that, open the config via mod menu, then disable "Enable Server Performance Adjustment" and "Enable Client Performance Adjustment". If it's in a server, change `enableServerPerformanceAdjustment` to `false` in the server's mod config file and restart the server.
+
+By default, the chunk loading radius on the other side is capped at 8. You can increase "Indirect Chunk Loading Radius Cap" (`indirectLoadingRadiusCap`) on the server to a higher value. 
+

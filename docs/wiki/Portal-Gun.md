@@ -26,10 +26,6 @@ Use left click to put blue portal, use right click to put orange portal. **The p
 
 Each player's portal does not interfere with other players'.
 
-### Make the portal gun to only work on some blocks
-
-By using commands, you can obtain a portal gun that only works on some blocks. For example, `/give @p portalgun:portal_gun{allowedBlocks:["#minecraft:ice","minecraft:stone"]} 1` gives a portal gun that only works on stone block and ice blocks (including ice, packed ice, blue ice and frosted ice). The `minecraft:stone` is the block id of stone. The `#minecraft:ice` refers to the `minecraft:ice` block tag.
-
 ### Energy
 
 In the latest version, the portal gun item initially has 100 units of energy. Using portal gun to create the portal costs 1 energy unit. When the portal gun runs out of energy, you can recharge it using a nether star via crafting:
@@ -37,6 +33,10 @@ In the latest version, the portal gun item initially has 100 units of energy. Us
 ![](./portal_gun_recharge.png)
 
 You can obtain a portal gun without energy limitation in creative mode inventory or command `/give @p portalgun:portal_gun{maxEnergy:0}`
+
+### Make the portal gun to only work on some blocks
+
+By using commands, you can obtain a portal gun that only works on some blocks. For example, `/give @p portalgun:portal_gun{allowedBlocks:["#minecraft:ice","minecraft:stone"]} 1` gives a portal gun that only works on stone block and ice blocks (including ice, packed ice, blue ice and frosted ice). The `minecraft:stone` is the block id of stone. The `#minecraft:ice` refers to the `minecraft:ice` block tag.
 
 ### Custom Color
 
@@ -50,9 +50,15 @@ The custom color only changes appearance of newly-created portals. One player st
 
 ### Gravity Transform
 
-If you want to enable gravity transform to the portals, go to Immersive Portals mod's config, enable "Portals Change Gravity by Default", then remove existing portals by placing block on them, the newly created portals will have gravity transform. (Note: that option also changes adaptive nether portal.)
+Obtain a portal gun that generates gravity-transforming portals: `/give @p portalgun:portal_gun{transformGravity:true}`.
 
-It's planned to add other ways to configure gravity transform in the future.
+### Item Tags Summary
+
+* `allowedBlocks` a list of block ids or block tag ids, that the portal gun can only be used on
+* `maxEnergy` maximum energy value. 0 for infinite energy.
+* `remainingEnergy` remaining energy value.
+* `side1Color` `side2Color` the color of two sides. Side 1 corresponds to the originally "blue" side.
+* `transformGravity` controls whether the portal transforms gravity
 
 ## Download
 

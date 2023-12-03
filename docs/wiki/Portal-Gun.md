@@ -48,6 +48,12 @@ It supports color in hex number `#32a852`, and vanilla color (`white`, `orange`,
 
 The custom color only changes appearance of newly-created portals. One player still can have at most one pair of portals.
 
+### Gravity Transform
+
+If you want to enable gravity transform to the portals, go to Immersive Portals mod's config, enable "Portals Change Gravity by Default", then remove existing portals by placing block on them, the newly created portals will have gravity transform. (Note: that option also changes adaptive nether portal.)
+
+It's planned to add other ways to configure gravity transform in the future.
+
 ## Download
 
 Download from GitHub releases:

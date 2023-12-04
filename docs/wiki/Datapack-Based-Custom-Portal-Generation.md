@@ -257,9 +257,9 @@ It will be triggered when the player experiences conventional dimension travel (
 
 ## Other Examples
 
-One-way end portal using bedrock as frame.
+One-way end portal using bedrock as frame:
 
-```
+```json
 {
   "schema_version": "imm_ptl:v1",
   "from": [ "minecraft:overworld" ], "to": "minecraft:the_end",
@@ -275,3 +275,20 @@ One-way end portal using bedrock as frame.
   ]
 }
 ```
+
+Allow making nether portal using crying obsidian:
+
+```json
+{
+  "schema_version": "imm_ptl:v1",
+  "from": [ "minecraft:overworld" ], "to": "minecraft:the_nether",
+  "space_ratio_from": 8, "space_ratio_to": 1,
+  "form": {
+    "type": "imm_ptl:classical",
+    "from_frame_block": "minecraft:crying_obsidian", "area_block": "minecraft:air",
+    "to_frame_block": "minecraft:crying_obsidian", "generate_frame_if_not_found": true
+  },
+  "trigger": { "type": "imm_ptl:use_item", "item": "minecraft:flint_and_steel" }
+}
+```
+

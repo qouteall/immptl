@@ -83,6 +83,28 @@ About lighting: The nether portals by default has glowstone-level lighting. For 
 
 For example if you have a world in MC 1.15.2 that contains immersive portals, and then you want to upgrade the world to 1.18.2, then you need to firstly upgrade to 1.16.5 then 1.17.1 then 1.18.2. Otherwise the portals may get lost.
 
+### Remove the Sodium/Iris version lock
+
+This mod uses the internals of Sodium and Iris for compatibility. These internals may change in future versions of Sodium/Iris. So this mod locks the compatible Sodium/Iris version. If you want to launch the game with this mod and newer versions of Sodium/Iris, you can use [Dependency Override](https://fabricmc.net/wiki/tutorial:dependency_overrides).
+
+Add `fabric_loader_dependencies.json` into `config` folder with these content:
+
+```json
+{
+    "version": 1,
+    "overrides": {
+        "immersive_portals": {
+            "-breaks": {
+                "iris": "IGNORED",
+                "sodium": "IGNORED"
+            }
+        }
+    }
+}
+```
+
+**Note: the game may crash when using the non-locked versions of Sodium/Iris with Immersive Portals.**
+
 ### The website source
 
 [This wiki on GitHub](https://github.com/qouteall/immptl)

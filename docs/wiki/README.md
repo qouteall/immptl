@@ -12,6 +12,8 @@ Yes. The server and client must both install this mod. (This mod is not a plugin
 
 Start from MC 1.19.x+, this mod is **compatible with only one version of Sodium**. Fabric will show the error when you are using an incompatible version of Sodium. The same applies to Iris.
 
+> You can [use dependency override](./Miscellaneous.html#remove-the-sodium-iris-version-lock) to make the game launch with other versions of Sodium/Iris.
+
 In MC 1.18.2, the latest version of ImmPtl is roughly compatible with Sodium 0.4.1.
 
 In MC 1.17.1, the latest version of ImmPtl is roughly compatible with Sodium 0.3.4.

@@ -292,3 +292,32 @@ Allow making nether portal using crying obsidian:
 }
 ```
 
+If you want the nether portal generation that allows mixing crying obsidian and normal obsidian, firstly add a tag. In `/data/i_am_namespace/tags/blocks/my_tag.json`:
+
+```json
+{
+    "values": [
+        "minecraft:obsidian",
+        "minecraft:crying_obsidian"
+    ]
+}
+```
+
+Then the custom portal generation can be
+
+```json
+{
+  "schema_version": "imm_ptl:v1",
+  "from": [ "minecraft:overworld" ], "to": "minecraft:the_nether",
+  "space_ratio_from": 1, "space_ratio_to": 8,
+  "form": {
+    "type": "imm_ptl:heterogeneous",
+    "frame_block": "i_am_namespace:my_tag", "area_block": "minecraft:air",
+    "generate_frame_if_not_found": true
+  },
+  "trigger": { "type": "imm_ptl:use_item", "item": "minecraft:flint_and_steel" }
+}
+```
+
+
+

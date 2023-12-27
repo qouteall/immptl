@@ -61,9 +61,9 @@ In older MC versions, this mod is problematic with OptiFine so it's not recommen
 
 
 
-### What Happens if I Remove ImmPtl?
+### What Happens if I Remove iPortal?
 
-All see-through portals will vanish. Even if you re-install ImmPtl, the portals cannot recover. (Portals in unloaded chunks may remain.)
+All see-through portals will vanish. Even if you re-install iPortal, the portals cannot recover. (Portals in unloaded chunks may remain.)
 
 Vanilla nether/end portals still exist. Dimension stack bedrock replacement will not work.
 

@@ -6,7 +6,7 @@ index: false
 
 # API for Other Mods (old version)
 
-These are the documentation for the APIs in older versions. Supporting old versions is in low priority. It's recommended to use the latest version of ImmPtl and q_misc_util.
+These are the documentation for the APIs in older versions. Supporting old versions is in low priority. It's recommended to use the latest version of iPortal and q_misc_util.
 
 Code is in yarn mapping.
 

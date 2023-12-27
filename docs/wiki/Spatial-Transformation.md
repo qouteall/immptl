@@ -28,7 +28,7 @@ This mod has special compatibility with Gravity Changer mod. With Gravity Change
 
 In 1.18.2 you can use [my fork of Gravity Changer](https://github.com/qouteall/GravityChanger/releases/tag/v0.3.1) .
 
-In 1.19.2, ImmPtl is compatible with [Gravity API](https://www.curseforge.com/minecraft/mc-mods/gravityapi/files/4089787) .
+In 1.19.2, iPortal is compatible with [Gravity API](https://www.curseforge.com/minecraft/mc-mods/gravityapi/files/4089787) .
 
 In 1.19.4 and 1.20.1, use [my fork of Gravity API](https://modrinth.com/mod/gravity-api-fork) . (Note: in 1.20.1 ImmPtl is no longer compatible with Gravity API. A Fabric mod cannot depend on a Quilt mod.)
 

@@ -19,7 +19,7 @@ Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by defaul
 
 Here is the brief documentation of the API. You can also refer to the JavaDoc in code. If you have any question using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/iPortalTeam/ImmersivePortalsMod/discussions).
 
-Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use ImmPtl API.
+Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use Immersive Portals API.
 
 ## 1.20.2 Update Note
 
@@ -83,7 +83,7 @@ To create the reverse/flipped portal entity, use `PortalAPI.createReversePortal`
 
 #### About Rotations and Quaternions
 
-You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. ImmPtl uess its own `DQuaternion` which is immutable.
+You can set the portal's rotating transformation by `setRotation()` . The rotation transformation is represented using quaternion. Minecraft uses `Quaternionf` which is mutable. iPortal uess its own `DQuaternion` which is immutable.
 
 A quaternion is a rotating transformation. For example you can create a rotation along Y axis for 45 degrees by `DQuaternion.rotateByDegrees(new Vec3(0, 1, 0), 45).toMcQuaternion()` . 
 
@@ -97,7 +97,7 @@ About quaternions, you just need to know these:
 
 Quaternion can not only represent a rotating process, it can also represent an orientation.  You can manipulate portal orientation by `PortalAPI.getPortalOrientationQuaternion` and `PortalAPI.setPortalOrientationQuaternion` .
 
-ImmPtl does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
+iPortal does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
 
 ### Chunk Loading API
 
@@ -342,7 +342,7 @@ Using unsupported argument types will cause serialization/deserialization issues
 
 Immersive Portals' datapack-custom-portal system allows converting a conventional portal (a portal that is similar to nether portal, for example the portal of Paradise Lost) to see-through when the player goes through the portal. That JSON file can be directly put into the mod jar. [Example in Paradise Lost mod](https://github.com/devs-immortal/Paradise-Lost/blob/1.18.2/src/main/resources/data/the_aether/custom_portal_generation/ip_aether_portal.json). If the mod author did not put the conversion generation file into the mod jar, you can also use your own datapack to add it.
 
-It converts when after the player goes through portal once. The portal is not converted when lighting the portal because ImmPtl didn't know how to select the destination and generate the frame, until the player goes through the portal once.
+It converts when after the player goes through portal once. The portal is not converted when lighting the portal because iPortal didn't know how to select the destination and generate the frame, until the player goes through the portal once.
 
 ## Configure Dependency (in Fabric)
 
@@ -355,7 +355,7 @@ In your `build.gradle`:
 Add this into `repositories`
 
 ```
-// the repository for ImmPtl
+// the repository for iPortal
 maven { url 'https://jitpack.io' }
 
 // the repository for Cloth Config
@@ -370,7 +370,7 @@ modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:q_misc_util:v3.2.
 modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:build:v3.2.1-mc1.20.1")
 ```
 
-Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/releases). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
+Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/tags). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 

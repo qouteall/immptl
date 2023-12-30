@@ -372,10 +372,10 @@ maven { url 'https://maven.shedaniel.me' }
 Add this into `dependencies`
 
 ```
-modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:v3.2.1-mc1.20.1")
+modImplementation ("com.github.iPortalTeam:ImmersivePortalsMod:v5.0.0-mc1.20.4")
 ```
 
-Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/tags). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
+Replace `v5.0.0-mc1.20.4` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/tags). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
 

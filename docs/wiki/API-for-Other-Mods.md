@@ -10,20 +10,29 @@ The Fabric version of Immersive Portals mod contains some API for other mods to 
 
 ## API Overview
 
-Immersive Portals mod's API is now split across 2 mods:
+Start from mod version 5.0.0 (Mc version 1.20.4), this mod becomes one mod.
+
+When the mod is only provided by jar-in-jar, the default config of "nether portal mode", "end portal mode" and "enable mirror creation" will be respectively `vanilla`, `vanill` and false. This means that if this mod is only provided by jar-in-jar, and no existing mod config file exists, it will not change any existing vanilla behavior by default.
+
+The dimension API now has been moved to DimLib.
+
+::: details For MC 1.16 - 1.20.2
+
+Old versions of Immersive Portals mod's is split as 3 mods:
 
 * Immersive Portals Core (`imm_ptl_core`). It allows adding and managing see-through portals. It also enables the client to load multiple dimensions at the same time. It also contains chunk loading facilities. It requires both client and server to install.
 * Miscellaneous Utility Library from qouteall (`q_misc_util`). It contains the dimension API and some utilities. It allows dynamically adding and removing dimensions without restarting the server. It can work as server-only (if the client does not install it, the command completion of dimension id won't be updated).
+* The outer mod. Contains nether portal, end portal and dimension stack functionality.
 
 Both `imm_ptl_core` and `q_misc_util` will not change vanilla behavior by default. 
+
+:::
 
 Here is the brief documentation of the API. You can also refer to the JavaDoc in code. If you have any question using the API, you can contact qouteall via [discord](https://discord.gg/BZxgURK) or open a [discussion](https://github.com/iPortalTeam/ImmersivePortalsMod/discussions).
 
 Code examples: [MiniScaled mod](https://github.com/iPortalTeam/MiniScaledMod) and [Portal Gun mod](https://github.com/iPortalTeam/PortalGun) use Immersive Portals API.
 
-## 1.20.2 Update Note
 
-Starting from mod version 4.0.0 (MC 1.20.2), the dimension API gets overhauled. And some other APIs changed. The documentation of old versions is [here](./Old-API.html).
 
 ## Immersive Portals API (`imm_ptl_core`)
 
@@ -161,11 +170,9 @@ That framebuffer will automatically be resized to be the same size as the game w
 
 
 
-## The Miscellaneous Utility API (`q_misc_util`)
+### Dimension API (in DimLib)
 
-### Dimension API
-
-The `q_misc_util` mod can work on server when the client does not install that mod. However, if the client does not have that mod, the dimension id list in command completion won't get updated when a dimension is added or removed dynamically. 
+Before mod version 5.0.0 (MC version 1.20.4), the dimension API is in `q_misc_util`. The documentation of the dimension API of old versions is [here](./Old-API.html).
 
 #### Dynamically Adding and Removing Dimensions
 
@@ -261,7 +268,7 @@ LifecycleHack.markNamespaceStable("aaa");
 
 ### Networking Utility (Remote Procedure Call)
 
-Fabric provides the networking API. But adding a new type of packet requires  (1) Write packet serialization/deserialization code (2) Write the packet handling code, which requires sending the task to the client/server thread to execute it (3) Give it an identifier and register it. This networking utility makes it easier.
+The remote procedure call utility allows easier networking communication (without writing packet type and serialization/deserialization code for eacy packet type).
 
 
 Example: if you want the server to send a packet to ask the client to invoke this method (on the render thread):
@@ -336,7 +343,7 @@ and:
 
 Using unsupported argument types will cause serialization/deserialization issues.
 
-
+**Note: the packet handling code should validate packet content, including checking permission and checking position.**
 
 ## How to Make Other Mod's Portals See-through
 
@@ -344,13 +351,35 @@ Immersive Portals' datapack-custom-portal system allows converting a conventiona
 
 It converts when after the player goes through portal once. The portal is not converted when lighting the portal because iPortal didn't know how to select the destination and generate the frame, until the player goes through the portal once.
 
-## Configure Dependency (in Fabric)
+## Configure Dependency in Fabric
 
 In your `build.gradle`:
 
 ::: tabs
 
-@tab Starting from MC 1.20.1
+@tab MC 1.20.4 +
+
+Add this into `repositories`
+
+```
+// the repository for iPortal
+maven { url 'https://jitpack.io' }
+
+// the repository for Cloth Config
+maven { url 'https://maven.shedaniel.me' }
+```
+
+Add this into `dependencies`
+
+```
+modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:v3.2.1-mc1.20.1")
+```
+
+Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/tags). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
+
+JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
+
+@tab MC 1.20.1 - MC 1.20.2
 
 Add this into `repositories`
 
@@ -373,8 +402,6 @@ modImplementation ("com.github.iPortalTeam.ImmersivePortalsMod:build:v3.2.1-mc1.
 Replace `v3.2.1-mc1.20.1` with the [latest release tag](https://github.com/iPortalTeam/ImmersivePortalsMod/tags). See [Jitpack](https://jitpack.io/#iPortalTeam/ImmersivePortalsMod)
 
 JitPack will build it when you firstly use it. If you encounter `Read time out`, it means that JitPack haven't finished building it yet, simply try again.
-
-Note: for the current latest version, use version `38770dd` (this will be resolved when new version releases)
 
 @tab older
 

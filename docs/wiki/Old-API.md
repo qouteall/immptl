@@ -12,7 +12,11 @@ Code is in yarn mapping.
 
 The content in this page is outdated.
 
-### Dimension API in 1.20.1
+### Dimension API in MC 1.20.2
+
+The dimension API in 1.20.2 is in `q_misc_util`. It's roughly the same as the dimension API in DimLib.
+
+### Dimension API in MC 1.20.1
 
 
 #### Basic Concepts of Dimensions

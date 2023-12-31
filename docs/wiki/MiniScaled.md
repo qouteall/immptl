@@ -118,6 +118,14 @@ By renaming an entrance item and then placing it, the scale box will be renamed.
 
 You can access the config by mod menu or directly edit `config/mini_scaled.json`. You can specify another item (other than netherite) as the scale box creation item.
 
+### Commands
+
+These commands require level 2 permission.
+
+* `/miniscaled view_all_boxes` Opens the management GUI that shows all scale boxes of all players. 
+* `/miniscaled view_my_boxes` Opens the management GUI that shows your boxes. Same as using the manipulation wand.
+* `/miniscaled make_frame <block> <x1> <y1> <z1> <x2> <y2> <z2>` Creates a frame using the block.
+
 ## Download
 
 Download from GitHub releases:

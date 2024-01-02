@@ -36,9 +36,11 @@ If you are a mod developer, [the possible cases of incompatibility may come from
 
 ### Will the portal impact performance?
 
-Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with Sodium (not all Sodium versions are compatible with ImmPtl, see the above).
+Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with [Sodium](https://modrinth.com/mod/sodium) (not all Sodium versions are compatible with ImmPtl, see the above).
 
 It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes the official launcher will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
+
+Also, [ImmediatelyFast](https://modrinth.com/mod/immediatelyfast) is an optimization mod that works with this mod.
 
 ### Where to report bugs or compatibility issues?
 

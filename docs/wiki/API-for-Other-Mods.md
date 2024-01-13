@@ -262,9 +262,11 @@ That framebuffer will automatically be resized to be the same size as the game w
 
 
 
-### Dimension API (in DimLib)
+### Dimension API
 
 Before mod version 5.0.0 (MC version 1.20.4), the dimension API is in `q_misc_util`. The documentation of the dimension API of old versions is [here](./Old-API.html).
+
+Not the dimension API is in [DimLib](https://github.com/iPortalTeam/DimLib).
 
 #### Dynamically Adding and Removing Dimensions
 
@@ -347,16 +349,6 @@ DimensionAPI.SERVER_DIMENSIONS_LOAD_EVENT.register(server -> {
     DimensionAPI.addDimensionIfNotExists(...);
 });
 ```
-
-#### Disable "Experimental setting" warning
-
-To remove the screen of "worlds using experimental settings are not supported", you need to do mark the namespace stable. For example, if your dimension is `aaa:bbb`, then do this during mod initialization:
-
-```java
-LifecycleHack.markNamespaceStable("aaa");
-```
-
-
 
 ### Networking Utility (Remote Procedure Call)
 

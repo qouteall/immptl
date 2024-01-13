@@ -12,7 +12,7 @@ Configure custom portal generation mechanics using JSON files in a datapack.
 
 ## Examples
 
-[Download the example datapack](https://github.com/qouteall/ImmersivePortalsMod/raw/1.19/example_custom_portal_gen.zip) You can use the example datapack by putting it into the `datapacks` folder of the world.
+[Download the example datapack](https://github.com/qouteall/ImmersivePortalsMod/raw/1.20.4/example_custom_portal_gen.zip) You can use the example datapack by putting it into the `datapacks` folder of the world.
 
 The example datapack has:
 
@@ -29,10 +29,12 @@ The example datapack has:
 
 `wood_portal.json`: From overworld to alternate5. The frame can be in any type of wood planks. Activated using a compass.
 
+> It requires dimension `immersive_portals:void`. That dimension can be added by command  `/dims add_dimension "immersive_portals:void" void`
+
 ```
 {
   "schema_version": "imm_ptl:v1",
-  "from": ["minecraft:overworld"], "to": "immersive_portals:alternate5",
+  "from": ["minecraft:overworld"], "to": "immersive_portals:void",
   "form": {
     "type": "imm_ptl:heterogeneous", "frame_block": "minecraft:planks",
     "area_block": "minecraft:air", "generate_frame_if_not_found": true
@@ -75,10 +77,12 @@ The example datapack has:
 
 `aether_like.json` : The glowstone portal that's activated using a water bucket from overworld to alternate2 dimension. Similar to the aether's.
 
+> It requires dimension `immersive_portals:skyland`. That dimension can be added by command  `/dims add_dimension "immersive_portals:skyland" skyland`
+
 ```
 {
   "schema_version": "imm_ptl:v1",
-  "from": ["minecraft:overworld"], "to": "immersive_portals:alternate2",
+  "from": ["minecraft:overworld"], "to": "immersive_portals:skyland",
   "form": {
     "type": "imm_ptl:classical",
     "from_frame_block": "minecraft:glowstone", "area_block": "minecraft:air", 
@@ -88,12 +92,14 @@ The example datapack has:
 }
 ```
 
-`twilight_forest_like.json` : A floor flipping portal to alternate1. Activated by throwing diamond to a 2x2 water pool surrounded by dirt with flowers on top. Similar to the twilight forest portal. It will summon a lightning bolt after creating the portal.
+`twilight_forest_like.json` : A floor flipping portal to the skyland dimension. Activated by throwing diamond to a 2x2 water pool surrounded by dirt with flowers on top. Similar to the twilight forest portal. It will summon a lightning bolt after creating the portal.
+
+> It requires dimension `immersive_portals:skyland`. That dimension can be added by command  `/dims add_dimension "immersive_portals:skyland" skyland`
 
 ```
 {
   "schema_version": "imm_ptl:v1",
-  "from": ["minecraft:overworld"], "to": "immersive_portals:alternate1",
+  "from": ["minecraft:overworld"], "to": "immersive_portals:skyland",
   "form": {
     "type": "imm_ptl:flipping_floor_square",
     "length": 2, "frame_block": "minecraft:bamboo_plantable_on", "area_block": "minecraft:water",
@@ -104,12 +110,14 @@ The example datapack has:
 }
 ```
 
-`lapis_redstone_portal.json`: From overworld to alternate4. The overworld side frame is lapis block, but the other side's frame is redstone block. And for this portal, one block in the overworld corresponds to 8 blocks in alternate4.
+`lapis_redstone_portal.json`: From overworld to the chaos dimension. The overworld side frame is lapis block, but the other side's frame is redstone block. And for this portal, one block in the overworld corresponds to 8 blocks in chaos dimension.
+
+> It requires dimension `immersive_portals:chaos`. That dimension can be added by command  `/dims add_dimension "immersive_portals:chaos" chaos`
 
 ```
 {
   "schema_version": "imm_ptl:v1",
-  "from": [ "minecraft:overworld" ], "to": "immersive_portals:alternate4",
+  "from": [ "minecraft:overworld" ], "to": "immersive_portals:chaos",
   "space_ratio_from": 1, "space_ratio_to": 8,
   "form": {
     "type": "imm_ptl:classical",

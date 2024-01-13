@@ -8,7 +8,7 @@ order: 5
 
 ### Dynamically Adding and Removing Dimensions
 
-The latest version of this mod has the functionality of dynamically adding and removing dimensions when the game is running.
+The latest version of this mod bundles [DimLib](https://modrinth.com/mod/dimlib). DimLib has the functionality of dynamically adding and removing dimensions when the game is running.
 
 #### Clone a dimension
 
@@ -40,15 +40,17 @@ See also [Dimension Management Commands](./Commands-Reference#dimension-manageme
 
 ### Alternate Dimensions
 
-Starting from mod version 4.0.0 (MC 1.20.2), the alternate dimensions are only added when they are used in dimension stack. The alternate dimensions are:
+Starting from mod version 4.0.0 (MC 1.20.2), the alternate dimensions will no longer be added by default. They are automatically added only when they are used in dimension stack.
+
+The alternate dimensions are:
 
 | Name           | Dimension id                     | Description                           |
 | -------------- | -------------------------------- | ------------------------------------- |
-| Skyland        | `immersive_portals:skyland`        | Skyland with overworld-like biomes    |
-| Bright Skyland | `immersive_portals:bright_skyland` | Skyland, fully bright                 |
-| Chaos          | `immersive_portals:chaos`          | Full of crazy chaos world generation  |
-| Void           | `immersive_portals:void`           | An empty dimension with overworld sky |
-| Bright Void    | `immersive_portals:bright_void`    | Void, fully bright                    |
+| Skyland        | `immersive_portals:skyland`        | Skyland with overworld-like biomes.   |
+| Bright Skyland | `immersive_portals:bright_skyland` | Skyland, fully bright.                |
+| Chaos          | `immersive_portals:chaos`          | Full of crazy chaos world generation. The world generation is based on randomly-generated math expressions. Inspired by farland. |
+| Void           | `immersive_portals:void`           | An empty dimension with overworld sky. |
+| Bright Void    | `immersive_portals:bright_void`    | Void, fully bright.                   |
 
 ::: details In old versions
 

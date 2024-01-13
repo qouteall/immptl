@@ -60,7 +60,7 @@ The example datapack has:
 }
 ```
 
-`special_nether_portal`: A new type of nether portal. Throw a nether quartz into a 3x3 lava pool surrounded by soul soil blocks. Can only be created in overworld
+`special_nether_portal`: A new type of nether portal. Throw a nether quartz into a 3x3 lava pool surrounded by soul soil blocks. Can only be created in overworld.
 
 ```
 {
@@ -217,7 +217,7 @@ The maximum area side length is 20.
 
 This can only be used with trigger `imm_ptl:conventional_dimension_change`. When a player goes through a conventional portal and experience a dimension travel with loading screen, this can be used to convert that conventional portal into a see-through portal.
 
-**It converts the portal after the player goes through it once. It does not convert the portal after creation.**
+**It converts the portal after the player goes through it once. It does not convert the portal immediately after creation.** Different mods have different ways of selecting destination of the portal that  iPortal cannot know in advance. So this only runs after teleportation.
 
 It can only convert the conventional portal that have the same type of portal block on both sides and the shapes are compatible.
 

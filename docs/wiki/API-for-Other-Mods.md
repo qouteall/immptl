@@ -118,7 +118,7 @@ For example, if you want to add a subclass of `Portal`: `XPortal`
 
 ```java
 public class XPortal extends Portal {
-    public static final EntityType<MiniScaledPortal> ENTITY_TYPE =
+    public static final EntityType<XPortal> ENTITY_TYPE =
         Portal.createPortalEntityType(XPortal::new);
     
     public XPortal(EntityType<?> entityType, Level world) {
@@ -157,7 +157,7 @@ EntityRendererRegistry.register(XPortal.ENTITY_TYPE, PortalEntityRenderer::new);
 
 ```java
 public class XPortal extends Portal {
-    public static final EntityType<MiniScaledPortal> ENTITY_TYPE =
+    public static final EntityType<XPortal> ENTITY_TYPE =
         Portal.createPortalEntityType(XPortal::new);
     
     public XPortal(EntityType<?> entityType, World world) {

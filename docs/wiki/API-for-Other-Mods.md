@@ -14,7 +14,7 @@ Start from mod version 5.0.0 (Mc version 1.20.4), this mod becomes one mod.
 
 When the mod is only provided by jar-in-jar, the default config of "nether portal mode", "end portal mode" and "enable mirror creation" will be respectively `vanilla`, `vanill` and false. This means that if this mod is only provided by jar-in-jar, and no existing mod config file exists, it will not change any existing vanilla behavior by default.
 
-The dimension API now has been moved to DimLib.
+The dimension API now has been moved to [DimLib](https://modrinth.com/mod/dimlib).
 
 ::: details For MC 1.16 - 1.20.2
 
@@ -106,7 +106,99 @@ About quaternions, you just need to know these:
 
 Quaternion can not only represent a rotating process, it can also represent an orientation.  You can manipulate portal orientation by `PortalAPI.getPortalOrientationQuaternion` and `PortalAPI.setPortalOrientationQuaternion` .
 
-iPortal does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive bu
+iPortal does not use Euler angle for rotation because Euler angle requires handling many edge cases. Quaternion is less intuitive but easier to interpolate and multiply.
+
+#### Creating a Subclass of `Portal` and a New Entity Type
+
+For example, if you want to add a subclass of `Portal`: `XPortal`
+
+::: tabs
+
+@tab Official Mapping
+
+```java
+public class XPortal extends Portal {
+    public static final EntityType<MiniScaledPortal> ENTITY_TYPE =
+        Portal.createPortalEntityType(XPortal::new);
+    
+    public XPortal(EntityType<?> entityType, Level world) {
+        super(entityType, world);
+    }
+    
+    @Override
+    protected void readAdditionalSaveData(CompoundTag compoundTag) {
+        super.readAdditionalSaveData(compoundTag);
+        // read custom data from nbt
+    }
+    
+    @Override
+    protected void addAdditionalSaveData(CompoundTag compoundTag) {
+        super.addAdditionalSaveData(compoundTag);
+        // write custom data to nbt
+    }
+}
+```
+
+Then register the entity type during mod initialization:
+
+```java
+Registry.register(
+    BuiltInRegistries.ENTITY_TYPE, new ResourceLocation("x:x"), XPortal.ENTITY_TYPE
+);
+```
+
+Also register the entity renderer, during client side mod initialization:
+
+```java
+EntityRendererRegistry.register(XPortal.ENTITY_TYPE, PortalEntityRenderer::new);
+```
+
+@tab Yarn Mapping
+
+```java
+public class XPortal extends Portal {
+    public static final EntityType<MiniScaledPortal> ENTITY_TYPE =
+        Portal.createPortalEntityType(XPortal::new);
+    
+    public XPortal(EntityType<?> entityType, World world) {
+        super(entityType, world);
+    }
+    
+    @Override
+    protected void readCustomDataFromNbt(NbtCompound compoundTag) {
+        super.readCustomDataFromNbt(compoundTag);
+        // read custom data from nbt
+    }
+    
+    @Override
+    protected void writeCustomDataToNbt(NbtCompound compoundTag) {
+        super.writeCustomDataToNbt(compoundTag);
+        // write custom data to nbt
+    }
+}
+```
+
+Then register the entity type during mod initialization:
+
+```java
+Registry.register(
+    Registries.ENTITY_TYPE, new Identifier("x:x"), XPortal.ENTITY_TYPE
+);
+```
+
+Also register the entity renderer, during client side mod initialization:
+
+```java
+EntityRendererRegistry.register(XPortal.ENTITY_TYPE, PortalEntityRenderer::new);
+```
+
+:::
+
+
+
+
+
+
 
 ### Chunk Loading API
 

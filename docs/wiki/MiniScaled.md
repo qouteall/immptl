@@ -42,6 +42,8 @@ Use the wand to right-click on that glass frame, a GUI will show. You can choose
 
 ![](./scale_box_wrap_gui.png)
 
+> Note: the ingredient item has changed to Eye of Ender.
+
 Click "Ok", then the box will be wrapped with animation.
 
 ![](./scale_box_after_wrap.png)

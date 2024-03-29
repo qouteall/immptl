@@ -96,11 +96,7 @@ If not correctly clipped, the portal will be rendered wrongly:
 
 This mod do clipping by transforming the vertex shader and set `gl_ClipDistance`.
 
-There is another clipping method using oblique projection. http://www.terathon.com/lengyel/Lengyel-Oblique.pdf 
-
-This mod does not use oblique projection for clipping because **oblique projection cannot do correct clipping in all cases.** If the angle between the culling plane normal with view vector is not bigger than 90 degrees, it will not work at all.
-
-And oblique projection make it harder to be compatible with Iris.
+There is another clipping method using oblique projection. http://www.terathon.com/lengyel/Lengyel-Oblique.pdf Oblique projection does not work well with the things that use pixel depth, and is less straightforward than doing extra clipping.
 
 ### Portal Visibility Prediction Optimization Utilizing Temporal Coherence
 

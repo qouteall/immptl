@@ -36,7 +36,7 @@ If you are a mod developer, [the possible cases of incompatibility may come from
 
 ### Will the portal impact performance?
 
-Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with [Sodium](https://modrinth.com/mod/sodium) (not all Sodium versions are compatible with ImmPtl, see the above).
+Loading more chunks and rendering more things will affects performance. I already put a lot of efforts into optimizing this mod's performance and make portal rendering compatible with [Sodium](https://modrinth.com/mod/sodium) (not all Sodium versions are compatible with iPortal, see the above).
 
 It's recommended to allocate more memory to Minecraft. Not having enough memory will make the game laggy. Sometimes the official launcher will by default only allocate 2GB to Minecraft even if the computer have many memory. [How to allocate more RAM to Minecraft](https://filmora.wondershare.com/game-recording/how-to-allocate-more-ram-to-minecraft.html)
 
@@ -86,7 +86,9 @@ If you find a new compatibility issue, please report it on GitHub.
 
 This mod will automatically reduce cross-portal chunk loading range and rendering range when the FPS is low or when the free memory amount is low, to reduce lagging.
 
-If you don't want that, open the config via mod menu, then disable "Enable Server Performance Adjustment" and "Enable Client Performance Adjustment". If it's in a server, change `enableServerPerformanceAdjustment` to `false` in the server's mod config file and restart the server.
+If you don't want that, open the config via mod menu, then disable "Enable Server Performance Adjustment" and "Enable Client Performance Adjustment" and "Lag Attack Proof". 
+
+If it's in a server, change `enableServerPerformanceAdjustment` to `false` in the server's mod config file and restart the server.
 
 By default, the chunk loading radius on the other side is capped at 8. You can increase "Indirect Chunk Loading Radius Cap" (`indirectLoadingRadiusCap`) on the server to a higher value. 
 

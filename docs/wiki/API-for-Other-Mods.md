@@ -262,94 +262,6 @@ That framebuffer will automatically be resized to be the same size as the game w
 
 
 
-### Dimension API
-
-Before mod version 5.0.0 (MC version 1.20.4), the dimension API is in `q_misc_util`. The documentation of the dimension API of old versions is [here](./Old-API.html).
-
-Not the dimension API is in [DimLib](https://github.com/iPortalTeam/DimLib).
-
-#### Dynamically Adding and Removing Dimensions
-
-Add and remove a new dimension dynamically:
-
-::: tabs
-
-@tab Official Mapping
-
-```java
-MinecraftServer server = ...;
-
-RegistryAccess.Frozen registryAccess = server.registryAccess();
-
-Registry<DimensionType> dimTypeRegistry =
-    registryAccess.registryOrThrow(Registries.DIMENSION_TYPE);
-
-// get the dimension type holder
-Holder<DimensionType> dimType = dimTypeRegistry.getHolder(DIM_TYPE_KEY).orElseThrow();
-
-// add the dimension
-DimensionAPI.addDimension(
-    server,
-    new ResourceLocation("namespace:new_dimension_id"),
-    new LevelStem(
-        dimType,
-        new CustomChunkGenerator(...)
-    )
-);
-
-// ...
-
-// remove the dimension
-DimensionAPI.removeDimensionDynamically(server.getLevel(DIM_KEY));
-```
-
-@tab Yarn Mapping
-
-```java
-MinecraftServer server = ...;
-
-DynamicRegistryManager.Immutable registryAccess = server.getRegistryManager();
-
-Registry<DimensionType> dimTypeRegistry =
-    registryAccess.get(RegistryKeys.DIMENSION_TYPE);
-
-// get the dimension type holder
-RegistryEntry<DimensionType> dimType = dimTypeRegistry.getEntry(DIM_TYPE_KEY).orElseThrow();
-
-// add the dimension
-DimensionAPI.addDimension(
-    server,
-    new Identifier("namespace:new_dimension_id"),
-    new DimensionOptions(
-        dimType,
-        new CustomChunkGenerator(...)
-    )
-);
-
-// ...
-
-// remove the dimension
-DimensionAPI.removeDimensionDynamically(server.getWorld(DIM_KEY));
-```
-
-:::
-
-When creating a new `ChunkGenerator`, you can use the content from the `RegistryAccess`. The added dimension's configuration will be saved into `level.dat` file. The chunk generator need to have a working codec.
-
-The added dimension's id should not duplicate with existing dimension. You can use `DimensionAPI.addDimensionIfNotExists` to avoid adding dimension if the dimension with that id already exists.
-
-Removing a dimension does not delete its world saving file.
-
-#### Adding Dimensions During Server Initialization
-
-Sometimes you want to add a new dimension during server startup, but want to add dimension based on config file or some other dynamic things, so the dimension cannot be hardcoded in JSON, then you can do this:
-
-```java
-DimensionAPI.SERVER_DIMENSIONS_LOAD_EVENT.register(server -> {
-    DimensionAPI.addDimensionIfNotExists(...);
-});
-```
-
 ### Networking Utility (Remote Procedure Call)
 
 The remote procedure call utility allows easier networking communication (without writing packet type and serialization/deserialization code for eacy packet type).
@@ -428,6 +340,10 @@ and:
 Using unsupported argument types will cause serialization/deserialization issues.
 
 **Note: the packet handling code should validate packet content, including checking permission and checking position.**
+
+
+
+
 
 ## How to Make Other Mod's Portals See-through
 
@@ -555,3 +471,98 @@ For the mods that store per-dimension data on client, making the data attached t
 
 The networking packets to client does not include the dimension information, so ImmPtl wraps some packets as "redirected packet" to attach dimension information. For the mods that send synchronization packets to client, for example, sending packets to synchronize custom data of entity or block entity, it may fail to find the entity or block entity in the current `Level` because that packet is not redirected. The mod can choose to use [Cardinal Components](https://github.com/Ladysnake/Cardinal-Components-API) to sync the additional data (ImmPtl has special code to make Cardinal Components packet redirected).
 
+
+
+
+
+## Dimension API in DimLib
+
+Before mod version 5.0.0 (MC version 1.20.4), the dimension API is in `q_misc_util`. The documentation of the dimension API of old versions is [here](./Old-API.html).
+
+Not the dimension API is in [DimLib](https://github.com/iPortalTeam/DimLib).
+
+#### Dynamically Adding and Removing Dimensions
+
+Add and remove a new dimension dynamically:
+
+::: tabs
+
+@tab Official Mapping
+
+```java
+MinecraftServer server = ...;
+
+RegistryAccess.Frozen registryAccess = server.registryAccess();
+
+Registry<DimensionType> dimTypeRegistry =
+    registryAccess.registryOrThrow(Registries.DIMENSION_TYPE);
+
+// get the dimension type holder
+Holder<DimensionType> dimType = dimTypeRegistry.getHolder(DIM_TYPE_KEY).orElseThrow();
+
+// add the dimension
+DimensionAPI.addDimension(
+    server,
+    new ResourceLocation("namespace:new_dimension_id"),
+    new LevelStem(
+        dimType,
+        new CustomChunkGenerator(...)
+    )
+);
+
+// ...
+
+// remove the dimension
+DimensionAPI.removeDimensionDynamically(server.getLevel(DIM_KEY));
+```
+
+@tab Yarn Mapping
+
+```java
+MinecraftServer server = ...;
+
+DynamicRegistryManager.Immutable registryAccess = server.getRegistryManager();
+
+Registry<DimensionType> dimTypeRegistry =
+    registryAccess.get(RegistryKeys.DIMENSION_TYPE);
+
+// get the dimension type holder
+RegistryEntry<DimensionType> dimType = dimTypeRegistry.getEntry(DIM_TYPE_KEY).orElseThrow();
+
+// add the dimension
+DimensionAPI.addDimension(
+    server,
+    new Identifier("namespace:new_dimension_id"),
+    new DimensionOptions(
+        dimType,
+        new CustomChunkGenerator(...)
+    )
+);
+
+// ...
+
+// remove the dimension
+DimensionAPI.removeDimensionDynamically(server.getWorld(DIM_KEY));
+```
+
+:::
+
+When creating a new `ChunkGenerator`, you can use the content from the `RegistryAccess`. The added dimension's configuration will be saved into `level.dat` file. The chunk generator need to have a working codec.
+
+The added dimension's id should not duplicate with existing dimension. You can use `DimensionAPI.addDimensionIfNotExists` to avoid adding dimension if the dimension with that id already exists.
+
+Removing a dimension does not delete its world saving file.
+
+#### Adding Dimensions During Server Initialization
+
+Sometimes you want to add a new dimension during server startup, but want to add dimension based on config file or some other dynamic things, so the dimension cannot be hardcoded in JSON, then you can do this:
+
+```java
+DimensionAPI.SERVER_DIMENSIONS_LOAD_EVENT.register(server -> {
+    DimensionAPI.addDimensionIfNotExists(...);
+});
+```
+
+#### Register Codec for Custom Chunk Generator
+
+TODO

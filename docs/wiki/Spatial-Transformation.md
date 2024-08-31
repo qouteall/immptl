@@ -40,7 +40,11 @@ In 1.19.4 and 1.20.1, use [my fork of Gravity API](https://modrinth.com/mod/grav
 
 ### Teleportation
 
-This mod has special compatibility with [Pehkui mod](https://www.curseforge.com/minecraft/mc-mods/pehkui). With Pehkui mod, if a player or an entity goes through a portal with scale transformation, it will be scaled. This is controlled by the portal property `teleportationChangesScale`. (`teleportationChangesScale` is enabled by default)
+Start from MC 1.21.1, this mod will use a modifier `iportal:scaling` to the entity attribute `minecraft:generic.scale` to do entity scaling. You can remove the scaling caused by portal using command `/attribute @s minecraft:generic.scale modifier remove iportal:scaling`. Going through portal won't change the base scale.
+
+Whether to scale the entity going through portal is controlled by portal data `teleportationChangesScale`. (it is enabled by default)
+
+Before MC 1.21.1, this mod has special compatibility with [Pehkui mod](https://www.curseforge.com/minecraft/mc-mods/pehkui). With Pehkui mod, if a player or an entity goes through a portal with scale transformation, it will be scaled. 
 
 ## Mirror Transformation
 
